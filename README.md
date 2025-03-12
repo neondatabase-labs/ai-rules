@@ -1,13 +1,16 @@
-# Cursor rules for Neon development
+# Neon Rules for development with AI powered systems
 
-This repository contains Cursor rules that can be used to enhance the development experience within the Cursor IDE when working on projects that use Neon.
+This repository contains AI rules that can be used to enhance the development experience within any AI agent when working on projects that use Neon.
 
 ## Rules
 
 - [Neon Auth](neon-auth.mdc)
 - [Neon Serverless](neon-serverless.mdc)
+- [Neon with Drizzle](neon-drizzle.mdc)
 
-## Installation
+## Cursor
+
+### Installation
 
 1. Open Cursor
 2. In the `.cursor/rules` add the rules you want to use
@@ -22,7 +25,7 @@ Example of file structure:
     neon-serverless.mdc
 ```
 
-## Usage
+### Usage
 
 When using Cursor agent, it should automatically use the rules you have added when generating code related to Neon.
 
