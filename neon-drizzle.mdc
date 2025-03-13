@@ -5,6 +5,10 @@ alwaysApply: false
 ---
 # Neon and Drizzle integration guidelines
 
+## Overview
+
+This guide covers the specific integration patterns and optimizations for using **Drizzle ORM** with **Neon** serverless Postgres databases. Follow these guidelines to ensure efficient database operations in serverless environments.
+
 ## Dependencies
 For Neon with Drizzle ORM integration, include these specific dependencies:
 ```bash
