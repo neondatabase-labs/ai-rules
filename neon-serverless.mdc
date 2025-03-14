@@ -5,6 +5,10 @@ alwaysApply: false
 ---
 # Neon Serverless Guidelines
 
+## Overview
+
+This guide provides specific patterns and best practices for connecting to Neon databases in serverless environments. Follow these guidelines to ensure efficient database connections, proper query handling, and optimal performance in functions with ephemeral runtimes.
+
 ## Installation
 
 Install the Neon Serverless PostgreSQL driver with the correct package name:
