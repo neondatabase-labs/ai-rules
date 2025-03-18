@@ -1,5 +1,5 @@
 ---
-description: Use these rules to relate your database data with your Auth users information
+description: Use these rules to query your Neon database using the Neon Serverless driver
 globs: *.tsx, *.ts
 alwaysApply: false
 ---
