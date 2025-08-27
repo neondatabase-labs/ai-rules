@@ -100,6 +100,54 @@ export type User = typeof usersTable.$inferSelect;
 export type NewUser = typeof usersTable.$inferInsert;
 ```
 
+### Integrating the Neon Auth `users_sync` Table
+
+Neon Auth integrates user authentication directly with your Neon Postgres database, automatically synchronizing user data to a `neon_auth.users_sync` table. Drizzle ORM provides a built-in helper to integrate this table into your schema seamlessly.
+
+- **Use the `usersSync` helper:** Import `usersSync` from `drizzle-orm/neon` to represent the user table without manually defining its columns.
+- **Create foreign key relationships:** Link your application tables directly to the `usersSync` table to enforce data integrity and enable powerful SQL joins.
+
+```typescript
+// src/schema.ts
+import { pgTable, text, bigint, boolean } from 'drizzle-orm/pg-core';
+// Import the dedicated Neon Auth helper from Drizzle
+import { usersSync } from 'drizzle-orm/neon';
+
+// Example: A `todos` table where each todo belongs to a user
+export const todosTable = pgTable('todos', {
+  id: bigint('id', { mode: 'bigint' }).primaryKey(),
+  task: text('task').notNull(),
+  isComplete: boolean('is_complete').default(false).notNull(),
+
+  // Create a foreign key relationship to the users_sync table
+  ownerId: text('owner_id')
+    .notNull()
+    .references(() => usersSync.id),
+});
+
+export const todos = pgTable('todos', {
+  id: bigint('id', { mode: 'bigint' }).primaryKey().generatedByDefaultAsIdentity()
+  task: text('task').notNull(),
+  isComplete: boolean('is_complete').notNull().default(false),
+
+  // Create a foreign key relationship to the users_sync table
+  ownerId: text('owner_id')
+    .notNull()
+    .references(() => usersSync.id),
+});
+
+// This allows for direct SQL joins with user data
+async function getTodosWithEmails() {
+  return db
+    .select({
+      task: todos.task,
+      ownerEmail: usersSync.email
+    })
+    .from(todos)
+    .leftJoin(usersSync, eq(todos.ownerId, usersSync.id));
+}
+```
+
 ## Drizzle Config for Neon
 Neon-specific configuration in `drizzle.config.ts`:
 
