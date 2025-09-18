@@ -19,6 +19,10 @@ This repository contains context rules (`.mdc` files) that guide AI systems in u
 - **Neon with Drizzle (`neon-drizzle.mdc`)**  
   Guidelines for integrating Neon databases with the Drizzle ORM framework, including setup, schema definition, and query patterns.
 
+- **Neon Toolkit (`neon-toolkit.mdc`)**  
+  Guidelines for using the `@neondatabase/toolkit` to create, manage, and query
+  ephemeral Neon Postgres databases for prototyping and testing.
+
 ## Using these rules in Cursor
 
 If you use the [Cursor](https://www.cursor.so/) editor or any AI-based code assistant that supports custom rules:
