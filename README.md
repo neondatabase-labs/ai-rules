@@ -11,13 +11,17 @@ This repository contains context rules (`.mdc` files) that guide AI systems in u
 ## Rules overview
 
 - **Neon Auth (`neon-auth.mdc`)**  
-  Guidelines for implementing authentication in your application using both Stack Auth (frontend authentication system) and Neon Auth (database integration for user data).
+  Rules for implementing authentication in your application using both Stack Auth (frontend authentication system) and Neon Auth (database integration for user data).
 
 - **Neon Serverless (`neon-serverless.mdc`)**  
-  Guidelines for connecting to and using Neon databases in serverless environments with approaches to connection pooling, environment configuration, and query optimization.
+  Rules for connecting to and using Neon databases in serverless environments with approaches to connection pooling, environment configuration, and query optimization.
 
 - **Neon with Drizzle (`neon-drizzle.mdc`)**  
-  Guidelines for integrating Neon databases with the Drizzle ORM framework, including setup, schema definition, and query patterns.
+  Rules for integrating Neon databases with the Drizzle ORM framework, including setup, schema definition, and query patterns.
+
+- **Neon API**
+
+  Rules for using Neon platform REST APIs.
 
 ## Using these rules in Cursor
 
