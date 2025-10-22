@@ -1,0 +1,13 @@
+{
+  "name": "dev-marketplace",
+  "owner": {
+    "name": "Developer"
+  },
+  "plugins": [
+    {
+      "name": "neon-plugin",
+      "source": "./neon-plugin",
+      "description": "Neon database development skills including authentication, Drizzle ORM, serverless drivers, and toolkit utilities"
+    }
+  ]
+}
