@@ -130,12 +130,25 @@ export const usersTable = pgTable('users', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
+  role: text('role').default('user').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 
 // Export types for type safety
 export type User = typeof usersTable.$inferSelect;
 export type NewUser = typeof usersTable.$inferInsert;
+
+// Example posts table for relationship demonstrations
+export const postsTable = pgTable('posts', {
+  id: serial('id').primaryKey(),
+  title: text('title').notNull(),
+  content: text('content').notNull(),
+  userId: integer('user_id').notNull().references(() => usersTable.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+export type Post = typeof postsTable.$inferSelect;
+export type NewPost = typeof postsTable.$inferInsert;
 ```
 
 ### Integrating the Neon Auth `users_sync` Table
