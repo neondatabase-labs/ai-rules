@@ -84,7 +84,7 @@ Configuration is handled automatically through `.mcp.json`.
 ## Repository Structure
 
 ```
-dev-marketplace/neon-plugin/
+neon-plugin/
 ├── .claude-plugin/
 │   └── plugin.json        # Plugin metadata
 ├── .mcp.json              # MCP server configuration

@@ -5,6 +5,17 @@ All notable changes to the Neon Claude Code Plugin will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Restructured marketplace to follow Claude Code best practices
+- Moved `.claude-plugin/marketplace.json` to repository root
+- Moved `neon-plugin/` directory to repository root
+- Updated installation command to `/plugin marketplace add neondatabase-labs/ai-rules`
+
+### Fixed
+- Corrected marketplace directory structure to match official Claude Code recommendations
+
 ## [1.0.0] - 2025-01-23
 
 ### Added
