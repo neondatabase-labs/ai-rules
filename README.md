@@ -1,175 +1,214 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://neon.com/brand/neon-logo-dark-color.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://neon.com/brand/neon-logo-light-color.svg">
-  <img width="250px" alt="Neon Logo fallback" src="https://neon.com/brand/neon-logo-dark-color.svg">
-</picture>
 
-# Neon rules for development with AI-powered systems
 
-This repository contains a comprehensive Neon plugin for Claude Code with context rules (`.mdc` files), skills for guided workflows, and an MCP server for resource management.
+# Neon AI Development Toolkit
+
+A comprehensive Claude Code plugin with AI context rules, guided skills, and resource management tools for building with Neon Postgres. Works with Claude Code, Cursor, and other AI-powered development tools.
+
+## What's Inside
+
+### For Claude Code Users
+- **Claude Code Plugin** - The plugin itself, which includes the 4 skills and MCP server integration
+- **Claude Code Skills** - Interactive workflows with templates and automation scripts for Neon
+- **MCP Server Integration** - Direct Neon resource management (projects, branches, databases)
+
+### For Cursor & Other AI Tools
+- **Portable .mdc Files** - Standalone context rules that work anywhere
+- **Tool-Agnostic Format** - Use with any AI assistant supporting custom rules
+
+---
 
 ## Quick Start
 
-### Installation in Claude Code
+### Claude Code
 
-1. **Add the Neon marketplace**:
-   ```
-   /plugin marketplace add neondatabase-labs/ai-rules
-   ```
-
-2. **Install the Neon plugin**:
-   ```
-   /plugin install neon-plugin@neon
-   ```
-
-3. **Verify installation**:
-   ```
-   /help
-   ```
-   You should see the Neon skills available.
-
-4. **Start using skills**:
-   - `/neon-drizzle` - Set up Drizzle ORM
-   - `/neon-serverless` - Configure serverless connections
-   - `/neon-toolkit` - Create ephemeral databases
-   - `/add-neon-docs` - Add documentation references
-
-### What's Included
-
-- **4 Guided Skills** with templates, scripts, and comprehensive guides
-- **MCP Server Integration** for direct resource management (projects, branches, databases)
-
-## Features
-
-**MCP Server Integration**
-- Automatically enabled when you activate the plugin
-- Provides tools to manage Neon resources: projects, branches, endpoints, roles, and more
-- Execute SQL queries and run migrations directly from Claude
-- Analyze query performance and optimize database operations
-
-**Context Rules & Skills**
-- Context rules (`.mdc` files) provide reference documentation and best practices
-- Skills offer guided workflows for common Neon tasks with templates and scripts
-- Together they provide both knowledge and hands-on guidance for your development process
-
-## Rules overview
-
-### Core Integration Rules
-
-- **Neon Auth (`neon-auth.mdc`)**
-  Rules for implementing authentication in your application using both Stack Auth (frontend authentication system) and Neon Auth (database integration for user data).
-
-- **Neon Serverless (`neon-serverless.mdc`)**
-  Rules for connecting to and using Neon databases in serverless environments with approaches to connection pooling, environment configuration, and query optimization.
-
-- **Neon with Drizzle (`neon-drizzle.mdc`)**
-  Rules for integrating Neon databases with the Drizzle ORM framework, including setup, schema definition, and query patterns.
-
-- **Neon Toolkit (`neon-toolkit.mdc`)**
-  Guidelines for using the `@neondatabase/toolkit` to create, manage, and query ephemeral Neon Postgres databases for prototyping and testing.
-
-### SDK Rules
-
-- **TypeScript SDK (`neon-typescript-sdk.mdc`)**
-  Rules for using the Neon TypeScript SDK for programmatic database management and operations.
-
-- **Python SDK (`neon-python-sdk.mdc`)**
-  Rules for using the Neon Python SDK for server-side database operations and integrations.
-
-### Neon API Rules
-
-- **API Guidelines (`neon-api-guidelines.mdc`)**
-  General guidelines for using the Neon platform REST API effectively and securely.
-
-- **API Projects (`neon-api-projects.mdc`)**
-  Rules for managing Neon projects through the API.
-
-- **API Branches (`neon-api-branches.mdc`)**
-  Rules for managing database branches via the API.
-
-- **API Endpoints (`neon-api-endpoints.mdc`)**
-  Rules for managing compute endpoints through the API.
-
-- **API Roles (`neon-api-organizations.mdc`)**
-  Rules for managing roles and organizations via the API.
-
-- **API Keys (`neon-api-keys.mdc`)**
-  Rules for managing API keys and authentication.
-
-- **API Operations (`neon-api-operations.mdc`)**
-  Guidelines for executing and monitoring operations through the API.
-
-## Claude Code Plugin & Skills
-
-This repository includes a complete Claude Code plugin with guided skills for common Neon development tasks.
-
-**Installation**: See [Quick Start](#quick-start) section above.
-
-### Available Skills
-
-- **Neon Drizzle Skill**: Set up Drizzle ORM with Neon, with comprehensive guides for different workflows (new projects, existing projects, schema-only). Includes schema generation, migration utilities, and technical references for adapters, migrations, and query patterns.
-- **Neon Serverless Skill**: Configure and validate Neon connections in serverless environments with HTTP and WebSocket pooling templates.
-- **Neon Toolkit Skill**: Create and manage ephemeral Neon databases for testing and CI/CD workflows.
-- **Add Neon Docs Skill**: Install Neon documentation references in your project's AI configuration files (CLAUDE.md, AGENTS.md, or Cursor rules) for quick access to best practices.
-
-Each skill includes:
-- **SKILL.md**: Workflow description and instructions
-- **scripts/**: Automation utilities and setup scripts
-- **templates/**: Code templates and examples
-- **guides/**: Step-by-step workflow guides for different scenarios (Drizzle skill only)
-- **references/**: Technical reference documentation (Drizzle skill only)
-
-The plugin also includes an MCP server configuration (`neon-plugin/.mcp.json`) that connects to Neon's remote MCP service for direct resource management.
-
-## Using these rules in Cursor
-
-If you use the [Cursor](https://www.cursor.so/) editor or any AI-based code assistant that supports custom rules:
-
-1. **Open Cursor**
-2. Create or navigate to the `.cursor/rules` folder in your project
-3. Copy any of the `.mdc` files (e.g. `neon-auth.mdc`, `neon-serverless.mdc`, `neon-drizzle.mdc`) into `.cursor/rules`
-4. *(Optional)* Re-index your project in Cursor so it automatically picks up the new rules
-
-Example of file structure:
-
-```
-.cursor/
-  rules/
-    neon-auth.mdc
-    neon-serverless.mdc
-    neon-drizzle.mdc
+**1. Add the Neon marketplace:**
+```bash
+/plugin marketplace add neondatabase-labs/ai-rules
 ```
 
-### Usage
+**2. Install the plugin:**
+```bash
+/plugin install neon-plugin@neon
+```
 
-When using the Cursor agent, it should automatically apply these rules when generating code related to Neon.
+**3. Verify installation:**
+Ask Claude Code: "which skills do you have access to?"
 
-If it doesn't, you can manually append these rules to the agent's context by referencing the specific rule file directly in your prompt.
+You should see the Neon skills listed.
 
-## FAQ
+**4. Start using:**
+Use natural language and skills activate automatically:
+```bash
+> Use the neon-drizzle skill to setup Drizzle ORM with Neon
+```
 
-### What Are `.mdc` Files?
-`.mdc` stands for Markdown Context files that provide guidance to AI tools. By splitting these guidelines into separate files, AI agents can automatically pull the relevant best practices when they see code related to Neon, Stack Auth, or Drizzle.
+### Cursor
 
-### Can I use these rules elsewhere?
-Yes! You can integrate `.mdc` files in any AI environment that supports custom context rules. The format is language-agnostic and designed to guide AI-assisted code generation.
+**1. Create rules directory:**
+```bash
+mkdir -p .cursor/rules
+```
 
-### How do I add or update rules?
-Simply create a new `.mdc` file or edit an existing one. Your AI tool will use the content to guide its responses when you're working with the relevant technologies.
+**2. Copy desired `.mdc` files:**
+```bash
+# Example: Copy Drizzle and Serverless rules
+cp neon-drizzle.mdc .cursor/rules/
+cp neon-serverless.mdc .cursor/rules/
+```
 
-## Alternative Installation Methods
+**3. Start coding:**
+Cursor automatically applies these rules when you reference Neon.
 
-### For Cursor Users
+### Other AI Tools
 
-Copy `.mdc` files directly to your project:
+Copy `.mdc` files to your AI tool's custom rules directory. The format is tool-agnostic and works with any AI assistant supporting context rules.
 
-1. Create `.cursor/rules/` directory in your project
-2. Copy desired `.mdc` files (e.g., `neon-drizzle.mdc`, `neon-serverless.mdc`)
-3. Cursor will automatically apply these rules
+---
 
-### For Other AI Tools
+## Skills Reference
 
-The `.mdc` files are tool-agnostic and can be used with any AI assistant that supports custom context rules.
+<details>
+<summary><strong>Neon Drizzle</strong> - Setup Drizzle ORM with Neon</summary>
+
+Complete workflow support for:
+- New project setup
+- Existing project integration
+- Schema-only workflows
+
+**Includes:**
+- Schema generation utilities
+- Migration scripts (`db:generate`, `db:migrate`, `db:push`, `db:studio`)
+- HTTP and WebSocket adapter templates
+- Technical references for adapters, migrations, and query patterns
+
+**Guides:**
+- `guides/new-project.md` - Starting from scratch
+- `guides/existing-project.md` - Adding to existing codebase
+- `guides/schema-only.md` - Schema-first development
+- `guides/troubleshooting.md` - Common issues and solutions
+
+</details>
+
+<details>
+<summary><strong>Neon Serverless</strong> - Configure serverless database connections</summary>
+
+Templates for:
+- HTTP connections (single-query operations)
+- WebSocket pooling (long-running processes)
+- Connection validation utilities
+
+</details>
+
+<details>
+<summary><strong>Neon Toolkit</strong> - Manage ephemeral databases</summary>
+
+Perfect for testing and CI/CD:
+- Create temporary databases
+- Run tests in isolation
+- Clean up automatically
+
+**Includes:**
+- `create-ephemeral-db.ts` - Database creation
+- `destroy-ephemeral-db.ts` - Cleanup automation
+- Workflow templates
+
+</details>
+
+<details>
+<summary><strong>Add Neon Docs</strong> - Install documentation references</summary>
+
+Adds Neon best practices to your project's AI configuration:
+- CLAUDE.md
+- AGENTS.md
+- Cursor rules files
+
+</details>
+
+---
+
+## Context Rules (.mdc Files)
+
+<details>
+<summary><strong>Core Integration Rules</strong> - 4 files</summary>
+
+**Neon Auth** (`neon-auth.mdc`)
+- Stack Auth + Neon Auth integration
+- Authentication patterns for user data
+
+**Neon Serverless** (`neon-serverless.mdc`)
+- Serverless connection patterns
+- Pooling and environment configuration
+- Query optimization
+
+**Neon with Drizzle** (`neon-drizzle.mdc`)
+- Drizzle ORM integration
+- Schema definition patterns
+- Type-safe queries
+
+**Neon Toolkit** (`neon-toolkit.mdc`)
+- Ephemeral database management
+- Testing and prototyping patterns
+
+</details>
+
+<details>
+<summary><strong>SDK Rules</strong> - 2 files</summary>
+
+**TypeScript SDK** (`neon-typescript-sdk.mdc`)
+- Programmatic database management
+- TypeScript-specific patterns
+
+**Python SDK** (`neon-python-sdk.mdc`)
+- Server-side operations
+- Python integration patterns
+
+</details>
+
+<details>
+<summary><strong>Neon API Rules</strong> - 7 files</summary>
+
+**API Guidelines** (`neon-api-guidelines.mdc`)
+- REST API best practices
+- Security and authentication
+
+**API Projects** (`neon-api-projects.mdc`)
+- Project management operations
+
+**API Branches** (`neon-api-branches.mdc`)
+- Branch management and workflows
+
+**API Endpoints** (`neon-api-endpoints.mdc`)
+- Compute endpoint management
+
+**API Roles** (`neon-api-organizations.mdc`)
+- Organization and role management
+
+**API Keys** (`neon-api-keys.mdc`)
+- API key management
+- Authentication configuration
+
+**API Operations** (`neon-api-operations.mdc`)
+- Operation execution
+- Status monitoring
+
+</details>
+
+---
+
+## MCP Server Integration
+
+Available automatically when you activate the Claude Code plugin.
+
+**Features:**
+- Manage Neon resources: projects, branches, endpoints, roles
+- Execute SQL queries directly from Claude
+- Run migrations
+- Analyze query performance
+- Optimize database operations
+
+**Configuration:** `neon-plugin/.mcp.json` connects to Neon's remote MCP service (https://mcp.neon.tech/mcp)
+
+---
 
 ## Repository Structure
 
@@ -177,25 +216,59 @@ The `.mdc` files are tool-agnostic and can be used with any AI assistant that su
 ai-rules/
 ├── .claude-plugin/
 │   └── marketplace.json        # Marketplace metadata
-├── neon-plugin/                # Main plugin
+├── neon-plugin/                # Claude Code plugin
 │   ├── .claude-plugin/
-│   │   └── plugin.json         # Plugin metadata
-│   ├── .mcp.json               # MCP server config
+│   │   └── plugin.json         # Plugin configuration
+│   ├── .mcp.json               # MCP server connection
 │   └── skills/                 # Guided skills
+│       ├── neon-drizzle/       # Drizzle ORM skill
+│       │   ├── SKILL.md
+│       │   ├── guides/         # Workflow guides
+│       │   ├── references/     # Technical docs
+│       │   ├── scripts/        # Automation
+│       │   └── templates/      # Code examples
+│       ├── neon-serverless/    # Serverless skill
+│       ├── neon-toolkit/       # Ephemeral DB skill
+│       └── add-neon-docs/      # Docs installer skill
 ├── *.mdc                       # Context rules (13 files)
-├── LICENSE                     # MIT License
-└── README.md                   # This file
+├── LICENSE
+└── README.md
 ```
+
+---
+
+## FAQ
+
+**What are .mdc files?**
+Markdown Context files that provide guidance to AI tools. They contain best practices and patterns that AI assistants automatically apply when generating code.
+
+**Can I use specific rules without the full plugin?**
+Yes! Copy individual `.mdc` files to your AI tool's rules directory. Each file is self-contained and doesn't require dependencies.
+
+**How do I add or update rules?**
+Create a new `.mdc` file or edit existing ones. AI tools will automatically use the updated content.
+
+**Do skills work with Cursor?**
+Skills are Claude Code-specific. For Cursor, use the `.mdc` context rules instead.
+
+**Can I use these rules in ChatGPT or other AI tools?**
+Yes! The `.mdc` files work with any AI assistant that supports custom context rules. Copy them to your tool's configuration directory.
+
+---
 
 ## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+---
+
 ## Support
 
-- **Documentation**: https://neon.tech/docs/guides/claude-code
+- **Documentation**: https://neon.com/docs/ai/ai-rules
 - **Issues**: https://github.com/neondatabase-labs/ai-rules/issues
-- **Discord**: https://discord.gg/neon
+- **Discord**: https://discord.com/channels/1176467419317940276/@home
+
+---
 
 ## License
 

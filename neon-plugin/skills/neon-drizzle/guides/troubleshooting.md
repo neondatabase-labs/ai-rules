@@ -523,7 +523,7 @@ If your issue isn't listed here:
 2. **Review migration patterns:** `references/migrations.md`
 3. **Check query syntax:** `references/query-patterns.md`
 4. **Search Drizzle docs:** https://orm.drizzle.team/docs
-5. **Check Neon docs:** https://neon.tech/docs
+5. **Check Neon docs:** https://neon.com/docs
 
 ## Prevention Checklist
 
