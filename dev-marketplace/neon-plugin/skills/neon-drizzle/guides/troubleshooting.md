@@ -1,5 +1,8 @@
 # Troubleshooting Guide
 
+> **Reference Guide**: This is organized by error type and solution, not sequential phases.
+> Jump directly to the error you're experiencing for quick resolution.
+
 Common issues and solutions for Drizzle ORM with Neon.
 
 ## Migration Errors

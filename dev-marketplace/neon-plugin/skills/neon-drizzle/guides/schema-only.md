@@ -1,5 +1,8 @@
 # Schema Creation and Modification
 
+> **Complete Walkthrough**: This is a self-contained, step-by-step guide with its own numbered phases (Phase 1-6).
+> Follow each phase in order for schema design, modification, and migration workflows.
+
 Guide for creating or modifying database schemas with Drizzle.
 
 ## Phase 1: Schema Design Patterns

@@ -1,6 +1,6 @@
 ---
 name: neon-drizzle
-description: Set up and integrate Drizzle ORM with Neon Postgres databases
+description: Use this skill to set up and integrate Drizzle ORM with Neon. This skill installs packages and modifies code.
 allowed-tools: ["bash", "write", "read_file"]
 ---
 
@@ -8,12 +8,12 @@ allowed-tools: ["bash", "write", "read_file"]
 
 ## What's Your Starting Point?
 
-Choose your path - I'll load the right guide:
+Choose your path - I'll load the appropriate complete walkthrough:
 
-1. **New Project Setup** → Fresh Drizzle + Neon installation (see `guides/new-project.md`)
-2. **Existing Project** → Add Drizzle to running app (see `guides/existing-project.md`)
-3. **Schema Changes** → Create/modify database schema (see `guides/schema-only.md`)
-4. **Migration Issues** → Debug failed migrations (see `guides/troubleshooting.md`)
+1. **New Project Setup** → Fresh Drizzle + Neon installation (complete guide: `guides/new-project.md`)
+2. **Existing Project** → Add Drizzle to running app (complete guide: `guides/existing-project.md`)
+3. **Schema Changes** → Create/modify database schema (complete guide: `guides/schema-only.md`)
+4. **Migration Issues** → Debug failed migrations (reference guide: `guides/troubleshooting.md`)
 
 ## How I Work
 
@@ -38,35 +38,17 @@ I recognize these and act immediately:
 | "Create blog schema" | App type: blog | Users + posts + comments tables |
 | "Setup Drizzle for Vite on Vercel" | Vite + Vercel | HTTP adapter, API routes |
 
-## When to Use This Skill
+## How the Skill Works
 
-Use this skill when you want to:
-- Set up Drizzle ORM in a new project with Neon
-- Add Drizzle to an existing Neon project
-- Create or modify database schemas
-- Set up or run migrations
-- Configure the right connection adapter (HTTP vs WebSocket)
+Each guide follows a structured approach:
 
-## When NOT to Use This Skill
-
-Skip this skill if:
-- You need raw SQL queries only (use `neon-serverless` skill instead)
-- You're working with complex stored procedures (limited Drizzle support)
-- You need to reverse-engineer an existing database schema
-- This is a one-off script (ORM overhead not worth it)
-
-## Workflow Overview
-
-### Phase-Based Execution
-
-Each workflow follows this pattern:
-
-1. **Context Detection** - Auto-detect package manager, framework, existing setup
-2. **Installation** - Install correct dependencies based on environment
-3. **Configuration** - Create config files with proper env loading
-4. **Schema Setup** - Generate or modify schemas based on app type
-5. **Migration** - Run migrations with proper error handling
-6. **Verification** - Test setup and provide next steps
+- **Auto-detect your environment** (package manager, framework, existing setup)
+- **Install the right dependencies** for your specific deployment target
+- **Configure with best practices** (proper env loading, correct adapters)
+- **Set up or modify schemas** based on your application needs
+- **Run migrations safely** with comprehensive error handling
+- **Verify everything works** before you move forward
+- **Add reference documentation** to your project's AI knowledge base
 
 ### Decision Tree
 
@@ -76,25 +58,26 @@ User Request
 Auto-Detect (package manager, framework, existing config)
   ↓
 Classify Intent
-  ├─ "setup", "new" → guides/new-project.md
-  ├─ "add", "existing" → guides/existing-project.md
-  ├─ "schema", "create table" → guides/schema-only.md
-  └─ "error", "failed", "fix" → guides/troubleshooting.md
+  ├─ "setup", "new" → Load guides/new-project.md (complete walkthrough)
+  ├─ "add", "existing" → Load guides/existing-project.md (complete walkthrough)
+  ├─ "schema", "create table" → Load guides/schema-only.md (complete walkthrough)
+  └─ "error", "failed", "fix" → Load guides/troubleshooting.md (reference guide)
   ↓
-Load Appropriate Guide
+Execute Guide Workflow
   ↓
-Execute Workflow (with on-demand references)
+Load References On-Demand (adapters.md, migrations.md, query-patterns.md)
   ↓
 Verify & Report
 ```
 
 ## Available Resources
 
-### Guides (Workflow-Specific)
-- `guides/new-project.md` - Full setup from scratch
-- `guides/existing-project.md` - Add to existing application
-- `guides/schema-only.md` - Schema creation and modification
-- `guides/troubleshooting.md` - Debug common issues
+### Guides (Complete Walkthroughs)
+Each guide is a self-contained, step-by-step walkthrough with its own numbered phases:
+- `guides/new-project.md` - Complete walkthrough: Full setup from scratch
+- `guides/existing-project.md` - Complete walkthrough: Add to existing application
+- `guides/schema-only.md` - Complete walkthrough: Schema creation and modification
+- `guides/troubleshooting.md` - Reference guide: Debug common issues (organized by error type)
 
 ### References (Load on Demand)
 - `references/adapters.md` - HTTP vs WebSocket decision guide
@@ -130,6 +113,10 @@ Just tell me what you're building:
 - **neon-serverless** - Connection setup without ORM
 - **neon-toolkit** - Ephemeral databases for testing
 
-## Deep Reference
+---
 
-For comprehensive documentation: `neon-drizzle.mdc`
+## Workflow Complete
+
+✅ **Drizzle setup is complete and ready to use!**
+
+Your Drizzle + Neon integration is fully functional. You can now start building queries and managing your database schema.

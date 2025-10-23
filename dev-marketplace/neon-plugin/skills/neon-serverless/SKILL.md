@@ -183,3 +183,34 @@ See the `scripts/` directory for:
 
 - **neon-drizzle** - For ORM with serverless connections
 - **neon-toolkit** - For ephemeral database testing
+
+---
+
+## Workflow Complete - Install Knowledge?
+
+✅ **Serverless connection setup is complete and ready to use!**
+
+Your Neon serverless connection is fully functional. You can now start querying your database.
+
+---
+
+### Optional: Install AI Knowledge
+
+Want to enhance your AI assistant's understanding of Neon serverless patterns?
+
+I can add comprehensive best practices to your project's AI context. This helps me (and other AI tools) provide better guidance in future conversations about:
+- Serverless connection patterns
+- HTTP vs WebSocket adapter selection
+- Pooling and connection management
+- Edge runtime considerations
+- Performance optimization
+
+**This is completely optional** - your serverless connection works perfectly without this.
+
+Would you like me to add best practices reference links to your project?
+
+---
+
+**Implementation**: Execute the add-neon-knowledge skill with SKILL_NAME="neon-serverless"
+
+This will add reference links to Neon serverless best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.

@@ -1,0 +1,56 @@
+{
+  "neon-drizzle": {
+    "displayName": "Neon + Drizzle ORM",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-drizzle.mdc",
+        "filename": "neon-drizzle.mdc",
+        "required": true,
+        "description": "Comprehensive guide for using Neon with Drizzle ORM"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-serverless.mdc",
+        "filename": "neon-serverless.mdc",
+        "required": false,
+        "description": "Optional: Serverless connection patterns"
+      }
+    ],
+    "completionMessage": "Your AI assistant now has Neon + Drizzle best practices!"
+  },
+  "neon-serverless": {
+    "displayName": "Neon Serverless Connections",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-serverless.mdc",
+        "filename": "neon-serverless.mdc",
+        "required": true,
+        "description": "Serverless database connection patterns"
+      }
+    ],
+    "completionMessage": "Your AI assistant now has Neon serverless best practices!"
+  },
+  "neon-toolkit": {
+    "displayName": "Neon Toolkit (Ephemeral DBs)",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-toolkit.mdc",
+        "filename": "neon-toolkit.mdc",
+        "required": true,
+        "description": "Creating ephemeral databases for testing"
+      }
+    ],
+    "completionMessage": "Your AI assistant can now help with ephemeral databases!"
+  },
+  "neon-auth": {
+    "displayName": "Neon Auth",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc",
+        "filename": "neon-auth.mdc",
+        "required": true,
+        "description": "Authentication with Stack Auth and Neon"
+      }
+    ],
+    "completionMessage": "Your AI assistant now understands Neon Auth patterns!"
+  }
+}
