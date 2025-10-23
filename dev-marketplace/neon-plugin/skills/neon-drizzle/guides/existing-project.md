@@ -8,6 +8,20 @@ Guide for adding Drizzle ORM to an existing application with Neon.
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
+## Table of Contents
+
+- [Workflow Checklist](#workflow-checklist)
+- [Phase 1: Pre-Integration Check](#phase-1-pre-integration-check)
+- [Phase 2: Incremental Installation](#phase-2-incremental-installation)
+- [Phase 3: Configuration](#phase-3-configuration)
+- [Phase 4: Schema Strategy](#phase-4-schema-strategy)
+- [Phase 5: Migration Handling](#phase-5-migration-handling)
+- [Phase 6: Coexistence Patterns](#phase-6-coexistence-patterns)
+- [Phase 7: Verification](#phase-7-verification)
+- [Phase 8: Add Best Practices References](#phase-8-add-best-practices-references)
+
+---
+
 ## Workflow Checklist
 
 When following this guide, I will track these high-level tasks:

@@ -1,6 +1,6 @@
 ---
 name: add-neon-docs
-description: Add Neon best practices reference links to your project's AI documentation. Use when users asks for best practices for Neon. This skill does NOT install packages or modify code.
+description: Adds Neon best practices reference links to project AI documentation (CLAUDE.md, AGENTS.md, or Cursor rules). Use when installing documentation references, enhancing AI context with Neon patterns, or after completing skill setup. Does not install packages or modify code.
 allowed-tools: ["read_file", "write", "bash", "AskUserQuestion"]
 ---
 
@@ -22,17 +22,9 @@ For detailed workflow steps, see `install-knowledge.md`.
 
 ## Parameters
 
-### SKILL_NAME (Optional)
+### SKILL_NAME Parameter
 
-Specifies which Neon skill documentation to install:
-- `"neon-drizzle"` - Drizzle ORM integration guide
-- `"neon-serverless"` - Serverless connection patterns
-- `"neon-toolkit"` - Ephemeral database management
-- `"neon-auth"` - Authentication patterns
-
-If not provided, you'll be prompted to choose which skill documentation to install.
-
-Available skills and their reference URLs are defined in `skill-knowledge-map.json`.
+Optional. Specifies which skill documentation to install (e.g., `"neon-drizzle"`). If not provided, you'll be prompted to choose from available skills defined in `skill-knowledge-map.json`.
 
 ## Usage Examples
 

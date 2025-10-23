@@ -5,6 +5,20 @@
 
 Guide for creating or modifying database schemas with Drizzle.
 
+## Table of Contents
+
+- [Workflow Checklist](#workflow-checklist)
+- [Phase 1: Schema Design Patterns](#phase-1-schema-design-patterns)
+- [Phase 2: Common Schema Patterns](#phase-2-common-schema-patterns)
+- [Phase 3: Schema Modifications](#phase-3-schema-modifications)
+- [Phase 4: Indexes and Constraints](#phase-4-indexes-and-constraints)
+- [Phase 5: Generate and Apply Changes](#phase-5-generate-and-apply-changes)
+- [Phase 6: Advanced Patterns](#phase-6-advanced-patterns)
+- [Common Issues](#common-issues)
+- [Next Steps](#next-steps)
+
+---
+
 ## Workflow Checklist
 
 When following this guide, I will track these high-level tasks:

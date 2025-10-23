@@ -5,6 +5,20 @@
 
 Common issues and solutions for Drizzle ORM with Neon.
 
+## Table of Contents
+
+- [Migration Errors](#migration-errors)
+- [Connection Errors](#connection-errors)
+- [Adapter Issues](#adapter-issues)
+- [Type Errors](#type-errors)
+- [Query Errors](#query-errors)
+- [Performance Issues](#performance-issues)
+- [Environment Issues](#environment-issues)
+- [Getting More Help](#getting-more-help)
+- [Prevention Checklist](#prevention-checklist)
+
+---
+
 ## Migration Errors
 
 ### Error: "url: undefined"
