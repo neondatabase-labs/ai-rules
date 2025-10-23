@@ -1,0 +1,22 @@
+{
+  "name": "neon-plugin",
+  "description": "Neon database development skills including authentication, Drizzle ORM, serverless drivers, and toolkit utilities",
+  "version": "1.0.0",
+  "author": {
+    "name": "Neon Team",
+    "email": "support@neon.tech",
+    "url": "https://neon.tech"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/neondatabase-labs/ai-rules",
+  "homepage": "https://github.com/neondatabase-labs/ai-rules",
+  "keywords": [
+    "neon",
+    "postgres",
+    "database",
+    "drizzle",
+    "serverless",
+    "auth",
+    "mcp"
+  ]
+}
