@@ -15,22 +15,21 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 ```
 .
 ├── *.mdc                          # Context rule files (13 total)
-├── dev-marketplace/               # Claude Code plugin and marketplace integration
-│   ├── neon-plugin/
-│   │   ├── .claude-plugin/
-│   │   │   └── plugin.json        # Plugin metadata
-│   │   ├── .mcp.json              # MCP server configuration
-│   │   └── skills/                # Guided skills for Claude Code
-│   │       ├── add-neon-docs/      # Documentation reference installer
-│   │       ├── neon-drizzle/
-│   │       │   ├── guides/         # Step-by-step workflow guides
-│   │       │   ├── references/     # Technical reference docs
-│   │       │   ├── scripts/        # Utility scripts
-│   │       │   └── templates/      # Code templates
-│   │       ├── neon-serverless/
-│   │       └── neon-toolkit/
-│   └── .claude-plugin/
-│       └── marketplace.json       # Marketplace metadata
+├── .claude-plugin/
+│   └── marketplace.json           # Marketplace metadata
+├── neon-plugin/                   # Claude Code plugin
+│   ├── .claude-plugin/
+│   │   └── plugin.json            # Plugin metadata
+│   ├── .mcp.json                  # MCP server configuration
+│   └── skills/                    # Guided skills for Claude Code
+│       ├── add-neon-docs/         # Documentation reference installer
+│       ├── neon-drizzle/
+│       │   ├── guides/            # Step-by-step workflow guides
+│       │   ├── references/        # Technical reference docs
+│       │   ├── scripts/           # Utility scripts
+│       │   └── templates/         # Code templates
+│       ├── neon-serverless/
+│       └── neon-toolkit/
 ├── .claude/
 │   └── settings.local.json        # Local Claude Code settings
 ├── .serena/                       # Serena code intelligence cache
@@ -146,8 +145,8 @@ Each skill is self-contained with multiple components:
 - Enhanced workflow completion with better user feedback in `existing-project.md`
 - Provides standard `db:*` npm scripts for common Drizzle operations (generate, migrate, push, studio)
 
-### Dev Marketplace Integration (Latest)
-- Added complete `dev-marketplace/` structure for Claude Code plugin ecosystem
+### Marketplace Structure (Latest)
+- Restructured to follow Claude Code best practices with marketplace at repo root
 - Implemented 4 guided skills:
   - **neon-drizzle**: Drizzle ORM integration with comprehensive workflow guides
   - **neon-serverless**: Serverless connection configuration

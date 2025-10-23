@@ -14,7 +14,7 @@ This repository contains a comprehensive Neon plugin for Claude Code with contex
 
 1. **Add the Neon marketplace**:
    ```
-   /plugin marketplace add neondatabase-labs/ai-rules/neon-marketplace
+   /plugin marketplace add neondatabase-labs/ai-rules
    ```
 
 2. **Install the Neon plugin**:
@@ -175,14 +175,13 @@ The `.mdc` files are tool-agnostic and can be used with any AI assistant that su
 
 ```
 ai-rules/
-├── neon-marketplace/           # Claude Code marketplace
+├── .claude-plugin/
+│   └── marketplace.json        # Marketplace metadata
+├── neon-plugin/                # Main plugin
 │   ├── .claude-plugin/
-│   │   └── marketplace.json    # Marketplace metadata
-│   └── neon-plugin/            # Main plugin
-│       ├── .claude-plugin/
-│       │   └── plugin.json     # Plugin metadata
-│       ├── .mcp.json           # MCP server config
-│       └── skills/             # Guided skills
+│   │   └── plugin.json         # Plugin metadata
+│   ├── .mcp.json               # MCP server config
+│   └── skills/                 # Guided skills
 ├── *.mdc                       # Context rules (13 files)
 ├── LICENSE                     # MIT License
 └── README.md                   # This file

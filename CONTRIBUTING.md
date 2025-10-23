@@ -14,7 +14,7 @@ Thank you for your interest in contributing to the Neon Claude Code Plugin!
 
 To add a new skill:
 
-1. **Create skill directory**: `neon-marketplace/neon-plugin/skills/your-skill-name/`
+1. **Create skill directory**: `neon-plugin/skills/your-skill-name/`
 2. **Add SKILL.md**: Follow the front matter format (see existing skills)
 3. **Include components**:
    - `templates/` - Code examples and templates
@@ -53,8 +53,8 @@ Before submitting a PR:
 
 1. **JSON validation**:
    ```bash
-   jq . neon-marketplace/.claude-plugin/marketplace.json
-   jq . neon-marketplace/neon-plugin/.claude-plugin/plugin.json
+   jq . .claude-plugin/marketplace.json
+   jq . neon-plugin/.claude-plugin/plugin.json
    ```
 
 2. **Local testing**:
@@ -85,7 +85,7 @@ Before submitting a PR:
 
 2. Test locally in Claude Code:
    ```
-   /plugin marketplace add /absolute/path/to/ai-rules/neon-marketplace
+   /plugin marketplace add /absolute/path/to/ai-rules
    /plugin install neon-plugin@neon
    ```
 
