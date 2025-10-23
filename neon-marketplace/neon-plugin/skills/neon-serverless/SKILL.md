@@ -1,6 +1,6 @@
 ---
 name: neon-serverless
-description: Configures Neon Serverless Driver for edge functions, Vercel deployments, AWS Lambda, and other serverless environments. Use when setting up database connections with low latency and connection pooling requirements.
+description: Configures Neon Serverless Driver for Next.js, Vercel Edge Functions, AWS Lambda, and other serverless environments. Installs @neondatabase/serverless, sets up environment variables, and creates working API route examples with TypeScript types. Use when users need to connect their application to Neon, fetch or query data from a Neon database, integrate Neon with Next.js or serverless frameworks, or set up database access in edge/serverless environments where traditional PostgreSQL clients don't work.
 allowed-tools: ["bash"]
 ---
 

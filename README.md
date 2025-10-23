@@ -8,6 +8,37 @@
 
 This repository contains a comprehensive Neon plugin for Claude Code with context rules (`.mdc` files), skills for guided workflows, and an MCP server for resource management.
 
+## Quick Start
+
+### Installation in Claude Code
+
+1. **Add the Neon marketplace**:
+   ```
+   /plugin marketplace add neondatabase-labs/ai-rules/neon-marketplace
+   ```
+
+2. **Install the Neon plugin**:
+   ```
+   /plugin install neon-plugin@neon
+   ```
+
+3. **Verify installation**:
+   ```
+   /help
+   ```
+   You should see the Neon skills available.
+
+4. **Start using skills**:
+   - `/neon-drizzle` - Set up Drizzle ORM
+   - `/neon-serverless` - Configure serverless connections
+   - `/neon-toolkit` - Create ephemeral databases
+   - `/add-neon-docs` - Add documentation references
+
+### What's Included
+
+- **4 Guided Skills** with templates, scripts, and comprehensive guides
+- **MCP Server Integration** for direct resource management (projects, branches, databases)
+
 ## Features
 
 **MCP Server Integration**
@@ -70,7 +101,9 @@ This repository contains a comprehensive Neon plugin for Claude Code with contex
 
 ## Claude Code Plugin & Skills
 
-This repository includes a complete Claude Code plugin located in `dev-marketplace/neon-plugin/` with guided skills for common Neon development tasks:
+This repository includes a complete Claude Code plugin with guided skills for common Neon development tasks.
+
+**Installation**: See [Quick Start](#quick-start) section above.
 
 ### Available Skills
 
@@ -123,3 +156,48 @@ Yes! You can integrate `.mdc` files in any AI environment that supports custom c
 
 ### How do I add or update rules?
 Simply create a new `.mdc` file or edit an existing one. Your AI tool will use the content to guide its responses when you're working with the relevant technologies.
+
+## Alternative Installation Methods
+
+### For Cursor Users
+
+Copy `.mdc` files directly to your project:
+
+1. Create `.cursor/rules/` directory in your project
+2. Copy desired `.mdc` files (e.g., `neon-drizzle.mdc`, `neon-serverless.mdc`)
+3. Cursor will automatically apply these rules
+
+### For Other AI Tools
+
+The `.mdc` files are tool-agnostic and can be used with any AI assistant that supports custom context rules.
+
+## Repository Structure
+
+```
+ai-rules/
+├── neon-marketplace/           # Claude Code marketplace
+│   ├── .claude-plugin/
+│   │   └── marketplace.json    # Marketplace metadata
+│   └── neon-plugin/            # Main plugin
+│       ├── .claude-plugin/
+│       │   └── plugin.json     # Plugin metadata
+│       ├── .mcp.json           # MCP server config
+│       └── skills/             # Guided skills
+├── *.mdc                       # Context rules (13 files)
+├── LICENSE                     # MIT License
+└── README.md                   # This file
+```
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Support
+
+- **Documentation**: https://neon.tech/docs/guides/claude-code
+- **Issues**: https://github.com/neondatabase-labs/ai-rules/issues
+- **Discord**: https://discord.gg/neon
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
