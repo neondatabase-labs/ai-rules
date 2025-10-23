@@ -8,6 +8,21 @@ Guide for adding Drizzle ORM to an existing application with Neon.
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
+## Workflow Checklist
+
+When following this guide, I will track these high-level tasks:
+
+- [ ] Pre-integration check (detect existing ORMs, database schema, environment)
+- [ ] Install Drizzle dependencies without disrupting existing setup
+- [ ] Create isolated Drizzle configuration (separate from existing code)
+- [ ] Choose and implement schema strategy (new tables vs mirroring existing)
+- [ ] Handle migrations safely based on schema strategy
+- [ ] Set up coexistence patterns and gradual migration approach
+- [ ] Verify Drizzle integration without breaking existing functionality
+- [ ] Add Neon Drizzle best practices to project docs
+
+---
+
 ## Phase 1: Pre-Integration Check
 
 Before adding Drizzle, check for conflicts:

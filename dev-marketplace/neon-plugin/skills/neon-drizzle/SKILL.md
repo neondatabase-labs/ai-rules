@@ -15,6 +15,66 @@ Choose your path - I'll load the appropriate complete walkthrough:
 3. **Schema Changes** → Create/modify database schema (complete guide: `guides/schema-only.md`)
 4. **Migration Issues** → Debug failed migrations (reference guide: `guides/troubleshooting.md`)
 
+## EXECUTION STEPS
+
+**YOU MUST FOLLOW THESE STEPS IN ORDER. DO NOT SKIP OR REORDER.**
+
+### STEP 1: LOAD THE GUIDE (REQUIRED)
+
+Before doing ANYTHING else, you MUST read the appropriate guide file based on user intent:
+
+**Intent Classification → Guide File Mapping:**
+- "setup", "new", "initialize", "start fresh" → **READ** `guides/new-project.md`
+- "add", "existing", "integrate", "current project" → **READ** `guides/existing-project.md`
+- "schema", "create table", "modify schema", "update database" → **READ** `guides/schema-only.md`
+- "error", "failed", "debug", "fix", "troubleshoot" → **READ** `guides/troubleshooting.md`
+
+**CRITICAL:** Load the complete guide file before proceeding to Step 2.
+
+### STEP 2: EXTRACT WORKFLOW CHECKLIST
+
+After reading the guide:
+
+1. **Find** the `## Workflow Checklist` section in the guide file
+2. **Extract** the exact checklist items (the `- [ ] ...` lines)
+3. **Use TodoWrite** to create todos from those EXACT items
+4. **DO NOT** create your own checklist based on assumptions
+
+**Example from guides/new-project.md:**
+```
+- [ ] Detect project context (package manager, framework, existing setup)
+- [ ] Install Drizzle dependencies based on deployment target
+- [ ] Create configuration files (env, drizzle config, db connection)
+- [ ] Generate schema based on app type
+- [ ] Run and verify migrations
+- [ ] Add Neon Drizzle best practices to project docs
+```
+
+### STEP 3: FOLLOW THE GUIDE'S PHASES
+
+Execute each numbered phase from the guide sequentially:
+
+1. **Phase 1** → Mark first todo as `in_progress`
+2. Complete Phase 1 → Mark todo as `completed`
+3. **Phase 2** → Mark next todo as `in_progress`
+4. Continue this pattern through all phases
+
+**IMPORTANT:** The guide's phases map directly to the workflow checklist todos.
+
+### STEP 4: LOAD REFERENCES ON-DEMAND
+
+Only load reference files when:
+- The guide explicitly references them (e.g., "see references/adapters.md")
+- You encounter an issue that requires deeper technical knowledge
+- User asks for more details on a specific topic
+
+**Available References:**
+- `references/adapters.md` - HTTP vs WebSocket decision guide
+- `references/migrations.md` - Migration patterns and troubleshooting
+- `references/query-patterns.md` - Example queries and best practices
+
+---
+
 ## How I Work
 
 **Auto-Detection First:**
@@ -40,7 +100,7 @@ I recognize these and act immediately:
 
 ## How the Skill Works
 
-Each guide follows a structured approach:
+Following the **EXECUTION STEPS** above, the skill provides a complete, guided workflow:
 
 - **Auto-detect your environment** (package manager, framework, existing setup)
 - **Install the right dependencies** for your specific deployment target
@@ -50,24 +110,43 @@ Each guide follows a structured approach:
 - **Verify everything works** before you move forward
 - **Add reference documentation** to your project's AI knowledge base
 
+### Workflow Checklists
+
+As described in **STEP 2** above, each complete walkthrough guide includes a **Workflow Checklist** section that:
+- Provides high-level task tracking aligned with the guide's numbered phases
+- Is extracted and converted to todos using TodoWrite (not created from scratch)
+- Gives users clear visibility into what's being done and what's remaining
+- Ensures the guide's workflow is followed exactly as designed
+
+**Remember:** Always use the guide's checklist, not a custom one.
+
 ### Decision Tree
 
 ```
 User Request
   ↓
-Auto-Detect (package manager, framework, existing config)
-  ↓
 Classify Intent
-  ├─ "setup", "new" → Load guides/new-project.md (complete walkthrough)
-  ├─ "add", "existing" → Load guides/existing-project.md (complete walkthrough)
-  ├─ "schema", "create table" → Load guides/schema-only.md (complete walkthrough)
-  └─ "error", "failed", "fix" → Load guides/troubleshooting.md (reference guide)
+  ├─ "setup", "new" → STEP 1: READ guides/new-project.md
+  ├─ "add", "existing" → STEP 1: READ guides/existing-project.md
+  ├─ "schema", "create table" → STEP 1: READ guides/schema-only.md
+  └─ "error", "failed", "fix" → STEP 1: READ guides/troubleshooting.md
   ↓
-Execute Guide Workflow
+STEP 2: Extract Workflow Checklist from Guide
   ↓
-Load References On-Demand (adapters.md, migrations.md, query-patterns.md)
+STEP 2: Create Todos from Guide's Checklist (TodoWrite)
   ↓
-Verify & Report
+STEP 3: Execute Guide's Numbered Phases
+  ├─ Auto-detect context (package manager, framework, config)
+  ├─ Install dependencies
+  ├─ Create configuration files
+  ├─ Generate/modify schema
+  ├─ Run migrations
+  └─ Verify & add docs
+  ↓
+STEP 4: Load References On-Demand (if needed)
+  └─ adapters.md, migrations.md, query-patterns.md
+  ↓
+Complete & Report
 ```
 
 ## Available Resources

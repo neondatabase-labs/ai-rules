@@ -38,7 +38,7 @@ Available skills and their reference URLs are defined in `skill-knowledge-map.js
 
 **Called from another skill:**
 ```markdown
-Execute the add-neon-knowledge skill with SKILL_NAME="neon-drizzle"
+Execute the add-neon-docs skill with SKILL_NAME="neon-drizzle"
 ```
 
 **Called directly by user:**
