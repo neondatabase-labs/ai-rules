@@ -2,6 +2,19 @@
 
 Complete guide for database migrations with Drizzle and Neon.
 
+## Table of Contents
+
+- [Migration Lifecycle](#migration-lifecycle)
+- [Environment Loading Deep-Dive](#environment-loading-deep-dive)
+- [Migration Patterns](#migration-patterns)
+- [Advanced Patterns](#advanced-patterns)
+- [Migration in CI/CD](#migration-in-cicd)
+- [Common Migration Errors](#common-migration-errors)
+- [Best Practices](#best-practices)
+- [Related Resources](#related-resources)
+
+---
+
 ## Migration Lifecycle
 
 ### 1. Schema Change

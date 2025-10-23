@@ -2,6 +2,23 @@
 
 Complete reference for querying with Drizzle ORM.
 
+## Table of Contents
+
+- [Basic CRUD Operations](#basic-crud-operations)
+- [Advanced Filtering](#advanced-filtering)
+- [Joins and Relations](#joins-and-relations)
+- [Aggregations](#aggregations)
+- [Subqueries](#subqueries)
+- [Transactions](#transactions)
+- [Batch Operations](#batch-operations)
+- [Raw SQL](#raw-sql)
+- [Performance Optimization](#performance-optimization)
+- [Type Safety](#type-safety)
+- [Common Patterns](#common-patterns)
+- [Related Resources](#related-resources)
+
+---
+
 ## Basic CRUD Operations
 
 ### Create (Insert)

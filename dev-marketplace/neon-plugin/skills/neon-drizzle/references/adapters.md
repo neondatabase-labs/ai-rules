@@ -2,6 +2,22 @@
 
 Complete guide for choosing between HTTP and WebSocket adapters.
 
+## Table of Contents
+
+- [Quick Decision Matrix](#quick-decision-matrix)
+- [HTTP Adapter](#http-adapter-neondatabaseserverless-with-neon-http)
+- [WebSocket Adapter](#websocket-adapter-neondatabaseserverless-with-neon-serverless)
+- [Framework-Specific Recommendations](#framework-specific-recommendations)
+- [Mixed Environments](#mixed-environments)
+- [Feature Comparison Table](#feature-comparison-table)
+- [Performance Considerations](#performance-considerations)
+- [Troubleshooting](#troubleshooting)
+- [Migration Between Adapters](#migration-between-adapters)
+- [Choosing the Right Adapter](#choosing-the-right-adapter)
+- [Related Resources](#related-resources)
+
+---
+
 ## Quick Decision Matrix
 
 | Environment | Adapter | Reason |

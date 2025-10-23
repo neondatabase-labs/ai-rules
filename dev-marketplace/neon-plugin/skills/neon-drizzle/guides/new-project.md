@@ -8,6 +8,18 @@ Complete guide for setting up Drizzle ORM with Neon from scratch.
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
+## Table of Contents
+
+- [Workflow Checklist](#workflow-checklist)
+- [Phase 1: Context Detection](#phase-1-context-detection)
+- [Phase 2: Installation](#phase-2-installation)
+- [Phase 3: Configuration](#phase-3-configuration)
+- [Phase 4: Schema Generation](#phase-4-schema-generation)
+- [Phase 5: Migrations](#phase-5-migrations)
+- [Phase 6: Add Best Practices References](#phase-6-add-best-practices-references)
+
+---
+
 ## Workflow Checklist
 
 When following this guide, I will track these high-level tasks:
