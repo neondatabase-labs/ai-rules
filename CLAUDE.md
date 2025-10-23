@@ -33,6 +33,9 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 ├── .claude/
 │   └── settings.local.json        # Local Claude Code settings
 ├── .serena/                       # Serena code intelligence cache
+├── CHANGELOG.md                   # Version history and release notes
+├── CONTRIBUTING.md                # Contribution guidelines
+├── LICENSE                        # MIT License
 ├── README.md                      # User-facing documentation
 └── CLAUDE.md                      # This file
 
@@ -140,27 +143,24 @@ Each skill is self-contained with multiple components:
 
 ## Recent Changes & Decisions
 
-### Neon Drizzle Workflow Improvements (October 2025)
-- Added migration scripts section to both `new-project.md` and `existing-project.md` guides
-- Enhanced workflow completion with better user feedback in `existing-project.md`
-- Provides standard `db:*` npm scripts for common Drizzle operations (generate, migrate, push, studio)
-
-### Marketplace Structure (Latest)
-- Restructured to follow Claude Code best practices with marketplace at repo root
+### Version 1.0.0 Release (October 23, 2025)
+- First public release of the Neon Claude Code Plugin
+- Added CHANGELOG.md for version tracking
+- Added CONTRIBUTING.md with contribution guidelines
+- Restructured marketplace to follow Claude Code best practices
+  - Marketplace at repository root (`.claude-plugin/marketplace.json`)
+  - Plugin directory at repository root (`neon-plugin/`)
 - Implemented 4 guided skills:
-  - **neon-drizzle**: Drizzle ORM integration with comprehensive workflow guides
+  - **neon-drizzle**: Drizzle ORM with comprehensive workflow guides (new projects, existing projects, schema-only)
   - **neon-serverless**: Serverless connection configuration
   - **neon-toolkit**: Ephemeral database management
   - **add-neon-docs**: Documentation reference installer
-- Enhanced Drizzle skill with comprehensive guides and references for different workflows
-- Configured MCP server integration for resource management
-- Updated README to document plugin and skills
-
-### Neon Drizzle Skill Enhancement
-- Expanded skill structure with `guides/` and `references/` directories
-- Added workflow-specific guides for new projects, existing projects, and schema-only approaches
-- Included technical references for adapters, migrations, and query patterns
-- Provides comprehensive support for different Drizzle integration scenarios
+- Enhanced Drizzle skill with:
+  - Step-by-step workflow guides for different scenarios
+  - Technical references (adapters, migrations, query patterns)
+  - Migration scripts and standard `db:*` npm scripts
+- Configured MCP server integration for resource management (https://mcp.neon.tech/mcp)
+- Published 13 context rules (.mdc files) covering core integrations, SDKs, and API patterns
 
 ### API Rules Addition (Previous)
 - Added 7 comprehensive API rule files
