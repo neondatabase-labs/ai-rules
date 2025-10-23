@@ -115,8 +115,8 @@ To add a new skill or update existing ones:
 
 ## Resources
 
-- [Neon Documentation](https://neon.tech/docs)
-- [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
+- [Neon Documentation](https://neon.com/docs/)
+- [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code/quickstart)
 - [MCP Protocol](https://modelcontextprotocol.io)
 
 ## License
