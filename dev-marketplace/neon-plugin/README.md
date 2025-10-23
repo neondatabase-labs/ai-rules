@@ -89,7 +89,7 @@ dev-marketplace/neon-plugin/
 │   └── plugin.json        # Plugin metadata
 ├── .mcp.json              # MCP server configuration
 └── skills/
-    ├── add-neon-knowledge/
+    ├── add-neon-docs/
     │   ├── SKILL.md
     │   ├── install-knowledge.md        # Workflow for knowledge installation
     │   └── skill-knowledge-map.json    # Metadata for knowledge installation
@@ -109,8 +109,8 @@ dev-marketplace/neon-plugin/
 
 To add a new skill or update existing ones:
 1. Follow the skill structure pattern
-2. Update `skills/add-neon-knowledge/skill-knowledge-map.json` if adding knowledge files
-3. Reference the `add-neon-knowledge` skill at the end of your SKILL.md
+2. Update `skills/add-neon-docs/skill-knowledge-map.json` if adding knowledge files
+3. Reference the `add-neon-docs` skill at the end of your SKILL.md
 4. Test the workflow thoroughly
 
 ## Resources
