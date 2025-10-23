@@ -1,8 +1,0 @@
-{
-  "name": "neon-plugin",
-  "description": "Neon database development skills including authentication, Drizzle ORM, serverless drivers, and toolkit utilities",
-  "version": "1.0.0",
-  "author": {
-    "name": "Neon Team"
-  }
-}
