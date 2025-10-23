@@ -2,7 +2,7 @@
 
 **When to use**: When the user wants to add Neon's best practices reference links to their project's AI documentation.
 
-**Required parameter**: `SKILL_NAME` (e.g., "neon-drizzle", "neon-serverless", "neon-toolkit", "neon-auth")
+**Required parameter**: `SKILL_NAME` (e.g., "neon-drizzle", "neon-serverless", "neon-toolkit")
 
 ---
 

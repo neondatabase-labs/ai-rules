@@ -77,6 +77,7 @@ This repository includes a complete Claude Code plugin located in `dev-marketpla
 - **Neon Drizzle Skill**: Set up Drizzle ORM with Neon, with comprehensive guides for different workflows (new projects, existing projects, schema-only). Includes schema generation, migration utilities, and technical references for adapters, migrations, and query patterns.
 - **Neon Serverless Skill**: Configure and validate Neon connections in serverless environments with HTTP and WebSocket pooling templates.
 - **Neon Toolkit Skill**: Create and manage ephemeral Neon databases for testing and CI/CD workflows.
+- **Add Neon Docs Skill**: Install Neon documentation references in your project's AI configuration files (CLAUDE.md, AGENTS.md, or Cursor rules) for quick access to best practices.
 
 Each skill includes:
 - **SKILL.md**: Workflow description and instructions

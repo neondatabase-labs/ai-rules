@@ -230,6 +230,31 @@ If you have both new and existing tables:
 
 See `references/migrations.md` for advanced patterns.
 
+### 5.4. Add Migration Scripts
+
+Add these convenience scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  }
+}
+```
+
+**Usage:**
+```bash
+npm run db:generate  # Generate migrations from schema changes
+npm run db:migrate   # Apply pending migrations
+npm run db:push      # Push schema directly (dev only)
+npm run db:studio    # Open Drizzle Studio
+```
+
+**Note:** Replace `npm run` with your package manager's equivalent (`pnpm`, `yarn`, `bun`).
+
 ## Phase 6: Coexistence Patterns
 
 ### 6.1. Naming Conventions
@@ -308,7 +333,11 @@ console.log('Old ORM still works:', oldQuery);
 
 ## Phase 8: Add Best Practices References
 
-Execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
+Before executing the add-neon-docs skill, provide a summary of everything that has been done:
+
+"✅ ... Drizzle integration is complete! Now adding documentation references..."
+
+Then execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
 
 This will add reference links to Neon + Drizzle best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.
 
