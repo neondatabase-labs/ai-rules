@@ -222,7 +222,7 @@ Setup is complete! Would you like me to add ${SKILL_NAME} best practices referen
 
 This helps your AI assistant (me!) remember where to find Neon patterns for future conversations.
 
-${Execute workflow: skills/add-neon-knowledge/install-knowledge.md with SKILL_NAME="${skill-name}"}
+${Execute workflow: skills/add-neon-docs/install-knowledge.md with SKILL_NAME="${skill-name}"}
 ```
 
 Or explicitly call it:
@@ -230,6 +230,6 @@ Or explicitly call it:
 ```markdown
 I'll now add reference links to help you in future conversations.
 
-${Read and execute: skills/add-neon-knowledge/install-knowledge.md}
+${Read and execute: skills/add-neon-docs/install-knowledge.md}
 ${Set SKILL_NAME = "neon-drizzle"}
 ```

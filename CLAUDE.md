@@ -181,6 +181,7 @@ Each skill is self-contained with multiple components:
 - **Plugins**: https://docs.claude.com/en/docs/claude-code/plugins
 - **Subagents**: https://docs.claude.com/en/docs/claude-code/sub-agents
 - **Skills Examples**: https://github.com/anthropics/skills
+- **Skills Best Practices**: https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices
 
 These resources provide comprehensive guidance for:
 - Building new skills for Claude Code

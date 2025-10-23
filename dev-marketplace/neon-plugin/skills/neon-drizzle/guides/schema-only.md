@@ -5,6 +5,19 @@
 
 Guide for creating or modifying database schemas with Drizzle.
 
+## Workflow Checklist
+
+When following this guide, I will track these high-level tasks:
+
+- [ ] Design schema using appropriate patterns (tables, relationships, types)
+- [ ] Apply common schema patterns (auth, soft deletes, enums, JSON)
+- [ ] Implement schema modifications (add/rename/drop columns, change types)
+- [ ] Add indexes and constraints for performance and data integrity
+- [ ] Generate and apply migrations
+- [ ] Verify changes and test with queries
+
+---
+
 ## Phase 1: Schema Design Patterns
 
 ### 1.1. Basic Table Structure

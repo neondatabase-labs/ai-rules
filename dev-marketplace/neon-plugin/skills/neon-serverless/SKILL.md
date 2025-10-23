@@ -186,14 +186,6 @@ See the `scripts/` directory for:
 
 ---
 
-## Workflow Complete - Install Knowledge?
-
-✅ **Serverless connection setup is complete and ready to use!**
-
-Your Neon serverless connection is fully functional. You can now start querying your database.
-
----
-
 ### Optional: Install AI Knowledge
 
 Want to enhance your AI assistant's understanding of Neon serverless patterns?
@@ -211,6 +203,6 @@ Would you like me to add best practices reference links to your project?
 
 ---
 
-**Implementation**: Execute the add-neon-knowledge skill with SKILL_NAME="neon-serverless"
+**Implementation**: Execute the add-neon-docs skill with SKILL_NAME="neon-serverless"
 
 This will add reference links to Neon serverless best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.

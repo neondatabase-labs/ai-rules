@@ -218,14 +218,6 @@ async function queryWithRetry(db: any, sql: string, maxRetries = 3) {
 
 ---
 
-## Workflow Complete - Install Knowledge?
-
-✅ **Ephemeral database setup is complete and ready to use!**
-
-Your Neon Toolkit integration is fully functional. You can now create and manage ephemeral databases for testing.
-
----
-
 ### Optional: Install AI Knowledge
 
 Want to enhance your AI assistant's understanding of Neon Toolkit patterns?
@@ -243,6 +235,6 @@ Would you like me to add best practices reference links to your project?
 
 ---
 
-**Implementation**: Execute the add-neon-knowledge skill with SKILL_NAME="neon-toolkit"
+**Implementation**: Execute the add-neon-docs skill with SKILL_NAME="neon-toolkit"
 
 This will add reference links to Neon Toolkit best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.

@@ -8,6 +8,19 @@ Complete guide for setting up Drizzle ORM with Neon from scratch.
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
+## Workflow Checklist
+
+When following this guide, I will track these high-level tasks:
+
+- [ ] Detect project context (package manager, framework, existing setup)
+- [ ] Install Drizzle dependencies based on deployment target
+- [ ] Create configuration files (env, drizzle config, db connection)
+- [ ] Generate schema based on app type
+- [ ] Run and verify migrations
+- [ ] Add Neon Drizzle best practices to project docs
+
+---
+
 ## Phase 1: Context Detection
 
 Auto-detect project context:
