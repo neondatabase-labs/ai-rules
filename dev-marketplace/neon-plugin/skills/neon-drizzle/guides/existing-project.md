@@ -1,6 +1,12 @@
 # Existing Project Integration
 
+> **Complete Walkthrough**: This is a self-contained, step-by-step guide with its own numbered phases (Phase 1-8).
+> Follow each phase in order to safely add Drizzle to your existing application.
+
 Guide for adding Drizzle ORM to an existing application with Neon.
+
+### Important:
+- Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
 ## Phase 1: Pre-Integration Check
 
@@ -285,17 +291,15 @@ const oldQuery = await oldDb.users.findMany();
 console.log('Old ORM still works:', oldQuery);
 ```
 
-## Phase 8: Next Steps
+## Phase 8: Add Best Practices References
 
-After successful integration:
+Execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
 
-1. **Document** which tables use Drizzle vs old ORM
-2. **Plan** migration timeline for remaining queries
-3. **Monitor** performance and error rates
-4. **Train** team on Drizzle patterns (see `references/query-patterns.md`)
+This will add reference links to Neon + Drizzle best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.
 
-## Common Issues
+---
 
-- **Migration conflicts:** See `guides/troubleshooting.md`
-- **Connection issues:** See `references/adapters.md`
-- **Query migration:** See `references/query-patterns.md`
+## ✅ Integration Complete!
+
+Your Drizzle integration with the existing project is ready to use.
+

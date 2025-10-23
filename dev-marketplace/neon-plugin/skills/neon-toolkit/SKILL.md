@@ -215,3 +215,34 @@ async function queryWithRetry(db: any, sql: string, maxRetries = 3) {
 - **neon-serverless** - For connecting to databases
 - **neon-drizzle** - For schema and migrations
 - **neon-api** - For detailed resource management
+
+---
+
+## Workflow Complete - Install Knowledge?
+
+✅ **Ephemeral database setup is complete and ready to use!**
+
+Your Neon Toolkit integration is fully functional. You can now create and manage ephemeral databases for testing.
+
+---
+
+### Optional: Install AI Knowledge
+
+Want to enhance your AI assistant's understanding of Neon Toolkit patterns?
+
+I can add comprehensive best practices to your project's AI context. This helps me (and other AI tools) provide better guidance in future conversations about:
+- Ephemeral database creation patterns
+- Testing and CI/CD workflows
+- Cleanup and management strategies
+- Resource lifecycle handling
+- Integration patterns
+
+**This is completely optional** - your Toolkit setup works perfectly without this.
+
+Would you like me to add best practices reference links to your project?
+
+---
+
+**Implementation**: Execute the add-neon-knowledge skill with SKILL_NAME="neon-toolkit"
+
+This will add reference links to Neon Toolkit best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.

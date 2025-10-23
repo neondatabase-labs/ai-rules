@@ -1,6 +1,12 @@
 # New Project Setup
 
+> **Complete Walkthrough**: This is a self-contained, step-by-step guide with its own numbered phases (Phase 1-6).
+> Follow each phase in order for a full Drizzle + Neon setup from scratch.
+
 Complete guide for setting up Drizzle ORM with Neon from scratch.
+
+### Important:
+- Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle" after completing the guide.
 
 ## Phase 1: Context Detection
 
@@ -201,51 +207,13 @@ See `guides/troubleshooting.md` for common issues and fixes.
 
 Also reference `references/migrations.md` for deep dive on migration patterns.
 
-## Phase 6: Verification
+## Phase 6: Add Best Practices References
 
-Test your setup:
+Execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
 
-### 6.1. Create Test Script
+This will add reference links to Neon + Drizzle best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.
 
-Create `test-db.ts`:
-```typescript
-import { db } from './src/db';
-import { users } from './src/db/schema';
+## ✅ Setup Complete!
 
-async function test() {
-  const result = await db.select().from(users);
-  console.log('Connection successful:', result);
-}
+Your Drizzle + Neon integration is ready to use.
 
-test();
-```
-
-Run:
-```bash
-[package-manager] tsx test-db.ts
-```
-
-### 6.2. Verify Files Created
-
-```bash
-ls src/db/index.ts
-ls src/db/schema.ts
-ls src/db/migrations/
-ls drizzle.config.ts
-ls .env.local
-```
-
-## Phase 7: Next Steps
-
-After successful setup:
-
-1. **For Vercel projects:** Create API routes (Next.js App Router or Pages Router)
-2. **For Express:** Add route handlers using `db` import
-3. **Add queries:** Reference `references/query-patterns.md` for examples
-
-## Common Issues
-
-If you encounter problems during setup, see:
-- `guides/troubleshooting.md` - Common errors and fixes
-- `references/migrations.md` - Migration-specific issues
-- `references/adapters.md` - Connection configuration issues
