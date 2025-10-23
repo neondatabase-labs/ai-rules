@@ -75,14 +75,6 @@ Before submitting a PR:
 - **TypeScript/JavaScript**: Follow existing code style in templates and scripts
 - **File naming**: kebab-case for files and directories
 
-### Commit Message Guidelines
-
-- Use present tense ("Add feature" not "Added feature")
-- Use imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Prefix with type: `Add:`, `Fix:`, `Update:`, `Docs:`, `Refactor:`
-- Keep first line under 72 characters
-- Reference issues: "Fix: connection pooling (#123)"
-
 ## Development Setup
 
 1. Clone the repository:
