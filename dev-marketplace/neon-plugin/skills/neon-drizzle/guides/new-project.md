@@ -214,7 +214,32 @@ export DATABASE_URL="$(grep DATABASE_URL .env.local | cut -d '=' -f2)" && \
 
 **Why this works:** Ensures `DATABASE_URL` is available, preventing "url: undefined" errors.
 
-### 5.3. If Migration Fails
+### 5.3. Add Migration Scripts
+
+Add these convenience scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  }
+}
+```
+
+**Usage:**
+```bash
+npm run db:generate  # Generate migrations from schema changes
+npm run db:migrate   # Apply pending migrations
+npm run db:push      # Push schema directly (dev only)
+npm run db:studio    # Open Drizzle Studio
+```
+
+**Note:** Replace `npm run` with your package manager's equivalent (`pnpm`, `yarn`, `bun`).
+
+### 5.4. If Migration Fails
 
 See `guides/troubleshooting.md` for common issues and fixes.
 
@@ -222,7 +247,11 @@ Also reference `references/migrations.md` for deep dive on migration patterns.
 
 ## Phase 6: Add Best Practices References
 
-Execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
+Before executing the add-neon-docs skill, provide a summary of everything that has been done:
+
+"✅ ... Drizzle integration is complete! Now adding documentation references..."
+
+Then execute the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-drizzle"
 
 This will add reference links to Neon + Drizzle best practices documentation in your project's AI documentation file, helping AI assistants provide better guidance in future conversations.
 

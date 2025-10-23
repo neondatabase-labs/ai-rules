@@ -21,6 +21,7 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 │   │   │   └── plugin.json        # Plugin metadata
 │   │   ├── .mcp.json              # MCP server configuration
 │   │   └── skills/                # Guided skills for Claude Code
+│   │       ├── add-neon-docs/      # Documentation reference installer
 │   │       ├── neon-drizzle/
 │   │       │   ├── guides/         # Step-by-step workflow guides
 │   │       │   ├── references/     # Technical reference docs
@@ -34,7 +35,6 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 │   └── settings.local.json        # Local Claude Code settings
 ├── .serena/                       # Serena code intelligence cache
 ├── NEON_DRIZZLE_IMPROVEMENT_PLAN.md  # Analysis document for Drizzle skill improvements
-├── NEON_DRIZZLE_MDC_REVIEW.md     # Review document for neon-drizzle.mdc file
 ├── README.md                      # User-facing documentation
 └── CLAUDE.md                      # This file
 
@@ -100,6 +100,12 @@ Each skill is self-contained with multiple components:
 - **Scripts**: `create-ephemeral-db.ts`, `destroy-ephemeral-db.ts`
 - **Templates**: Toolkit workflow
 
+#### Add Neon Docs Skill
+- **Purpose**: Install Neon documentation references in project AI configuration files
+- **Workflow**: `install-knowledge.md` with step-by-step reference installation process
+- **Metadata**: `skill-knowledge-map.json` defining available documentation references
+- **Target Files**: CLAUDE.md, AGENTS.md, or Cursor rules files
+
 ## Key Patterns & Conventions
 
 ### .mdc File Format
@@ -136,9 +142,18 @@ Each skill is self-contained with multiple components:
 
 ## Recent Changes & Decisions
 
+### Neon Drizzle Workflow Improvements (October 2025)
+- Added migration scripts section to both `new-project.md` and `existing-project.md` guides
+- Enhanced workflow completion with better user feedback in `existing-project.md`
+- Provides standard `db:*` npm scripts for common Drizzle operations (generate, migrate, push, studio)
+
 ### Dev Marketplace Integration (Latest)
 - Added complete `dev-marketplace/` structure for Claude Code plugin ecosystem
-- Implemented 3 guided skills (drizzle, serverless, toolkit)
+- Implemented 4 guided skills:
+  - **neon-drizzle**: Drizzle ORM integration with comprehensive workflow guides
+  - **neon-serverless**: Serverless connection configuration
+  - **neon-toolkit**: Ephemeral database management
+  - **add-neon-docs**: Documentation reference installer
 - Enhanced Drizzle skill with comprehensive guides and references for different workflows
 - Configured MCP server integration for resource management
 - Updated README to document plugin and skills
@@ -148,7 +163,7 @@ Each skill is self-contained with multiple components:
 - Added workflow-specific guides for new projects, existing projects, and schema-only approaches
 - Included technical references for adapters, migrations, and query patterns
 - Provides comprehensive support for different Drizzle integration scenarios
-- Created analysis documents (NEON_DRIZZLE_IMPROVEMENT_PLAN.md and NEON_DRIZZLE_MDC_REVIEW.md) to track improvements
+- Created analysis document (NEON_DRIZZLE_IMPROVEMENT_PLAN.md) to track improvements
 
 ### API Rules Addition (Previous)
 - Added 7 comprehensive API rule files
