@@ -9,6 +9,14 @@
   },
   "license": "MIT",
   "repository": "https://github.com/neondatabase-labs/ai-rules",
-  "homepage": "https://neon.tech/docs/guides/claude-code",
-  "keywords": ["neon", "postgres", "database", "drizzle", "serverless", "auth", "mcp"]
+  "homepage": "https://github.com/neondatabase-labs/ai-rules",
+  "keywords": [
+    "neon",
+    "postgres",
+    "database",
+    "drizzle",
+    "serverless",
+    "auth",
+    "mcp"
+  ]
 }

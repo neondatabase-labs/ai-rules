@@ -1,20 +1,30 @@
 {
   "name": "neon",
-  "description": "Official Neon database development tools for Claude Code",
   "owner": {
     "name": "Neon",
     "email": "support@neon.tech",
     "url": "https://neon.tech"
   },
+  "metadata": {
+    "description": "Official Neon database development tools for Claude Code"
+  },
   "repository": "https://github.com/neondatabase-labs/ai-rules",
-  "homepage": "https://neon.tech/docs/guides/claude-code",
+  "homepage": "https://github.com/neondatabase-labs/ai-rules",
   "plugins": [
     {
       "name": "neon-plugin",
       "source": "./neon-plugin",
       "description": "Neon database development skills including authentication, Drizzle ORM, serverless drivers, and toolkit utilities",
       "version": "1.0.0",
-      "keywords": ["neon", "postgres", "database", "drizzle", "serverless", "auth", "mcp"],
+      "keywords": [
+        "neon",
+        "postgres",
+        "database",
+        "drizzle",
+        "serverless",
+        "auth",
+        "mcp"
+      ],
       "license": "MIT",
       "author": {
         "name": "Neon Team",
