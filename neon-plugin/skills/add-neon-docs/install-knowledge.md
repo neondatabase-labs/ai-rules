@@ -6,6 +6,16 @@
 
 ---
 
+> **IMPORTANT - Working Directory Context**
+>
+> This skill reads metadata from its own skill directory (`skill-knowledge-map.json`), but **ALL project file operations** (reading/writing `CLAUDE.md`, `AGENTS.md`, etc.) **MUST happen in the current working directory**.
+>
+> - ✅ Read skill metadata from skill directory (absolute paths provided by system)
+> - ✅ Read/write project files using **relative paths only** (e.g., `CLAUDE.md`, `.cursor/rules.md`)
+> - ❌ Never construct project file paths using absolute paths or the skill's base directory
+
+---
+
 ## Step 1: Load Skill Metadata
 
 Read the skill metadata file to get the reference URLs.
@@ -29,28 +39,34 @@ If the skill is not found in metadata, inform the user and exit.
 
 ## Step 2: Detect AI Documentation File
 
-Use your existing tools to detect where to add the reference links. **This is a read-only check - no files are created yet.**
+Use your existing tools to detect where to add the reference links in the **current working directory**. **This is a read-only check - no files are created yet.**
 
 Check in this priority order:
 
 ### 2.1 Check for CLAUDE.md (most common)
-```bash
-[ -f CLAUDE.md ] && echo "CLAUDE_MD_FOUND" || echo "NOT_FOUND"
+
+Use the Glob tool to search for `CLAUDE.md` in the current working directory:
+```
+pattern: "CLAUDE.md"
 ```
 
 **If found**: Target is `CLAUDE.md` file
 
 ### 2.2 Check for AGENTS.md (custom AI docs)
-```bash
-[ -f AGENTS.md ] && echo "AGENTS_MD_FOUND" || echo "NOT_FOUND"
+
+Use the Glob tool to search for `AGENTS.md`:
+```
+pattern: "AGENTS.md"
 ```
 
 **If found**: Target is `AGENTS.md` file
 
 ### 2.3 Check for Cursor rules file
-```bash
-[ -f .cursor/README.md ] && echo "CURSOR_README_FOUND" || echo "NOT_FOUND"
-[ -f .cursor/rules.md ] && echo "CURSOR_RULES_FOUND" || echo "NOT_FOUND"
+
+Use the Glob tool to search for Cursor rules files:
+```
+pattern: ".cursor/README.md"
+pattern: ".cursor/rules.md"
 ```
 
 **If found**: Target is `.cursor/README.md` or `.cursor/rules.md`
@@ -132,6 +148,13 @@ Read the target file and check if it already has a "## Resources & References" s
   ```
 
 ### 4.3 Perform the edit/write
+
+**IMPORTANT**: Use relative paths only when calling Write/Edit tools.
+
+Examples:
+- ✅ Correct: `file_path: "CLAUDE.md"`
+- ✅ Correct: `file_path: ".cursor/rules.md"`
+- ❌ Wrong: `file_path: "/absolute/path/to/CLAUDE.md"`
 
 Execute the appropriate tool operation based on the above conditions.
 

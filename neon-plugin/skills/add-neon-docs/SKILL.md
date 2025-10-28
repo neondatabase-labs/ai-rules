@@ -1,6 +1,6 @@
 ---
 name: add-neon-docs
-description: Adds Neon best practices reference links to project AI documentation (CLAUDE.md, AGENTS.md, or Cursor rules). Use when installing documentation references, enhancing AI context with Neon patterns, or after completing skill setup. Does not install packages or modify code.
+description: Use this skill when the user asks to add documentation, add docs, add references, or install documentation about Neon. Adds Neon best practices reference links to project AI documentation (CLAUDE.md, AGENTS.md, or Cursor rules). Does not install packages or modify code.
 allowed-tools: ["read_file", "write", "bash", "AskUserQuestion"]
 ---
 
