@@ -1,6 +1,6 @@
 ---
 name: neon-drizzle
-description: Sets up Drizzle ORM with Neon for database management. Use when creating new projects with Drizzle, adding ORM to existing applications, or modifying database schemas.
+description: Creates a fully functional Drizzle ORM setup with a provisioned Neon database. Installs dependencies, provisions database credentials, configures connections, generates schemas, and runs migrations. Results in working code that can immediately connect to and query the database. Use when creating new projects with Drizzle, adding ORM to existing applications, or modifying database schemas.
 allowed-tools: ["bash", "write", "read_file"]
 ---
 
@@ -14,6 +14,15 @@ Comprehensive Drizzle ORM setup for Neon databases with guided workflows.
 - Integrating Drizzle into an existing application
 - Creating or modifying database schemas
 - Troubleshooting migration issues
+
+## Code Generation Rules
+
+When generating TypeScript/JavaScript code:
+- BEFORE generating import statements, check tsconfig.json for path aliases (compilerOptions.paths)
+- If path aliases exist (e.g., "@/*": ["./src/*"]), use them (e.g., import { x } from '@/lib/utils')
+- If NO path aliases exist or unsure, ALWAYS use relative imports (e.g., import { x } from '../../../lib/utils')
+- Verify imports match the project's configuration
+- Default to relative imports - they always work regardless of configuration
 
 ## Available Guides
 

@@ -15,7 +15,7 @@
       "name": "neon-plugin",
       "source": "./neon-plugin",
       "description": "Neon database development skills including authentication, Drizzle ORM, serverless drivers, and toolkit utilities",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "keywords": [
         "neon",
         "postgres",
