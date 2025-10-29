@@ -94,6 +94,52 @@ Before submitting a PR:
    /plugin reload neon-plugin
    ```
 
+## Running Evals
+
+Evals (evaluations) help test skills automatically using the `code-agent-eval` package. Each skill has its own eval directory in `neon-plugin/evals/`.
+
+### Prerequisites
+
+Install dependencies:
+```bash
+bun install
+```
+
+### Running an Eval
+
+To run a specific eval:
+```bash
+bun run neon-plugin/evals/{skill-name}/{skill-name}.eval.ts
+```
+
+**Examples:**
+```bash
+# Run Neon Drizzle skill eval
+bun run neon-plugin/evals/neon-drizzle-skill/neon-drizzle-skill.eval.ts
+
+# Run Add Neon Knowledge skill eval
+bun run neon-plugin/evals/add-neon-kwnoledge-skill/add-neon-knowlege-skill.eval.ts
+```
+
+### Eval Structure
+
+Each eval directory contains:
+- `{skill-name}.eval.ts` - The eval script
+- `eval-input/` - Test project input
+- `eval-results/` - Eval results (generated)
+
+### Creating New Evals
+
+When adding a new skill:
+
+1. **Create eval directory**: `neon-plugin/evals/{skill-name}/`
+2. **Add eval script**: `{skill-name}.eval.ts`
+3. **Create test input**: `eval-input/` with minimal project setup
+4. **Configure scorers**: Use built-in scorers or create custom ones
+5. **Test locally**: Run the eval to verify it works
+
+See existing eval files for examples of configuration and scoring.
+
 ## Questions?
 
 - Open a GitHub Issue for technical questions

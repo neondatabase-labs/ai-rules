@@ -10,13 +10,25 @@ Complete guide for setting up Drizzle ORM with Neon from scratch.
 
 ## Table of Contents
 
-- [Workflow Checklist](#workflow-checklist)
-- [Phase 1: Context Detection](#phase-1-context-detection)
-- [Phase 2: Installation](#phase-2-installation)
-- [Phase 3: Configuration](#phase-3-configuration)
-- [Phase 4: Schema Generation](#phase-4-schema-generation)
-- [Phase 5: Migrations](#phase-5-migrations)
-- [Phase 6: Add Best Practices References](#phase-6-add-best-practices-references)
+- [New Project Setup](#new-project-setup)
+    - [Important:](#important)
+  - [Table of Contents](#table-of-contents)
+  - [Workflow Checklist](#workflow-checklist)
+  - [Phase 1: Context Detection](#phase-1-context-detection)
+  - [Phase 2: Installation](#phase-2-installation)
+  - [Phase 3: Configuration](#phase-3-configuration)
+    - [3.1. Neon Database Provisioning \& Environment File](#31-neon-database-provisioning--environment-file)
+    - [3.2. Drizzle Config](#32-drizzle-config)
+    - [3.3. Database Connection](#33-database-connection)
+  - [Phase 4: Schema Generation](#phase-4-schema-generation)
+    - [4.1. Common Patterns](#41-common-patterns)
+  - [Phase 5: Migrations](#phase-5-migrations)
+    - [5.1. Generate Migration](#51-generate-migration)
+    - [5.2. Apply Migration](#52-apply-migration)
+    - [5.3. Add Migration Scripts](#53-add-migration-scripts)
+    - [5.4. If Migration Fails](#54-if-migration-fails)
+  - [Phase 6: Add Best Practices References](#phase-6-add-best-practices-references)
+  - [✅ Setup Complete!](#-setup-complete)
 
 ---
 
@@ -26,7 +38,9 @@ When following this guide, I will track these high-level tasks:
 
 - [ ] Detect project context (package manager, framework, existing setup)
 - [ ] Install Drizzle dependencies based on deployment target
-- [ ] Create configuration files (env, drizzle config, db connection)
+- [ ] Provision Neon database (list projects, create if needed, get connection string)
+- [ ] Write connection string to environment file and verify
+- [ ] Create Drizzle configuration files (drizzle.config.ts, db connection)
 - [ ] Generate schema based on app type
 - [ ] Run and verify migrations
 - [ ] Add Neon Drizzle best practices to project docs
@@ -83,25 +97,29 @@ Based on detection, install dependencies:
 
 Create configuration files in dependency order:
 
-### 3.1. Environment File
+### 3.1. Neon Database Provisioning & Environment File
 
-Create `.env.local` (or `.env` for non-Next.js):
-```bash
-DATABASE_URL="postgresql://user:password@host.neon.tech/dbname?sslmode=require"
-```
+**Outcome**: A working `.env` or `.env.local` file with a real Neon connection string that the application can use immediately.
 
-**Important:** Add to `.gitignore` immediately:
+Use MCP tools to list or create a Neon project and get its connection string. Write the actual credentials to the environment file (`.env.local` for Next.js, `.env` for other projects). Add the file to `.gitignore`.
+
+**Environment file format:**
 ```bash
-echo ".env.local" >> .gitignore
+DATABASE_URL=postgresql://user:password@host/database?sslmode=require
 ```
 
 ### 3.2. Drizzle Config
 
-Create `drizzle.config.ts`:
+Create `drizzle.config.ts` with explicit environment loading:
+
+**CRITICAL:** The `config({ path: '...' })` line must match the environment file from Step 3.1.
+
+**For Next.js (using .env.local):**
 ```typescript
 import { defineConfig } from 'drizzle-kit';
 import { config } from 'dotenv';
 
+// Load .env.local explicitly
 config({ path: '.env.local' });
 
 export default defineConfig({
@@ -114,7 +132,28 @@ export default defineConfig({
 });
 ```
 
-**Key Point:** Always include `config({ path: '.env.local' })` to prevent migration errors.
+**For other projects (using .env):**
+```typescript
+import { defineConfig } from 'drizzle-kit';
+import { config } from 'dotenv';
+
+// Load .env explicitly
+config({ path: '.env' });
+
+export default defineConfig({
+  schema: './src/db/schema.ts',
+  out: './src/db/migrations',
+  dialect: 'postgresql',
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+  },
+});
+```
+
+**Why this matters:**
+- Without explicit `config({ path: '...' })`, drizzle-kit may not load environment variables
+- This prevents "url: undefined" errors during migrations
+- The path must match your environment file name from Phase 3.1
 
 ### 3.3. Database Connection
 
