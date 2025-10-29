@@ -118,7 +118,7 @@ bun run neon-plugin/evals/{skill-name}/{skill-name}.eval.ts
 bun run neon-plugin/evals/neon-drizzle-skill/neon-drizzle-skill.eval.ts
 
 # Run Add Neon Knowledge skill eval
-bun run neon-plugin/evals/add-neon-kwnoledge-skill/add-neon-knowlege-skill.eval.ts
+bun run neon-plugin/evals/add-neon-knowledge-skill/add-neon-knowledge-skill.eval.ts
 ```
 
 ### Eval Structure

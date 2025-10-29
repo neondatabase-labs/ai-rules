@@ -139,7 +139,7 @@ Our skills are tested with automated evaluations to ensure reliability and quali
 | Skill | Pass Rate | Test Date | Details |
 |-------|-----------|-----------|---------|
 | neon-drizzle | 95.0% (19/20) | Oct 29, 2025 | [View Results](neon-plugin/evals/neon-drizzle-skill/eval-results/eval-neon-drizzle-skill-2025-10-29-164501/results.md) |
-| add-neon-docs | 91.7% (55/60) | Oct 28, 2025 | [View Results](neon-plugin/evals/add-neon-kwnoledge-skill/eval-results/eval-add-neon-docs-skills-2025-10-28-192850/results.md) |
+| add-neon-docs | 91.7% (55/60) | Oct 28, 2025 | [View Results](neon-plugin/evals/add-neon-knowledge-skill/eval-results/eval-add-neon-docs-skills-2025-10-28-192850/results.md) |
 
 **Evaluation Methodology**: Each skill is tested with multiple prompts across 10+ iterations using real Claude Code environments with the plugin loaded. Scorers validate build success, skill activation, and output correctness.
 
