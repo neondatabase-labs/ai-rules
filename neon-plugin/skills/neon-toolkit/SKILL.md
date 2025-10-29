@@ -17,6 +17,15 @@ Automates creation, management, and cleanup of temporary Neon databases using th
 
 **Not recommended for:** Production databases, shared team environments, local-only development (use Docker), or free tier accounts (requires paid projects).
 
+## Code Generation Rules
+
+When generating TypeScript/JavaScript code:
+- BEFORE generating import statements, check tsconfig.json for path aliases (compilerOptions.paths)
+- If path aliases exist (e.g., "@/*": ["./src/*"]), use them (e.g., import { x } from '@/lib/utils')
+- If NO path aliases exist or unsure, ALWAYS use relative imports (e.g., import { x } from '../../../lib/utils')
+- Verify imports match the project's configuration
+- Default to relative imports - they always work regardless of configuration
+
 ## Reference Documentation
 
 **Primary Resource:** See `[neon-toolkit.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-toolkit.mdc)` in project root for comprehensive guidelines including:
