@@ -68,7 +68,17 @@ ls .env .env.local .env.production
 grep DATABASE_URL .env*
 ```
 
-Verify connection string format is compatible.
+**If DATABASE_URL exists:**
+- Verify connection string format is compatible with Neon (`postgresql://...`)
+- If it's a different database provider, you'll need to migrate or provision a Neon database
+
+**If DATABASE_URL does NOT exist:**
+Follow the database provisioning steps from `guides/new-project.md` Phase 3.1:
+1. List the projects using the neon MCP Server to check existing projects
+2. Create a new project using the neon MCP Server if needed
+3. Get the connection string using the neon MCP Server
+4. Write to appropriate environment file (.env.local for Next.js, .env for others)
+5. Add environment file to .gitignore
 
 ## Phase 2: Incremental Installation
 
@@ -107,11 +117,16 @@ src/drizzle/
 
 ### 3.1. Create Drizzle Config
 
-`drizzle.config.ts`:
+Create `drizzle.config.ts` with explicit environment loading:
+
+**CRITICAL:** The `config({ path: '...' })` must match your environment file name.
+
+**For Next.js (using .env.local):**
 ```typescript
 import { defineConfig } from 'drizzle-kit';
 import { config } from 'dotenv';
 
+// Load .env.local explicitly
 config({ path: '.env.local' });
 
 export default defineConfig({
@@ -124,7 +139,27 @@ export default defineConfig({
 });
 ```
 
-**Note:** Point to `src/drizzle/` to avoid conflicts with existing code.
+**For other projects (using .env):**
+```typescript
+import { defineConfig } from 'drizzle-kit';
+import { config } from 'dotenv';
+
+// Load .env explicitly
+config({ path: '.env' });
+
+export default defineConfig({
+  schema: './src/drizzle/schema.ts',
+  out: './src/drizzle/migrations',
+  dialect: 'postgresql',
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+  },
+});
+```
+
+**Notes:**
+- Point schema and migrations to `src/drizzle/` to avoid conflicts with existing code
+- Explicit dotenv path prevents "url: undefined" errors during migrations
 
 ### 3.2. Create Connection
 

@@ -1,0 +1,1431 @@
+{
+  "evalName": "eval-add-neon-docs-skills",
+  "agentId": "claude-code",
+  "timestamp": "2025-10-28T19:28:50.000Z",
+  "success": false,
+  "duration": 855910,
+  "iterations": [
+    {
+      "iterationId": 0,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 773950,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 1,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 380120,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 2,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 379030,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 3,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 374330,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 4,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 350160,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 5,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 621820,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 6,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 386050,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 7,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 391290,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 8,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 451710,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 9,
+      "promptId": "neon-drizzle-docs",
+      "success": true,
+      "duration": 711420,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 10,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 371970,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 11,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 373290,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 12,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 373190,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 13,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 745880,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 14,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 372110,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 15,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 371910,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 16,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 371810,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 17,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 371490,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 18,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 373570,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 19,
+      "promptId": "neon-drizzle-best-practices",
+      "success": true,
+      "duration": 370760,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon + Drizzle ORM documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 20,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 384630,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 21,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 373040,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 22,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 606410,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 23,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 380620,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 24,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 378990,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 25,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 373670,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 26,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 415710,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 27,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 384010,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 28,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 372090,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 29,
+      "promptId": "neon-serverless-docs",
+      "success": true,
+      "duration": 372110,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 30,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 386420,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 31,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 855870,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 32,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 376960,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 33,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 373450,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 34,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 380430,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 35,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 381420,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 36,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 373630,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 37,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 847280,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 38,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 836780,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 39,
+      "promptId": "neon-serverless-best-practices",
+      "success": true,
+      "duration": 380300,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Serverless Connections documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 40,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 796460,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 41,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 379300,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 42,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 380080,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 43,
+      "promptId": "neon-toolkit-docs",
+      "success": false,
+      "duration": 404650,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 0,
+          "reason": "add-neon-docs skill not used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 44,
+      "promptId": "neon-toolkit-docs",
+      "success": false,
+      "duration": 731050,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 0,
+          "reason": "add-neon-docs skill not used"
+        },
+        "claude-md-added-to-project": {
+          "score": 0.5,
+          "reason": "CLAUDE.md exists but missing Neon Toolkit (Ephemeral DBs) documentation reference",
+          "metadata": {
+            "hint": "Expected URL: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-toolkit.mdc"
+          }
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 45,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 379830,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 46,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 372090,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 47,
+      "promptId": "neon-toolkit-docs",
+      "success": false,
+      "duration": 407300,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 0,
+          "reason": "add-neon-docs skill not used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 48,
+      "promptId": "neon-toolkit-docs",
+      "success": true,
+      "duration": 483630,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 49,
+      "promptId": "neon-toolkit-docs",
+      "success": false,
+      "duration": 827600,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 0,
+          "reason": "add-neon-docs skill not used"
+        },
+        "claude-md-added-to-project": {
+          "score": 0.5,
+          "reason": "CLAUDE.md exists but missing Neon Toolkit (Ephemeral DBs) documentation reference",
+          "metadata": {
+            "hint": "Expected URL: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-toolkit.mdc"
+          }
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 50,
+      "promptId": "neon-toolkit-best-practices",
+      "success": false,
+      "duration": 376000,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 0,
+          "reason": "add-neon-docs skill not used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 51,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 626410,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 52,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 379820,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 53,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 382150,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 54,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 376450,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 55,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 373520,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 56,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 386420,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 57,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 379510,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 58,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 379630,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    },
+    {
+      "iterationId": 59,
+      "promptId": "neon-toolkit-best-practices",
+      "success": true,
+      "duration": 380410,
+      "scores": {
+        "build": {
+          "score": 1,
+          "reason": "Build passed"
+        },
+        "add-neon-docs-skill-used": {
+          "score": 1,
+          "reason": "add-neon-docs skill used"
+        },
+        "claude-md-added-to-project": {
+          "score": 1,
+          "reason": "CLAUDE.md exists with correct Neon Toolkit (Ephemeral DBs) documentation reference"
+        }
+      },
+      "diff": "",
+      "agentOutput": "",
+      "environmentVariables": {}
+    }
+  ],
+  "aggregateScores": {
+    "build": {
+      "mean": 1,
+      "min": 1,
+      "max": 1,
+      "stdDev": 0,
+      "passRate": 1
+    },
+    "add-neon-docs-skill-used": {
+      "mean": 0.9166666666666666,
+      "min": 0,
+      "max": 1,
+      "stdDev": 0.27638539919628335,
+      "passRate": 0.9166666666666666
+    },
+    "claude-md-added-to-project": {
+      "mean": 0.9833333333333333,
+      "min": 0.5,
+      "max": 1,
+      "stdDev": 0.08975274678557504,
+      "passRate": 1
+    },
+    "_overall": {
+      "mean": 0.917,
+      "min": 0.917,
+      "max": 0.917,
+      "stdDev": 0,
+      "passRate": 0.917
+    }
+  },
+  "tokenUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0
+  }
+}

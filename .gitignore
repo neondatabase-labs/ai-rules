@@ -10,6 +10,9 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+# Eval results logs
+**/eval-results/**/*.log
+
 # Caches
 
 .cache
