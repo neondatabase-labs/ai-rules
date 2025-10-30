@@ -148,6 +148,18 @@ Our skills are tested with automated evaluations to ensure reliability and quali
 ## Context Rules (.mdc Files)
 
 <details>
+<summary><strong>Getting Started</strong> - 1 file</summary>
+
+**Neon Get Started** (`neon-get-started.mdc`)
+
+- Interactive onboarding guide for connecting projects to Neon
+- Step-by-step setup (projects, connection strings, dependencies, schema)
+- Works with new or existing codebases
+- Communication style guidelines for AI assistants
+
+</details>
+
+<details>
 <summary><strong>Core Integration Rules</strong> - 4 files</summary>
 
 **Neon Auth** (`neon-auth.mdc`)
@@ -249,7 +261,7 @@ ai-rules/
 │       ├── neon-serverless/    # Serverless skill
 │       ├── neon-toolkit/       # Ephemeral DB skill
 │       └── add-neon-docs/      # Docs installer skill
-├── *.mdc                       # Context rules (13 files)
+├── *.mdc                       # Context rules (14 files)
 ├── LICENSE
 └── README.md
 ```
