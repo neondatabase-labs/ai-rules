@@ -38,9 +38,26 @@ These guidelines only apply to users getting started with the Neon integration (
 
 **RESUME TRIGGER:** If the user says "Continue with Neon setup" or similar, check what's already configured (MCP server, .env, dependencies, schema) and resume from where they left off. Ask them which step they'd like to continue from or analyze their setup to determine automatically.
 
-### Step 1: Check Existing Neon Projects
+### Step 1: Check Organizations and Projects
 
-Use the Neon MCP Server to check if the user has existing projects (remember to use the configured `org_id` if specified above). Then guide them based on what you find:
+**First, check for organizations:**
+
+Use the Neon MCP Server to check the user's organizations:
+
+**If they have 1 organization:**
+
+- Default to that organization automatically
+- Proceed to check projects within that org
+
+**If they have multiple organizations:**
+
+- List all their organizations with names
+- Ask: "Which organization would you like to use?"
+- Confirm their selection before proceeding
+
+**Then, check for existing projects:**
+
+Use the Neon MCP Server to check if the user has existing projects within the selected organization. Then guide them based on what you find:
 
 **If they have NO projects:**
 
