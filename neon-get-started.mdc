@@ -8,7 +8,11 @@ alwaysApply: false
 
 ## Overview
 
-This guide provides steps to help a user get started with Neon in their project. It sets up their Neon project (with a connection string) and connects their database to their code by understanding the context within the codebase. The user's codebase may be mature (with existing database connections) or have little to no code. These guidelines apply to both cases.
+This guide provides steps to help a user get started with Neon in their project. It sets up their Neon project (with a connection string) and connects their database to their code by understanding the context within the codebase.
+
+## Use Case
+
+These guidelines only apply to users getting started with the Neon integration (through the command 'Get started with Neon' or 'Get started with Neon using the MCP resource'). The user's codebase may be mature (with existing database connections) or have little to no code and the guidelines should apply to both cases.
 
 ## Communication Style
 
