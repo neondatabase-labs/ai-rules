@@ -1,5 +1,5 @@
 ---
-description: Use these rules to manage compute endpoints associated with branches in a project.
+description: Use the rules to manage compute endpoints associated with branches in a project.
 alwaysApply: false
 ---
 
