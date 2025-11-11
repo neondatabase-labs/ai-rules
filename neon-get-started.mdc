@@ -70,18 +70,17 @@ Use the Neon MCP Server to check if the user has existing projects within the se
 - If they choose existing project, proceed to Step 3
 - If they want to create new, guide them accordingly
 
-**If they have multiple projects (less than 20):**
+**If they have multiple projects (less than 6):**
 
 - List all their projects with each name
 - Ask which one they want to work on, OR
 - Offer the option to create a new project
 - Confirm their selection before proceeding
 
-**If they have many projects (20+):**
+**If they have many projects (6+):**
 
-- Tell them how many projects they have
-- Ask them to specify which project they want to use by name or ID
-- Or offer to help them create a new one
+- List project(s) created in the past 1 day (if any)
+- Ask them if they want to use a project from the list (if any are there), create a new one or specify another project they want to use by name or ID
 
 ### Step 2: Database Setup
 
