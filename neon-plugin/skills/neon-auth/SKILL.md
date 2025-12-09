@@ -1,19 +1,18 @@
 ---
 name: neon-auth
-description: Sets up Neon Auth with automatic user sync to your database. Configures Stack Auth integration, creates auth routes, and generates UI components. Use when adding authentication to Next.js, React SPA, or Node.js projects.
+description: Sets up Neon Auth for your application. Configures authentication, creates auth routes, and generates UI components. Use when adding authentication to Next.js, React SPA, or Node.js projects.
 allowed-tools: ["bash", "write", "read_file"]
 ---
 
 # Neon Auth Integration
 
-Add authentication to your application with automatic user data synchronization to your Neon database.
+Add authentication to your application.
 
 ## When to Use This Skill
 
 - Adding authentication to a new or existing project
-- Setting up Stack Auth with Neon database integration
 - Implementing sign-in, sign-up, and session management
-- Syncing authenticated users to your database automatically
+- Configuring social authentication (Google, GitHub)
 
 **Package**: `@neondatabase/auth` (auth only, smaller bundle)
 
@@ -77,7 +76,6 @@ Tell me what you're building - I'll handle the rest:
 - All authentication methods (email/password, social, magic link)
 - Session data structure
 - UI components reference
-- Database user sync patterns
 - Error handling
 
 **Technical References:**
@@ -94,7 +92,7 @@ Tell me what you're building - I'll handle the rest:
 ## Related Skills
 
 - **neon-js** - Full SDK with auth + database queries (use if you need PostgREST-style data access)
-- **neon-drizzle** - Drizzle ORM setup (integrates with auth via users_sync table)
+- **neon-drizzle** - Drizzle ORM setup (for database queries)
 - **neon-serverless** - Direct database connections
 - **add-neon-docs** - Add Neon best practices to your project (run after setup)
 

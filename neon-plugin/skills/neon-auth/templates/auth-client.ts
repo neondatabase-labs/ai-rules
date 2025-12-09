@@ -7,10 +7,7 @@
  *   import { authClient } from "@/lib/auth/client";
  *   const session = authClient.useSession();
  */
-
-"use client";
-
-import { createAuthClient } from "@neondatabase/auth/next";
+import { createAuthClient } from '@neondatabase/auth/next';
 
 /**
  * Auth client for use in client components.

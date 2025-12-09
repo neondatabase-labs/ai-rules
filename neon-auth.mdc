@@ -7,7 +7,7 @@ alwaysApply: false
 
 ## Overview
 
-Neon Auth provides authentication for your application with automatic user data synchronization to your Neon database. It's available as:
+Neon Auth provides authentication for your application. It's available as:
 - `@neondatabase/auth` - Auth only (smaller bundle)
 - `@neondatabase/neon-js` - Auth + Data API (full SDK)
 
@@ -55,7 +55,6 @@ export const { GET, POST } = authApiHandler();
 
 ```typescript
 // lib/auth/client.ts
-"use client";
 import { createAuthClient } from "@neondatabase/neon-js/auth/next";
 // Or: import { createAuthClient } from "@neondatabase/auth/next";
 
@@ -314,75 +313,6 @@ import {
 <SettingsCard />
 ```
 
-## Database User Sync
-
-Neon Auth automatically syncs user data to your database in the `neon_auth.users_sync` table.
-
-### Table Structure
-
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | TEXT | Primary key, user ID |
-| `name` | TEXT | Display name |
-| `email` | TEXT | Email address |
-| `created_at` | TIMESTAMP | When user was created |
-| `updated_at` | TIMESTAMP | Last update time |
-| `deleted_at` | TIMESTAMP | Soft delete timestamp |
-| `raw_json` | JSONB | Complete user data |
-
-### Query Users
-
-```sql
--- Get active users only
-SELECT * FROM neon_auth.users_sync WHERE deleted_at IS NULL;
-
--- Join with your tables
-SELECT
-  t.*,
-  u.name AS user_name,
-  u.email AS user_email
-FROM public.todos t
-LEFT JOIN neon_auth.users_sync u ON t.owner_id = u.id
-WHERE u.deleted_at IS NULL;
-```
-
-### Foreign Keys
-
-Create foreign keys **to** the `users_sync` table:
-
-```sql
-CREATE TABLE posts (
-  id SERIAL PRIMARY KEY,
-  content TEXT,
-  author_id TEXT NOT NULL REFERENCES neon_auth.users_sync(id) ON DELETE CASCADE
-);
-```
-
-### With Drizzle ORM
-
-```typescript
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
-import { usersSync } from 'drizzle-orm/neon';
-import { eq } from 'drizzle-orm';
-
-export const todos = pgTable('todos', {
-  id: text('id').primaryKey(),
-  task: text('task').notNull(),
-  ownerId: text('owner_id')
-    .notNull()
-    .references(() => usersSync.id, { onDelete: 'cascade' }),
-});
-
-// Join with user data
-const todosWithUsers = await db
-  .select({
-    task: todos.task,
-    ownerEmail: usersSync.email
-  })
-  .from(todos)
-  .leftJoin(usersSync, eq(todos.ownerId, usersSync.id));
-```
-
 ## Key Imports
 
 ```typescript
@@ -417,7 +347,6 @@ import "@neondatabase/neon-js/ui/css";
 3. **Missing CSS**: Import from `ui/css` or `ui/tailwind` (not both)
 4. **Missing "use client"**: Required for components using `useSession()`
 5. **Wrong createAuthClient signature**: First arg is URL: `createAuthClient(url, { adapter })`
-6. **Modifying users_sync table**: This table is read-only
 
 ## Error Handling
 

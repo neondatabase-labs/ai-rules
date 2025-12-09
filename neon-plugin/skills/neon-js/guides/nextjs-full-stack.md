@@ -25,9 +25,10 @@ Complete guide for setting up the Neon JS SDK with authentication and PostgREST-
   - [Phase 7: UI Setup (Optional)](#phase-7-ui-setup-optional)
     - [7.1. Import CSS](#71-import-css)
     - [7.2. Create Auth Provider](#72-create-auth-provider)
-  - [Phase 8: Validation & Testing](#phase-8-validation--testing)
+  - [Phase 8: Validation \& Testing](#phase-8-validation--testing)
     - [8.1. Test Database Queries](#81-test-database-queries)
   - [Phase 9: Add Best Practices References](#phase-9-add-best-practices-references)
+  - [Setup Complete!](#setup-complete)
 
 ---
 
@@ -139,8 +140,6 @@ This creates all authentication endpoints (sign-in, sign-up, sign-out, session, 
 **Create file:** `lib/auth/client.ts`
 
 ```typescript
-"use client";
-
 import { createAuthClient } from "@neondatabase/neon-js/auth/next";
 
 export const authClient = createAuthClient();
@@ -419,5 +418,4 @@ await dbClient
 
 **Next Steps:**
 - Add protected routes using session checks
-- Create relationships between your tables and users_sync
 - Implement Row Level Security (RLS) for data access control

@@ -48,7 +48,6 @@ import { authApiHandler } from "@neondatabase/neon-js/auth/next";
 export const { GET, POST } = authApiHandler();
 
 // 2. Auth client: lib/auth/client.ts
-"use client";
 import { createAuthClient } from "@neondatabase/neon-js/auth/next";
 export const authClient = createAuthClient();
 
@@ -320,4 +319,4 @@ const { data } = await client.from("items").select();
 - [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 - [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
 - [UI Theming Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-theming.md) - Styling options
-- For Stack Auth SDK and database sync details, see **neon-auth.mdc**
+- For auth-only implementation, see **neon-auth.mdc**
