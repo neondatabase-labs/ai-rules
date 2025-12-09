@@ -58,9 +58,10 @@ When generating TypeScript/JavaScript code:
 Each guide is a complete, self-contained walkthrough with numbered phases:
 
 - **`guides/nextjs-setup.md`** - Next.js App Router with auth routes and UI components
-- **`guides/troubleshooting.md`** - Debug common auth issues (import errors, session problems)
 
 I'll automatically detect your context (package manager, framework, existing setup) and select the appropriate guide based on your request.
+
+For troubleshooting, see the [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) in references.
 
 ## Quick Examples
 
@@ -72,12 +73,18 @@ Tell me what you're building - I'll handle the rest:
 
 ## Reference Documentation
 
-**Primary Resource:** See `[neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc)` for comprehensive guidelines including:
+**Primary Resource:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for comprehensive guidelines including:
 - All authentication methods (email/password, social, magic link)
 - Session data structure
 - UI components reference
 - Database user sync patterns
 - Error handling
+
+**Technical References:**
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
+- [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 
 ## Templates
 

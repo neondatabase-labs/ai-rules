@@ -356,6 +356,10 @@ Visit `/api/test-db` to verify the connection.
 - [ ] Data: Insert creates records
 - [ ] Data: Update modifies records
 
+**Having Issues?** See:
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md)
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md)
+
 ## Phase 9: Add Best Practices References
 
 Before executing the add-neon-docs skill, provide a summary:
