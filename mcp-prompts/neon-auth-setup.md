@@ -161,7 +161,7 @@ https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neo
 https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-auth/guides/setup.md
 
 **Or load framework-specific section:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa-vite-create-react-app
+https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa
 
 ### Node.js Backend
 
