@@ -5,6 +5,24 @@ All notable changes to the Neon Claude Code Plugin will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-12-09
+
+### Added
+- **neon-auth** skill for Neon Auth integration with `@neondatabase/auth`
+  - Next.js setup guide with full workflow
+  - Troubleshooting guide for common auth issues
+  - Templates: API route handler, auth client
+  - Validation script for setup verification
+- **neon-js** skill for full Neon JS SDK with `@neondatabase/neon-js`
+  - Next.js full-stack guide with auth + data API
+  - Troubleshooting guide for SDK issues
+  - Template: unified client configuration
+  - Validation script for setup verification
+- Added neon-js entry to skill-knowledge-map.json
+
+### Changed
+- Updated cross-references in existing skills to include neon-auth
+
 ## [1.0.1] - 2025-10-29
 
 - Added evals to the `neon-drizzle` and `add-neon-docs` skills
