@@ -79,11 +79,10 @@ Tell me what you're building - I'll handle the rest:
 - Database user sync patterns
 - Error handling
 
-## Templates & Scripts
+## Templates
 
 - `templates/nextjs-api-route.ts` - API route handler for Next.js
 - `templates/auth-client.ts` - Client-side auth configuration
-- `scripts/validate-auth-setup.ts` - Verify auth configuration is correct
 
 ## Related Skills
 

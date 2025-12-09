@@ -26,8 +26,7 @@ Complete guide for setting up the Neon JS SDK with authentication and PostgREST-
     - [7.1. Import CSS](#71-import-css)
     - [7.2. Create Auth Provider](#72-create-auth-provider)
   - [Phase 8: Validation & Testing](#phase-8-validation--testing)
-    - [8.1. Run Validation Script](#81-run-validation-script)
-    - [8.2. Test Database Queries](#82-test-database-queries)
+    - [8.1. Test Database Queries](#81-test-database-queries)
   - [Phase 9: Add Best Practices References](#phase-9-add-best-practices-references)
 
 ---
@@ -314,15 +313,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ## Phase 8: Validation & Testing
 
-### 8.1. Run Validation Script
-
-Execute the validation script to verify configuration:
-
-```bash
-npx ts-node neon-plugin/skills/neon-js/scripts/validate-setup.ts
-```
-
-### 8.2. Test Database Queries
+### 8.1. Test Database Queries
 
 Create a test page or API route:
 

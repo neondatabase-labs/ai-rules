@@ -25,8 +25,7 @@ Complete guide for setting up Neon Auth with Next.js App Router.
     - [6.3. Wrap App in Provider](#63-wrap-app-in-provider)
   - [Phase 7: Auth Pages Setup (Optional)](#phase-7-auth-pages-setup-optional)
   - [Phase 8: Validation & Testing](#phase-8-validation--testing)
-    - [8.1. Run Validation Script](#81-run-validation-script)
-    - [8.2. Manual Testing Checklist](#82-manual-testing-checklist)
+    - [8.1. Manual Testing Checklist](#81-manual-testing-checklist)
   - [Phase 9: Add Best Practices References](#phase-9-add-best-practices-references)
 
 ---
@@ -311,20 +310,7 @@ This creates routes for:
 
 ## Phase 8: Validation & Testing
 
-### 8.1. Run Validation Script
-
-Execute the validation script to verify configuration:
-
-```bash
-npx ts-node {baseDir}/scripts/validate-auth-setup.ts
-```
-
-Or if using the skill's bundled script:
-```bash
-npx ts-node neon-plugin/skills/neon-auth/scripts/validate-auth-setup.ts
-```
-
-### 8.2. Manual Testing Checklist
+### 8.1. Manual Testing Checklist
 
 - [ ] Start development server: `npm run dev`
 - [ ] Navigate to `/auth/sign-up` (if using pre-built pages)
