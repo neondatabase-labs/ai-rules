@@ -62,9 +62,10 @@ When generating TypeScript/JavaScript code:
 Each guide is a complete, self-contained walkthrough with numbered phases:
 
 - **`guides/nextjs-full-stack.md`** - Next.js App Router with auth + data API
-- **`guides/troubleshooting.md`** - Debug common SDK issues (imports, connections, queries)
 
 I'll automatically detect your context (package manager, framework, existing setup) and select the appropriate guide based on your request.
+
+For troubleshooting, see the [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) in references.
 
 ## Quick Examples
 
@@ -76,17 +77,23 @@ Tell me what you're building - I'll handle the rest:
 
 ## Reference Documentation
 
-**Primary Resource:** See `[neon-js.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc)` for comprehensive guidelines including:
+**Primary Resource:** See [neon-js.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc) for comprehensive guidelines including:
 - Client setup for all frameworks
 - Database query patterns (PostgREST syntax)
 - Auth adapter options (BetterAuth, Supabase)
 - Type generation
 - Error handling
 
-**Auth Details:** See `[neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc)` for:
+**Auth Details:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for:
 - All authentication methods
 - UI components
 - Database user sync patterns
+
+**Technical References:**
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
+- [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 
 ## Templates
 

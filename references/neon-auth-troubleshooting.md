@@ -1,31 +1,19 @@
-# Troubleshooting Neon Auth
+# Neon Auth/JS Troubleshooting
 
-Common issues and solutions for Neon Auth integration.
+Common issues and solutions for `@neondatabase/auth` and `@neondatabase/neon-js`.
 
 ## Table of Contents
 
-- [Troubleshooting Neon Auth](#troubleshooting-neon-auth)
-  - [Table of Contents](#table-of-contents)
-  - [Import Errors](#import-errors)
-    - [BetterAuthReactAdapter not found](#betterauthreactadapter-not-found)
-    - [Cannot find module '@neondatabase/auth/next'](#cannot-find-module-neondaboruthentication-snext)
-  - [Adapter Errors](#adapter-errors)
-    - [Adapter is not a function](#adapter-is-not-a-function)
-  - [Configuration Errors](#configuration-errors)
-    - [Wrong createAuthClient signature](#wrong-createauthclient-signature)
-    - [Missing environment variables](#missing-environment-variables)
-  - [Session Issues](#session-issues)
-    - [Session not persisting across page refresh](#session-not-persisting-across-page-refresh)
-    - [useSession returns undefined](#usesession-returns-undefined)
-  - [UI Component Issues](#ui-component-issues)
-    - [CSS not loading / unstyled components](#css-not-loading--unstyled-components)
-    - [AuthView showing blank page](#authview-showing-blank-page)
-  - [Database Sync Issues](#database-sync-issues)
-    - [Cannot modify users\_sync table](#cannot-modify-users_sync-table)
-    - [User not appearing in users\_sync](#user-not-appearing-in-users_sync)
-  - [Social Auth Issues](#social-auth-issues)
-    - [OAuth callback error](#oauth-callback-error)
-  - [Still Having Issues?](#still-having-issues)
+- [Import Errors](#import-errors)
+- [Adapter Errors](#adapter-errors)
+- [Configuration Errors](#configuration-errors)
+- [Session Issues](#session-issues)
+- [UI Component Issues](#ui-component-issues)
+- [Data API Issues](#data-api-issues)
+- [Type Generation Issues](#type-generation-issues)
+- [Database Sync Issues](#database-sync-issues)
+- [Social Auth Issues](#social-auth-issues)
+- [Still Having Issues?](#still-having-issues)
 
 ---
 
@@ -35,6 +23,7 @@ Common issues and solutions for Neon Auth integration.
 
 **Error:**
 ```
+Module '"@neondatabase/neon-js"' has no exported member 'BetterAuthReactAdapter'
 Module '"@neondatabase/auth"' has no exported member 'BetterAuthReactAdapter'
 ```
 
@@ -43,9 +32,11 @@ Module '"@neondatabase/auth"' has no exported member 'BetterAuthReactAdapter'
 **Solution:**
 ```typescript
 // Wrong
-import { BetterAuthReactAdapter } from "@neondatabase/auth";
+import { BetterAuthReactAdapter } from "@neondatabase/neon-js";
 
-// Correct
+// Correct - use subpath
+import { BetterAuthReactAdapter } from "@neondatabase/neon-js/auth/react/adapters";
+// Or for auth-only package:
 import { BetterAuthReactAdapter } from "@neondatabase/auth/react/adapters";
 ```
 
@@ -56,20 +47,18 @@ import { BetterAuthReactAdapter } from "@neondatabase/auth/react/adapters";
 Cannot find module '@neondatabase/auth/next' or its corresponding type declarations
 ```
 
-**Cause:** Package not installed or wrong package version.
+**Cause:** Package not installed or wrong version.
 
 **Solution:**
-1. Verify installation:
 ```bash
+# Verify installation
 npm list @neondatabase/auth
-```
 
-2. Reinstall if needed:
-```bash
+# Reinstall if needed
 npm install @neondatabase/auth@latest
+# Or for full SDK:
+npm install @neondatabase/neon-js@latest
 ```
-
-3. Check `node_modules/@neondatabase/auth/package.json` has `exports` field with `/next` subpath.
 
 ---
 
@@ -87,14 +76,28 @@ TypeError: adapter is not a function
 **Solution:**
 ```typescript
 // Wrong
-const auth = createAuthClient(url, {
-  adapter: BetterAuthReactAdapter  // Missing ()
-});
+adapter: BetterAuthReactAdapter  // Missing ()
 
 // Correct
-const auth = createAuthClient(url, {
-  adapter: BetterAuthReactAdapter()  // Called as function
-});
+adapter: BetterAuthReactAdapter()  // Called as function
+```
+
+### Supabase adapter API mismatch
+
+**Error:**
+```
+TypeError: client.auth.signIn.email is not a function
+```
+
+**Cause:** Using BetterAuth API methods with SupabaseAuthAdapter.
+
+**Solution:**
+```typescript
+// BetterAuth style (default adapter)
+await client.auth.signIn.email({ email, password });
+
+// Supabase style (with SupabaseAuthAdapter)
+await client.auth.signInWithPassword({ email, password });
 ```
 
 ---
@@ -131,16 +134,44 @@ const authClient = createAuthClient();  // Uses env vars automatically
 **Error:**
 ```
 Error: NEON_AUTH_BASE_URL is not defined
+Error: NEON_DATA_API_URL is not defined
 ```
 
 **Solution:**
-1. Create `.env.local` file in project root
-2. Add required variables:
+
+Create `.env.local` with required variables:
+
 ```bash
+# Auth
 NEON_AUTH_BASE_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
 NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+
+# Data API (neon-js only)
+NEON_DATA_API_URL=https://ep-xxx.apirest.c-2.us-east-2.aws.neon.build/dbname/rest/v1
 ```
-3. Restart development server (env changes require restart)
+
+Restart development server after adding env vars.
+
+### Wrong URL format
+
+**Error:**
+```
+FetchError: request to https://... failed
+```
+
+**Common URL format issues:**
+
+1. **Auth URL should end with `/auth`:**
+   ```
+   https://ep-xxx.neonauth.*.aws.neon.build/dbname/auth
+   ```
+
+2. **Data API URL should end with `/rest/v1`:**
+   ```
+   https://ep-xxx.apirest.*.aws.neon.build/dbname/rest/v1
+   ```
+
+3. **Don't include trailing slash**
 
 ---
 
@@ -172,9 +203,8 @@ NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/d
 Cannot read properties of undefined (reading 'data')
 ```
 
-**Cause:** Using useSession outside of client component or before client is initialized.
-
 **Solution:**
+
 1. Ensure component has `"use client"` directive:
 ```typescript
 "use client";
@@ -210,13 +240,15 @@ return <div>Hello, {session.data.user.name}</div>;
 For Tailwind projects (has `tailwind.config.{js,ts}`):
 ```css
 /* In app/globals.css */
-@import '@neondatabase/auth/ui/tailwind';
+@import '@neondatabase/neon-js/ui/tailwind';
+/* Or: @import '@neondatabase/auth/ui/tailwind'; */
 ```
 
 For non-Tailwind projects:
 ```typescript
 // In app/layout.tsx
-import "@neondatabase/auth/ui/css";
+import "@neondatabase/neon-js/ui/css";
+// Or: import "@neondatabase/auth/ui/css";
 ```
 
 **Warning:** Never use both methods - causes 94KB duplicate styles.
@@ -248,6 +280,102 @@ export default async function AuthPage({
 
 3. **Provider not wrapping app**
    - Ensure `AuthProvider` wraps children in `app/layout.tsx`
+
+---
+
+## Data API Issues
+
+*These issues apply to `@neondatabase/neon-js` only.*
+
+### Query returns empty data
+
+**Possible causes:**
+
+1. **Table is empty** - Check data exists in Neon console
+2. **Wrong table name** - Table names are case-sensitive
+3. **Filters too restrictive** - Remove filters to test
+
+**Debug query:**
+```typescript
+const { data, error, count } = await dbClient
+  .from("your_table")
+  .select("*", { count: "exact" });
+
+console.log({ data, error, count });
+```
+
+### Permission denied errors
+
+**Error:**
+```
+PostgrestError: permission denied for table users
+```
+
+**Cause:** Row Level Security (RLS) blocking access, or user doesn't have permissions.
+
+**Solutions:**
+
+1. **Check RLS policies** in Neon console
+2. **Ensure Data API is enabled** for the table
+3. **Verify authenticated user** has access to the resource
+
+### Table not found
+
+**Error:**
+```
+PostgrestError: relation "tablename" does not exist
+```
+
+**Solutions:**
+
+1. **Check table exists** in Neon console
+2. **Check schema** - Default is `public`, use `schema_name.table_name` if different
+3. **Case sensitivity** - PostgreSQL lowercases unquoted names
+4. **Enable table for Data API** in Neon console
+
+---
+
+## Type Generation Issues
+
+*These issues apply to `@neondatabase/neon-js` only.*
+
+### gen-types command fails
+
+**Error:**
+```
+Error: Connection refused
+```
+
+**Solution:**
+
+1. Verify DATABASE_URL format:
+   ```
+   postgresql://user:password@host/database?sslmode=require
+   ```
+
+2. Check database is accessible from your machine
+
+3. Try with explicit parameters:
+   ```bash
+   npx neon-js gen-types \
+     --db-url "postgresql://user:pass@ep-xxx.us-east-2.aws.neon.tech/neondb?sslmode=require" \
+     --output lib/db/database.types.ts
+   ```
+
+### Types don't match schema
+
+**Cause:** Types generated from old schema.
+
+**Solution:**
+1. Re-run type generation after schema changes
+2. Add to build script:
+   ```json
+   {
+     "scripts": {
+       "db:types": "neon-js gen-types --db-url $DATABASE_URL --output lib/db/database.types.ts"
+     }
+   }
+   ```
 
 ---
 
@@ -308,12 +436,22 @@ OAuth callback failed: Invalid redirect URI
 
 ## Still Having Issues?
 
-1. **Check the full error stack** - Look for the root cause
-2. **Verify versions** - Ensure @neondatabase/auth is latest
-3. **Clear caches:**
+1. **Check versions:**
    ```bash
-   rm -rf node_modules/.cache
-   rm -rf .next
+   npm list @neondatabase/auth @neondatabase/neon-js
+   ```
+
+2. **Clear caches:**
+   ```bash
+   rm -rf node_modules/.cache .next
    npm install
    ```
-4. **Reference documentation:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for complete API reference
+
+3. **Reference documentation:**
+   - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md)
+   - [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) - Auth patterns
+   - [neon-js.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc) - Full SDK reference
+
+4. **Check Neon status:**
+   - Verify services are running in Neon console
+   - Check Auth and Data API are enabled for your project

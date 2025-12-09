@@ -325,7 +325,9 @@ This creates routes for:
 - Session not persisting - Verify API route is correctly configured
 - CSS not loading - Check you imported CSS in layout (only one method)
 
-See `guides/troubleshooting.md` for detailed error resolution.
+For detailed error resolution, see:
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md)
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md)
 
 ## Phase 9: Add Best Practices References
 
