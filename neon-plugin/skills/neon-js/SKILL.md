@@ -21,47 +21,26 @@ Set up the unified Neon JS SDK for authentication and database queries in one pa
 
 ## Code Generation Rules
 
-When generating TypeScript/JavaScript code:
+When generating TypeScript/JavaScript code, follow these rules:
 
-### Import Path Handling
-- BEFORE generating import statements, check tsconfig.json for path aliases (compilerOptions.paths)
-- If path aliases exist (e.g., "@/*": ["./src/*"]), use them (e.g., `import { x } from '@/lib/db'`)
-- If NO path aliases exist or unsure, ALWAYS use relative imports (e.g., `import { x } from '../lib/db'`)
-- Default to relative imports - they always work regardless of configuration
+**Complete reference:** See [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) for:
+- Import path handling (path aliases vs relative imports)
+- Neon package imports (subpath exports, adapter patterns)
+- CSS import strategy (Tailwind detection, single import method)
+- File structure patterns
 
-### Critical: Neon JS Package Imports
-- BetterAuthReactAdapter MUST be imported from subpath:
-  ```typescript
-  // Correct
-  import { BetterAuthReactAdapter } from "@neondatabase/neon-js/auth/react/adapters";
-
-  // Wrong - will not work
-  import { BetterAuthReactAdapter } from "@neondatabase/neon-js";
-  ```
-- Adapters are factory functions - call them:
-  ```typescript
-  // Correct
-  adapter: BetterAuthReactAdapter()
-
-  // Wrong
-  adapter: BetterAuthReactAdapter
-  ```
-- Main client import:
-  ```typescript
-  import { createClient, SupabaseAuthAdapter } from "@neondatabase/neon-js";
-  ```
-
-### CSS Import Strategy
-- Check for tailwind.config.{js,ts} before generating CSS imports
-- If Tailwind detected: use `@import '@neondatabase/neon-js/ui/tailwind'` in CSS file
-- If no Tailwind: use `import "@neondatabase/neon-js/ui/css"` in layout/app file
-- NEVER import both (causes 94KB of duplicate styles)
+**Key points:**
+- Check `tsconfig.json` for path aliases before generating imports
+- Use relative imports if unsure or no aliases exist
+- `BetterAuthReactAdapter` MUST be imported from `auth/react/adapters` subpath
+- Adapters are factory functions - call them with `()`
+- Choose ONE CSS import method (Tailwind or CSS, not both)
 
 ## Available Guides
 
 Each guide is a complete, self-contained walkthrough with numbered phases:
 
-- **`guides/nextjs-full-stack.md`** - Next.js App Router with auth + data API
+- **`guides/setup.md`** - Complete setup guide for Next.js with auth + data API
 
 I'll automatically detect your context (package manager, framework, existing setup) and select the appropriate guide based on your request.
 
@@ -90,8 +69,12 @@ Tell me what you're building - I'll handle the rest:
 - Session management
 
 **Technical References:**
+- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete auth setup guide for all frameworks
+- [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns and examples
+- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider configuration
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
 - [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
 - [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
 - [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 

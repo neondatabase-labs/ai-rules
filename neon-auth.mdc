@@ -28,110 +28,81 @@ npm install @neondatabase/auth
 npm install @neondatabase/neon-js
 ```
 
-## Environment Variables
+## Quick Setup Patterns
 
-```bash
-# .env.local (Next.js)
-NEON_AUTH_BASE_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
-NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+### Next.js App Router
 
-# .env (Vite/React)
-VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
-```
-
-## Next.js Setup
-
-### 1. API Route Handler
-
+**1. API Route Handler:**
 ```typescript
 // app/api/auth/[...path]/route.ts
-import { authApiHandler } from "@neondatabase/neon-js/auth/next";
-// Or: import { authApiHandler } from "@neondatabase/auth/next";
-
+import { authApiHandler } from "@neondatabase/auth/next";
 export const { GET, POST } = authApiHandler();
 ```
 
-### 2. Auth Client
-
+**2. Auth Client:**
 ```typescript
 // lib/auth/client.ts
-import { createAuthClient } from "@neondatabase/neon-js/auth/next";
-// Or: import { createAuthClient } from "@neondatabase/auth/next";
-
+import { createAuthClient } from "@neondatabase/auth/next";
 export const authClient = createAuthClient();
 ```
 
-### 3. Use in Components
-
+**3. Use in Components:**
 ```typescript
 "use client";
 import { authClient } from "@/lib/auth/client";
 
 function AuthStatus() {
   const session = authClient.useSession();
-
   if (session.isPending) return <div>Loading...</div>;
   if (!session.data) return <SignInButton />;
-
-  return (
-    <div>
-      <p>Hello, {session.data.user.name}</p>
-      <button onClick={() => authClient.signOut()}>Sign Out</button>
-    </div>
-  );
-}
-
-function SignInButton() {
-  return (
-    <button onClick={() => authClient.signIn.email({
-      email: "user@example.com",
-      password: "password"
-    })}>
-      Sign In
-    </button>
-  );
+  return <div>Hello, {session.data.user.name}</div>;
 }
 ```
 
-## React SPA Setup
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router)
+
+### React SPA
 
 ```typescript
 import { createAuthClient } from "@neondatabase/auth";
 import { BetterAuthReactAdapter } from "@neondatabase/auth/react/adapters";
 
-// First arg is URL, second is config with adapter
-const auth = createAuthClient(import.meta.env.VITE_NEON_AUTH_URL, {
-  adapter: BetterAuthReactAdapter(), // Must call as function
-});
-
-function App() {
-  const session = auth.useSession();
-
-  if (session.isPending) return <div>Loading...</div>;
-  if (!session.data) return <LoginForm />;
-
-  return <Dashboard user={session.data.user} />;
-}
+const authClient = createAuthClient(
+  import.meta.env.VITE_NEON_AUTH_URL,
+  { adapter: BetterAuthReactAdapter() }
+);
 ```
 
-## Node.js Backend
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa-vite-create-react-app)
+
+### Node.js Backend
 
 ```typescript
 import { createAuthClient } from "@neondatabase/auth";
 
 const auth = createAuthClient(process.env.NEON_AUTH_URL!);
-
-// Sign in
 await auth.signIn.email({ email, password });
-
-// Get session
 const session = await auth.getSession();
 ```
+
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend)
+
+## Environment Variables
+
+```bash
+# Next.js (.env.local)
+NEON_AUTH_BASE_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+
+# Vite/React (.env)
+VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+```
+
+**Complete reference:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#environment-variables)
 
 ## Auth Methods
 
 ### Sign Up
-
 ```typescript
 await auth.signUp.email({
   email: "user@example.com",
@@ -141,7 +112,6 @@ await auth.signUp.email({
 ```
 
 ### Sign In
-
 ```typescript
 // Email/password
 await auth.signIn.email({
@@ -157,13 +127,11 @@ await auth.signIn.social({
 ```
 
 ### Sign Out
-
 ```typescript
 await auth.signOut();
 ```
 
 ### Get Session
-
 ```typescript
 // Async (Node.js, server components)
 const session = await auth.getSession();
@@ -174,7 +142,6 @@ const session = auth.useSession();
 ```
 
 ### Session Data Structure
-
 ```typescript
 interface Session {
   user: {
@@ -197,20 +164,17 @@ interface Session {
 }
 ```
 
-## Auth UI Components
+## UI Components
 
-Pre-built UI components for authentication flows.
-
-### Setup Provider (Next.js)
+### Quick Pattern (Next.js)
 
 ```typescript
-// 1. Import CSS in layout.tsx
-import "@neondatabase/neon-js/ui/css";
-// Or: import "@neondatabase/auth/ui/css";
+// 1. Import CSS
+import "@neondatabase/auth/ui/css";
 
 // 2. Create provider: app/auth-provider.tsx
 "use client";
-import { NeonAuthUIProvider } from "@neondatabase/neon-js/auth/react/ui";
+import { NeonAuthUIProvider } from "@neondatabase/auth/react/ui";
 import { authClient } from "@/lib/auth/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -229,112 +193,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     </NeonAuthUIProvider>
   );
 }
-
-// 3. Wrap app in layout.tsx
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body>
-        <AuthProvider>{children}</AuthProvider>
-      </body>
-    </html>
-  );
-}
 ```
 
-### Auth Pages
-
-```typescript
-// app/auth/[path]/page.tsx
-import { AuthView } from "@neondatabase/neon-js/auth/react/ui";
-import { authViewPaths } from "@neondatabase/neon-js/auth/react/ui/server";
-
-export const dynamicParams = false;
-export function generateStaticParams() {
-  return Object.values(authViewPaths).map((path) => ({ path }));
-}
-
-export default async function AuthPage({ params }: { params: Promise<{ path: string }> }) {
-  const { path } = await params;
-  return <AuthView path={path} />;
-}
-
-// Provides routes:
-// /auth/sign-in
-// /auth/sign-up
-// /auth/forgot-password
-// /auth/reset-password
-// /auth/magic-link
-// /auth/two-factor
-// /auth/callback
-// /auth/sign-out
-```
-
-### Social Login Buttons
-
-```typescript
-<NeonAuthUIProvider
-  authClient={authClient}
-  navigate={router.push}
-  replace={router.replace}
-  onSessionChange={() => router.refresh()}
-  Link={Link}
-  social={{
-    providers: ["google", "github"]
-  }}
->
-  {children}
-</NeonAuthUIProvider>
-```
-
-### Individual UI Components
-
-```typescript
-import {
-  SignInForm,
-  SignUpForm,
-  ForgotPasswordForm,
-  ResetPasswordForm,
-  UserButton,
-  UserAvatar,
-  SettingsCard
-} from "@neondatabase/neon-js/auth/react/ui";
-
-// Sign in form
-<SignInForm />
-
-// User dropdown button (shows avatar + menu)
-<UserButton />
-
-// Just the avatar
-<UserAvatar />
-
-// Account settings
-<SettingsCard />
-```
+**Complete UI reference:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md)
 
 ## Key Imports
 
 ```typescript
 // Auth client (Next.js)
-import { authApiHandler, createAuthClient } from "@neondatabase/neon-js/auth/next";
-// Or: import { authApiHandler, createAuthClient } from "@neondatabase/auth/next";
+import { authApiHandler, createAuthClient } from "@neondatabase/auth/next";
 
 // Auth client (vanilla)
 import { createAuthClient } from "@neondatabase/auth";
 
 // React adapter (NOT from main entry)
 import { BetterAuthReactAdapter } from "@neondatabase/auth/react/adapters";
-// Or: import { BetterAuthReactAdapter } from "@neondatabase/neon-js/auth/react/adapters";
 
 // UI components
-import { NeonAuthUIProvider, AuthView, SignInForm } from "@neondatabase/neon-js/auth/react/ui";
-import { authViewPaths } from "@neondatabase/neon-js/auth/react/ui/server";
+import { NeonAuthUIProvider, AuthView, SignInForm } from "@neondatabase/auth/react/ui";
+import { authViewPaths } from "@neondatabase/auth/react/ui/server";
 
 // CSS
-import "@neondatabase/neon-js/ui/css";
-// Or: import "@neondatabase/auth/ui/css";
+import "@neondatabase/auth/ui/css";
 ```
+
+**Complete import reference:** See [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md)
 
 ## Common Mistakes
 
@@ -347,6 +230,8 @@ import "@neondatabase/neon-js/ui/css";
 3. **Missing CSS**: Import from `ui/css` or `ui/tailwind` (not both)
 4. **Missing "use client"**: Required for components using `useSession()`
 5. **Wrong createAuthClient signature**: First arg is URL: `createAuthClient(url, { adapter })`
+
+**Code generation rules:** See [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md)
 
 ## Error Handling
 
@@ -375,8 +260,11 @@ if (error) {
 
 ## References
 
+- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete setup guide for all frameworks
+- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider configuration
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
 - [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
 - [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
 - [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 - [UI Theming Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-theming.md) - Styling options

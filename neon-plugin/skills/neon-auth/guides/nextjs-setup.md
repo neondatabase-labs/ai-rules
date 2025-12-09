@@ -23,6 +23,7 @@ Complete guide for setting up Neon Auth with Next.js App Router.
     - [6.1. Import CSS](#61-import-css)
     - [6.2. Create Auth Provider](#62-create-auth-provider)
     - [6.3. Wrap App in Provider](#63-wrap-app-in-provider)
+    - [6.4. Add Navbar with Session Info](#64-add-navbar-with-session-info)
   - [Phase 7: Auth Pages Setup (Optional)](#phase-7-auth-pages-setup-optional)
   - [Phase 8: Validation \& Testing](#phase-8-validation--testing)
     - [8.1. Manual Testing Checklist](#81-manual-testing-checklist)
@@ -270,6 +271,64 @@ export default function RootLayout({
   );
 }
 ```
+
+### 6.4. Add Navbar with Session Info
+
+Create a navbar component that shows the user's session status:
+
+**Create file:** `components/navbar.tsx`
+
+```typescript
+"use client";
+
+import { UserButton, SignedIn, SignedOut } from "@neondatabase/auth/react/ui";
+import Link from "next/link";
+
+export function Navbar() {
+  return (
+    <nav className="flex items-center justify-between p-4 border-b">
+      <Link href="/">My App</Link>
+      <div className="flex items-center gap-4">
+        <SignedOut>
+          <Link href="/auth/sign-in">Sign In</Link>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+    </nav>
+  );
+}
+```
+
+**Add to layout:** Update `app/layout.tsx` to include the navbar:
+
+```typescript
+import { AuthProvider } from "./auth-provider";
+import { Navbar } from "@/components/navbar";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+**Components explained:**
+- `<SignedOut>` - Only renders children when user is NOT authenticated
+- `<SignedIn>` - Only renders children when user IS authenticated
+- `<UserButton />` - Displays user avatar with dropdown menu (sign out, account settings)
 
 ## Phase 7: Auth Pages Setup (Optional)
 
