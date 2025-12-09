@@ -25,33 +25,27 @@ The `@neondatabase/neon-js` SDK provides a unified client for Neon Auth and Data
 npm install @neondatabase/neon-js
 ```
 
-## Environment Variables
-
-```bash
-# .env.local (Next.js)
-NEON_AUTH_BASE_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
-NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
-NEON_DATA_API_URL=https://ep-xxx.apirest.c-2.us-east-2.aws.neon.build/dbname/rest/v1
-
-# .env (Vite/React)
-VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
-VITE_NEON_DATA_API_URL=https://ep-xxx.apirest.c-2.us-east-2.aws.neon.build/dbname/rest/v1
-```
-
-## Client Setup
+## Quick Setup Patterns
 
 ### Next.js (Most Common)
 
+**1. API Route Handler:**
 ```typescript
-// 1. API route handler: app/api/auth/[...path]/route.ts
+// app/api/auth/[...path]/route.ts
 import { authApiHandler } from "@neondatabase/neon-js/auth/next";
 export const { GET, POST } = authApiHandler();
+```
 
-// 2. Auth client: lib/auth/client.ts
+**2. Auth Client:**
+```typescript
+// lib/auth/client.ts
 import { createAuthClient } from "@neondatabase/neon-js/auth/next";
 export const authClient = createAuthClient();
+```
 
-// 3. Database client: lib/db/client.ts
+**3. Database Client:**
+```typescript
+// lib/db/client.ts
 import { createClient } from "@neondatabase/neon-js";
 import type { Database } from "./database.types";
 
@@ -59,22 +53,9 @@ export const dbClient = createClient<Database>({
   auth: { url: process.env.NEXT_PUBLIC_NEON_AUTH_URL! },
   dataApi: { url: process.env.NEON_DATA_API_URL! },
 });
-
-// 4. Use in components
-"use client";
-import { authClient } from "@/lib/auth/client";
-
-function SignInButton() {
-  const session = authClient.useSession();
-  if (session.isPending) return <div>Loading...</div>;
-  if (session.data) return <p>Hello, {session.data.user.name}</p>;
-  return (
-    <button onClick={() => authClient.signIn.email({ email: "user@example.com", password: "password" })}>
-      Sign In
-    </button>
-  );
-}
 ```
+
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router) for auth, and [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup) for database
 
 ### React SPA
 
@@ -84,15 +65,14 @@ import { BetterAuthReactAdapter } from "@neondatabase/neon-js/auth/react/adapter
 
 const client = createClient<Database>({
   auth: {
-    adapter: BetterAuthReactAdapter(), // Must call as function
+    adapter: BetterAuthReactAdapter(),
     url: import.meta.env.VITE_NEON_AUTH_URL,
   },
   dataApi: { url: import.meta.env.VITE_NEON_DATA_API_URL },
 });
-
-// React hooks available
-const session = client.auth.useSession();
 ```
+
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa-vite-create-react-app)
 
 ### Node.js Backend
 
@@ -103,20 +83,21 @@ const client = createClient<Database>({
   auth: { url: process.env.NEON_AUTH_URL! },
   dataApi: { url: process.env.NEON_DATA_API_URL! },
 });
-
-await client.auth.signIn.email({ email, password });
-const { data } = await client.from("users").select();
 ```
 
-### Auth Only (No Database)
+**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend)
 
-```typescript
-// Install: npm install @neondatabase/auth
-import { createAuthClient } from "@neondatabase/auth";
+## Environment Variables
 
-const auth = createAuthClient(process.env.NEON_AUTH_URL!);
-await auth.signIn.email({ email, password });
-const session = await auth.getSession();
+```bash
+# Next.js (.env.local)
+NEON_AUTH_BASE_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+NEON_DATA_API_URL=https://ep-xxx.apirest.c-2.us-east-2.aws.neon.build/dbname/rest/v1
+
+# Vite/React (.env)
+VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
+VITE_NEON_DATA_API_URL=https://ep-xxx.apirest.c-2.us-east-2.aws.neon.build/dbname/rest/v1
 ```
 
 ## Database Queries
@@ -130,10 +111,6 @@ const { data } = await client.from("items")
   .eq("status", "active")
   .order("created_at", { ascending: false })
   .limit(10);
-
-// Select with relationships
-const { data } = await client.from("posts")
-  .select("id, title, author:users(name, email)");
 
 // Insert
 const { data, error } = await client.from("items")
@@ -150,11 +127,9 @@ await client.from("items")
 await client.from("items")
   .delete()
   .eq("id", 1);
-
-// Upsert
-await client.from("items")
-  .upsert({ id: 1, name: "Updated Item" });
 ```
+
+**Complete query reference:** See [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md)
 
 ## Auth Methods
 
@@ -173,6 +148,8 @@ const session = await client.auth.getSession();
 await client.auth.signIn.social({ provider: 'google', callbackURL: '/dashboard' });
 ```
 
+**Complete auth reference:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for all auth methods
+
 ### Supabase-Compatible API
 
 ```typescript
@@ -186,8 +163,9 @@ const client = createClient({
 await client.auth.signInWithPassword({ email, password });
 await client.auth.signUp({ email, password });
 const { data: { session } } = await client.auth.getSession();
-client.auth.onAuthStateChange((event, session) => { /* ... */ });
 ```
+
+**Migration guide:** See [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#supabase-migration)
 
 ## Key Imports
 
@@ -210,56 +188,15 @@ import "@neondatabase/neon-js/ui/css"; // Without Tailwind
 // @import '@neondatabase/neon-js/ui/tailwind'; // With Tailwind v4 (in CSS file)
 ```
 
-## Auth UI Setup (Next.js)
-
-```typescript
-// 1. Import CSS in layout.tsx
-import "@neondatabase/neon-js/ui/css";
-
-// 2. Create provider: app/auth-provider.tsx
-"use client";
-import { NeonAuthUIProvider } from "@neondatabase/neon-js/auth/react/ui";
-import { authClient } from "@/lib/auth/client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  return (
-    <NeonAuthUIProvider
-      authClient={authClient}
-      navigate={router.push}
-      replace={router.replace}
-      onSessionChange={() => router.refresh()}
-      Link={Link}
-      social={{ providers: ["google", "github"] }} // Optional: show social buttons
-    >
-      {children}
-    </NeonAuthUIProvider>
-  );
-}
-
-// 3. Create auth page: app/auth/[path]/page.tsx
-import { AuthView } from "@neondatabase/neon-js/auth/react/ui";
-import { authViewPaths } from "@neondatabase/neon-js/auth/react/ui/server";
-
-export const dynamicParams = false;
-export function generateStaticParams() {
-  return Object.values(authViewPaths).map((path) => ({ path }));
-}
-
-export default async function AuthPage({ params }: { params: Promise<{ path: string }> }) {
-  const { path } = await params;
-  return <AuthView path={path} />;
-}
-// Routes: /auth/sign-in, /auth/sign-up, /auth/forgot-password, etc.
-```
+**Complete import reference:** See [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md)
 
 ## Generate Types
 
 ```bash
 npx neon-js gen-types --db-url "postgresql://..." --output src/types/database.ts
 ```
+
+**Type generation guide:** See [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#type-generation)
 
 ## Common Mistakes
 
@@ -273,6 +210,8 @@ npx neon-js gen-types --db-url "postgresql://..." --output src/types/database.ts
 4. **Wrong package for auth-only**: Use `@neondatabase/auth` for smaller bundle
 5. **Missing "use client"**: Required for auth client components
 6. **Wrong createAuthClient signature**: First arg is URL: `createAuthClient(url, { adapter })`
+
+**Code generation rules:** See [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md)
 
 ## Error Handling
 
@@ -295,27 +234,16 @@ const { data, error } = await client.from("items").select();
 if (error) console.error("Database error:", error.message);
 ```
 
-## Supabase Migration
-
-```diff
-- import { createClient } from "@supabase/supabase-js";
-+ import { createClient, SupabaseAuthAdapter } from "@neondatabase/neon-js";
-
-- const client = createClient(SUPABASE_URL, SUPABASE_KEY);
-+ const client = createClient({
-+   auth: { adapter: SupabaseAuthAdapter(), url: NEON_AUTH_URL },
-+   dataApi: { url: NEON_DATA_API_URL },
-+ });
-
-// Auth and database queries work the same
-await client.auth.signInWithPassword({ email, password });
-const { data } = await client.from("items").select();
-```
+**Error handling guide:** See [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#error-handling)
 
 ## References
 
+- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete auth setup guide for all frameworks
+- [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns and examples
+- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider configuration
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
 - [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
 - [Import Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-imports.md) - Complete import paths
 - [Auth Adapters Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-adapters.md) - Adapter comparison
 - [UI Theming Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-theming.md) - Styling options

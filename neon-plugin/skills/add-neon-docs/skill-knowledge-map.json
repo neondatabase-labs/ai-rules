@@ -48,7 +48,7 @@
         "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc",
         "filename": "neon-auth.mdc",
         "required": true,
-        "description": "Authentication with Stack Auth and Neon"
+        "description": "Authentication with Neon Auth using @neondatabase/auth"
       }
     ],
     "completionMessage": "Your AI assistant now understands Neon Auth patterns!"
