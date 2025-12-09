@@ -379,42 +379,6 @@ Error: Connection refused
 
 ---
 
-## Database Sync Issues
-
-### Cannot modify users_sync table
-
-**Error:**
-```
-ERROR: permission denied for table users_sync
-```
-
-**Cause:** The `neon_auth.users_sync` table is read-only. It's automatically populated by Neon Auth.
-
-**Solution:**
-- Do NOT try to INSERT, UPDATE, or DELETE from users_sync
-- Use auth methods (signUp, signIn) to create/modify users
-- Query the table for user data:
-```sql
-SELECT * FROM neon_auth.users_sync WHERE deleted_at IS NULL;
-```
-
-### User not appearing in users_sync
-
-**Possible causes:**
-
-1. **Auth not enabled in Neon dashboard**
-   - Go to Neon Console > Your Project > Auth
-   - Enable Neon Auth if not already enabled
-
-2. **Using wrong database**
-   - Verify your app connects to the same database where Auth is enabled
-
-3. **Sync delay**
-   - User sync is near-instant but may have brief delay
-   - Try querying after a few seconds
-
----
-
 ## Social Auth Issues
 
 ### OAuth callback error

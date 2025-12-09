@@ -24,9 +24,10 @@ Complete guide for setting up Neon Auth with Next.js App Router.
     - [6.2. Create Auth Provider](#62-create-auth-provider)
     - [6.3. Wrap App in Provider](#63-wrap-app-in-provider)
   - [Phase 7: Auth Pages Setup (Optional)](#phase-7-auth-pages-setup-optional)
-  - [Phase 8: Validation & Testing](#phase-8-validation--testing)
+  - [Phase 8: Validation \& Testing](#phase-8-validation--testing)
     - [8.1. Manual Testing Checklist](#81-manual-testing-checklist)
   - [Phase 9: Add Best Practices References](#phase-9-add-best-practices-references)
+  - [Setup Complete!](#setup-complete)
 
 ---
 
@@ -144,8 +145,6 @@ Create the auth client for use in client components:
 **Create file:** `lib/auth/client.ts`
 
 ```typescript
-"use client";
-
 import { createAuthClient } from "@neondatabase/auth/next";
 
 export const authClient = createAuthClient();
@@ -349,10 +348,8 @@ Your Neon Auth integration is ready to use.
 - Authentication API routes at `/api/auth/*`
 - Client-side auth hooks via `authClient.useSession()`
 - (If configured) Pre-built UI components and auth pages
-- Automatic user sync to `neon_auth.users_sync` table
 
 **Next steps:**
 - Add protected routes using session checks
 - Customize UI theme (see neon-auth.mdc for theming)
 - Set up social OAuth providers in Neon dashboard
-- Create foreign key relationships to users_sync table for user data

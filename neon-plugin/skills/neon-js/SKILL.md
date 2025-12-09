@@ -87,7 +87,7 @@ Tell me what you're building - I'll handle the rest:
 **Auth Details:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for:
 - All authentication methods
 - UI components
-- Database user sync patterns
+- Session management
 
 **Technical References:**
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS

@@ -13,7 +13,6 @@ Reference guide for common mistakes when using `@neondatabase/auth` or `@neondat
   - [Missing Environment Variables](#missing-environment-variables)
 - [Usage Mistakes](#usage-mistakes)
   - [Missing "use client" Directive](#missing-use-client-directive)
-  - [Modifying users_sync Table](#modifying-users_sync-table)
   - [Wrong API for Adapter](#wrong-api-for-adapter)
 
 ---
@@ -189,30 +188,6 @@ function AuthStatus() {
   const session = authClient.useSession();
   // ...
 }
-```
-
-### Modifying users_sync Table
-
-The `neon_auth.users_sync` table is **read-only**. It's automatically populated by Neon Auth.
-
-**Wrong:**
-```sql
--- These will fail with permission denied
-INSERT INTO neon_auth.users_sync (id, email) VALUES ('123', 'user@example.com');
-UPDATE neon_auth.users_sync SET name = 'New Name' WHERE id = '123';
-DELETE FROM neon_auth.users_sync WHERE id = '123';
-```
-
-**Correct:**
-```typescript
-// Use auth methods to create/modify users
-await auth.signUp.email({ email, password, name });
-await auth.updateUser({ name: "New Name" });
-```
-
-```sql
--- Query the table for user data (read-only)
-SELECT * FROM neon_auth.users_sync WHERE deleted_at IS NULL;
 ```
 
 ### Wrong API for Adapter
