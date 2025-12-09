@@ -162,7 +162,7 @@ https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/sk
 https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md
 
 **Or load framework-specific sections:**
-- Auth setup: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa-vite-create-react-app
+- Auth setup: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa
 - Database client: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup
 
 ### Node.js Backend

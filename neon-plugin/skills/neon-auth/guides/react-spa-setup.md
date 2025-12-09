@@ -4,16 +4,20 @@ Complete guide for setting up Neon Auth with React SPAs (Vite, Create React App)
 
 ## Table of Contents
 
-- [Phase 1: Auth Client](#phase-1-auth-client)
-- [Phase 2: UI Setup](#phase-2-ui-setup-optional)
-  - [2a. Install react-router-dom](#2a-install-react-router-dom)
-  - [2b. Import CSS](#2b-import-css)
-  - [2c. CSS Variables Reference](#2c-css-variables-reference)
-  - [2d. Update main.tsx with BrowserRouter](#2d-update-maintsx-with-browserrouter)
-  - [2e. Create Auth Provider](#2e-create-auth-provider)
-  - [2f. Add Routes to App.tsx](#2f-add-routes-to-apptsx)
-- [Phase 3: Account Settings](#phase-3-account-settings-optional)
-- [Phase 4: Validation](#phase-4-validation)
+- [React SPA Auth Setup](#react-spa-auth-setup)
+  - [Table of Contents](#table-of-contents)
+  - [Phase 1: Auth Client](#phase-1-auth-client)
+  - [Phase 2: UI Setup (Optional)](#phase-2-ui-setup-optional)
+    - [2a. Install react-router-dom](#2a-install-react-router-dom)
+    - [2b. Import CSS](#2b-import-css)
+    - [2c. CSS Variables Reference](#2c-css-variables-reference)
+    - [2d. Update main.tsx with BrowserRouter](#2d-update-maintsx-with-browserrouter)
+    - [2e. Create Auth Provider](#2e-create-auth-provider)
+    - [2f. Add Routes to App.tsx](#2f-add-routes-to-apptsx)
+  - [Phase 3: Account Settings (Optional)](#phase-3-account-settings-optional)
+    - [Add account routes to App.tsx](#add-account-routes-to-apptsx)
+  - [Phase 4: Validation](#phase-4-validation)
+  - [Complete App.tsx Example](#complete-apptsx-example)
 
 ---
 

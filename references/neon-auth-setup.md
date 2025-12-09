@@ -5,7 +5,7 @@ Complete setup instructions for Neon Auth across all frameworks. This is the can
 ## Table of Contents
 
 - [Next.js App Router](#nextjs-app-router)
-- [React SPA (Vite, Create React App)](#react-spa-vite-create-react-app)
+- [React SPA](#react-spa)
 - [Node.js Backend](#nodejs-backend)
 - [Environment Variables](#environment-variables)
 - [Package Selection](#package-selection)
@@ -102,7 +102,7 @@ For pre-built UI components, see: [UI Components Reference](https://raw.githubus
 
 ---
 
-## React SPA (Vite, Create React App)
+## React SPA
 
 ### 1. Install Package
 
