@@ -52,5 +52,23 @@
       }
     ],
     "completionMessage": "Your AI assistant now understands Neon Auth patterns!"
+  },
+  "neon-js": {
+    "displayName": "Neon JS SDK",
+    "files": [
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc",
+        "filename": "neon-js.mdc",
+        "required": true,
+        "description": "Full Neon JS SDK with Auth and Data API"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc",
+        "filename": "neon-auth.mdc",
+        "required": false,
+        "description": "Optional: Detailed auth patterns"
+      }
+    ],
+    "completionMessage": "Your AI assistant now has Neon JS SDK best practices!"
   }
 }
