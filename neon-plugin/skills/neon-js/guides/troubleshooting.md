@@ -299,26 +299,21 @@ import "@neondatabase/neon-js/ui/css";
 
 ## Still Having Issues?
 
-1. **Run validation script:**
-   ```bash
-   npx ts-node neon-plugin/skills/neon-js/scripts/validate-setup.ts
-   ```
-
-2. **Check versions:**
+1. **Check versions:**
    ```bash
    npm list @neondatabase/neon-js
    ```
 
-3. **Clear caches:**
+2. **Clear caches:**
    ```bash
    rm -rf node_modules/.cache .next
    npm install
    ```
 
-4. **Reference documentation:**
+3. **Reference documentation:**
    - [neon-js.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc) - Full SDK reference
    - [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) - Auth patterns
 
-5. **Check Neon status:**
+4. **Check Neon status:**
    - Verify services are running in Neon console
    - Check Auth and Data API are enabled for your project

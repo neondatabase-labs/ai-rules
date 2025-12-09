@@ -316,8 +316,4 @@ OAuth callback failed: Invalid redirect URI
    rm -rf .next
    npm install
    ```
-4. **Run validation script:**
-   ```bash
-   npx ts-node neon-plugin/skills/neon-auth/scripts/validate-auth-setup.ts
-   ```
-5. **Reference documentation:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for complete API reference
+4. **Reference documentation:** See [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) for complete API reference

@@ -88,10 +88,9 @@ Tell me what you're building - I'll handle the rest:
 - UI components
 - Database user sync patterns
 
-## Templates & Scripts
+## Templates
 
 - `templates/full-client.ts` - Unified auth + data client configuration
-- `scripts/validate-setup.ts` - Verify both auth and data API configuration
 
 ## Related Skills
 
