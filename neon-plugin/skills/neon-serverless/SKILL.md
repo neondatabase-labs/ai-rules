@@ -68,6 +68,8 @@ Use `scripts/validate-connection.ts` to test your database connection before dep
 
 ## Related Skills
 
+- **neon-auth** - Add authentication with user sync
+- **neon-js** - Full SDK with auth + data API
 - **neon-drizzle** - For ORM with serverless connections
 - **neon-toolkit** - For ephemeral database testing
 

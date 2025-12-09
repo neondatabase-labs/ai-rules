@@ -60,6 +60,8 @@ For deeper technical details (loaded on-demand):
 
 ## Related Skills
 
+- **neon-auth** - Add authentication with user sync to database
+- **neon-js** - Full SDK with auth + PostgREST-style data API
 - **neon-serverless** - Connection setup without ORM
 - **neon-toolkit** - Ephemeral databases for testing
 - **add-neon-docs** - Add Neon best practices to your project (run after setup)
