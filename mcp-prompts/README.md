@@ -63,71 +63,6 @@ Each template follows the **progressive disclosure** pattern from Claude Code sk
 - `/references/neon-auth-common-mistakes.md`
 - `/references/neon-js-imports.md`
 
-## Usage in MCP Server
-
-These templates are designed to be loaded by the MCP server's `getPromptTemplate()` function.
-
-### Option 1: Inline with Links (Recommended)
-
-Keep templates inline in `prompts.ts` but minimal, primarily linking to GitHub:
-
-```typescript
-export const getPromptTemplate = (
-  promptName: string,
-  args?: Record<string, string>,
-): string => {
-  if (promptName === 'setup-neon-auth') {
-    const projectId = args?.projectId;
-    
-    return `# Neon Auth Setup Guide
-
-## Core Guide
-Load the interactive template:
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/mcp-prompts/neon-auth-setup.md
-
-## Context
-${projectId ? `Project ID: ${projectId}` : 'Detect project from user context'}
-
-## Interactive Flow
-1. Load and follow the template above
-2. Detect framework and existing setup
-3. Route to appropriate detailed guide
-4. Complete phases sequentially
-5. Validate and test setup
-
-## References
-- Main: https://raw.githubusercontent.com/.../neon-auth.mdc
-- Troubleshooting: https://raw.githubusercontent.com/.../neon-auth-troubleshooting.md
-`;
-  }
-};
-```
-
-### Option 2: Runtime Fetch (Advanced)
-
-Fetch templates from GitHub at runtime:
-
-```typescript
-async function fetchTemplate(templateName: string): Promise<string> {
-  const baseUrl = 'https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/mcp-prompts';
-  const response = await fetch(`${baseUrl}/${templateName}.md`);
-  return response.text();
-}
-
-export const getPromptTemplate = async (
-  promptName: string,
-  args?: Record<string, string>,
-): Promise<string> => {
-  if (promptName === 'setup-neon-auth') {
-    const template = await fetchTemplate('neon-auth-setup');
-    // Inject context args into template
-    return template.replace('{{projectId}}', args?.projectId || 'auto-detect');
-  }
-};
-```
-
-**Recommendation**: Use Option 1 for simplicity and reliability (no external HTTP dependencies).
-
 ## Template Structure
 
 All templates follow this structure:
@@ -193,15 +128,6 @@ This ensures:
 - Clear navigation structure
 - Comprehensive reference available when needed
 - Troubleshooting resources on-demand
-
-## Testing Templates
-
-To test a template:
-
-1. **Update content** in ai-rules repo (guide, reference, or template)
-2. **Commit and push** to main branch
-3. **Run MCP prompt** - it loads latest version automatically
-4. **Verify** AI follows the template and loads linked guides
 
 ## Versioning
 
