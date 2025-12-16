@@ -39,7 +39,7 @@ When generating TypeScript/JavaScript code, follow these rules:
 
 Each guide is a complete, self-contained walkthrough with numbered phases:
 
-- **`guides/setup.md`** - Complete setup guide for Next.js, React SPA, and Node.js
+- **`guides/nextjs-setup.md`** - Complete Next.js App Router setup guide
 - **`guides/react-spa-setup.md`** - Detailed React SPA guide with react-router-dom integration
 
 I'll automatically detect your context (package manager, framework, existing setup) and select the appropriate guide based on your request.

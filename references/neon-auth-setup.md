@@ -179,7 +179,265 @@ function App() {
 
 ### 5. UI Provider Setup (Optional)
 
-For pre-built UI components, see: [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md#react-spa-provider-setup)
+Skip this section if you're building custom auth forms. Use this if you want pre-built UI components.
+
+#### 5a. Import CSS
+
+**CRITICAL:** Choose ONE import method. Never import both - it causes duplicate styles.
+
+**Check if the project uses Tailwind CSS** by looking for:
+- `tailwind.config.js` or `tailwind.config.ts` in the project root
+- `@import 'tailwindcss'` or `@tailwind` directives in CSS files
+- `tailwindcss` in package.json dependencies
+
+**If NOT using Tailwind** - Add to `src/main.tsx` or entry point:
+
+For `@neondatabase/auth`:
+```typescript
+import '@neondatabase/auth/ui/css';
+```
+
+For `@neondatabase/neon-js`:
+```typescript
+import '@neondatabase/neon-js/ui/css';
+```
+
+**If using Tailwind CSS v4** - Add to main CSS file (e.g., index.css):
+
+For `@neondatabase/auth`:
+```css
+@import 'tailwindcss';
+@import '@neondatabase/auth/ui/tailwind';
+```
+
+For `@neondatabase/neon-js`:
+```css
+@import 'tailwindcss';
+@import '@neondatabase/neon-js/ui/tailwind';
+```
+
+#### 5b. Update main.tsx with BrowserRouter
+
+For `@neondatabase/auth`:
+```tsx
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import '@neondatabase/auth/ui/css'; // if not using Tailwind
+import App from './App';
+import { Providers } from './providers';
+
+createRoot(document.getElementById('root')!).render(
+  <BrowserRouter>
+    <Providers>
+      <App />
+    </Providers>
+  </BrowserRouter>
+);
+```
+
+For `@neondatabase/neon-js`:
+```tsx
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import '@neondatabase/neon-js/ui/css'; // if not using Tailwind
+import App from './App';
+import { Providers } from './providers';
+
+createRoot(document.getElementById('root')!).render(
+  <BrowserRouter>
+    <Providers>
+      <App />
+    </Providers>
+  </BrowserRouter>
+);
+```
+
+#### 5c. Create Auth Provider
+
+Create `src/providers.tsx`:
+
+For `@neondatabase/auth`:
+```tsx
+import { NeonAuthUIProvider } from '@neondatabase/auth/react/ui';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import { authClient } from './lib/auth-client';
+import type { ReactNode } from 'react';
+
+// Adapter for react-router-dom Link
+function Link({ href, ...props }: { href: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return <RouterLink to={href} {...props} />;
+}
+
+export function Providers({ children }: { children: ReactNode }) {
+  const navigate = useNavigate();
+
+  return (
+    <NeonAuthUIProvider
+      authClient={authClient}
+      navigate={(path) => navigate(path)}
+      replace={(path) => navigate(path, { replace: true })}
+      onSessionChange={() => {
+        // Optional: refresh data or invalidate cache
+      }}
+      Link={Link}
+      social={{
+        providers: ['google', 'github']
+      }}
+    >
+      {children}
+    </NeonAuthUIProvider>
+  );
+}
+```
+
+For `@neondatabase/neon-js`:
+```tsx
+import { NeonAuthUIProvider } from '@neondatabase/neon-js/auth/react/ui';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import { authClient } from './lib/auth-client';
+import type { ReactNode } from 'react';
+
+// Adapter for react-router-dom Link
+function Link({ href, ...props }: { href: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return <RouterLink to={href} {...props} />;
+}
+
+export function Providers({ children }: { children: ReactNode }) {
+  const navigate = useNavigate();
+
+  return (
+    <NeonAuthUIProvider
+      authClient={authClient}
+      navigate={(path) => navigate(path)}
+      replace={(path) => navigate(path, { replace: true })}
+      onSessionChange={() => {
+        // Optional: refresh data or invalidate cache
+      }}
+      Link={Link}
+      social={{
+        providers: ['google', 'github']
+      }}
+    >
+      {children}
+    </NeonAuthUIProvider>
+  );
+}
+```
+
+**Provider props explained:**
+- `navigate`: Function to navigate to a new route
+- `replace`: Function to replace current route (for redirects)
+- `onSessionChange`: Callback when auth state changes (useful for cache invalidation)
+- `Link`: Adapter component for react-router-dom's Link
+- `social`: Show Google and GitHub sign-in buttons (both enabled by default in Neon)
+
+#### 5d. Add Routes to App.tsx
+
+For `@neondatabase/auth`:
+```tsx
+import { Routes, Route, useParams } from 'react-router-dom';
+import { AuthView, UserButton, SignedIn, SignedOut } from '@neondatabase/auth/react/ui';
+
+// Auth page - handles /auth/sign-in, /auth/sign-up, etc.
+function AuthPage() {
+  const { pathname } = useParams();
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <AuthView pathname={pathname} />
+    </div>
+  );
+}
+
+// Simple navbar example
+function Navbar() {
+  return (
+    <nav className="flex items-center justify-between p-4 border-b">
+      <a href="/">My App</a>
+      <div className="flex items-center gap-4">
+        <SignedOut>
+          <a href="/auth/sign-in">Sign In</a>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+    </nav>
+  );
+}
+
+function HomePage() {
+  return <div>Welcome to My App!</div>;
+}
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/:pathname" element={<AuthPage />} />
+      </Routes>
+    </>
+  );
+}
+```
+
+For `@neondatabase/neon-js`:
+```tsx
+import { Routes, Route, useParams } from 'react-router-dom';
+import { AuthView, UserButton, SignedIn, SignedOut } from '@neondatabase/neon-js/auth/react/ui';
+
+// Auth page - handles /auth/sign-in, /auth/sign-up, etc.
+function AuthPage() {
+  const { pathname } = useParams();
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <AuthView pathname={pathname} />
+    </div>
+  );
+}
+
+// Simple navbar example
+function Navbar() {
+  return (
+    <nav className="flex items-center justify-between p-4 border-b">
+      <a href="/">My App</a>
+      <div className="flex items-center gap-4">
+        <SignedOut>
+          <a href="/auth/sign-in">Sign In</a>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+    </nav>
+  );
+}
+
+function HomePage() {
+  return <div>Welcome to My App!</div>;
+}
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/:pathname" element={<AuthPage />} />
+      </Routes>
+    </>
+  );
+}
+```
+
+**Auth routes created:**
+- `/auth/sign-in` - Sign in page
+- `/auth/sign-up` - Sign up page
+- `/auth/forgot-password` - Password reset request
+- `/auth/reset-password` - Set new password
+- `/auth/sign-out` - Sign out
+- `/auth/callback` - OAuth callback (internal)
 
 ---
 
@@ -292,5 +550,5 @@ NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
 
 ---
 
-**Reference Version**: 1.0.0  
-**Last Updated**: 2025-12-09
+**Reference Version**: 1.1.0
+**Last Updated**: 2025-12-16
