@@ -7,7 +7,7 @@ Complete guide for setting up the Neon JS SDK with authentication and PostgREST-
 
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-js" after completing the guide.
-- This guide extends the Neon Auth setup. Follow phases 1-4 from the [Neon Auth Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md), then continue with the data API phases below.
+- This guide extends the Neon Auth setup. Follow phases 1-4 from the appropriate framework-specific setup guide ([Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md), [React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md), or [Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md)), then continue with the data API phases below.
 
 ## Table of Contents
 
@@ -41,7 +41,12 @@ When following this guide, I will track these high-level tasks:
 
 **Follow the Neon Auth setup guide first:**
 
-See [Neon Auth Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) for phases 1-4:
+See the appropriate framework-specific setup guide for phases 1-4:
+- [Next.js Setup](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md)
+- [React SPA Setup](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md)
+- [Node.js Setup](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md)
+
+Phases overview:
 - Phase 1: Context Detection
 - Phase 2: Installation (use `@neondatabase/neon-js` instead of `@neondatabase/auth`)
 - Phase 3: Environment Configuration (add `NEON_DATA_API_URL`)
@@ -244,7 +249,7 @@ export const dbClient = createClient<Database>({
 
 Skip this phase if using custom auth forms or you already set up UI with neon-auth skill.
 
-**Complete UI setup:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md)
+**Complete UI setup:** See [UI - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md) or [UI - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md)
 
 **Quick summary:**
 
@@ -256,7 +261,7 @@ Skip this phase if using custom auth forms or you already set up UI with neon-au
 
 3. **Wrap app** in the provider
 
-**Framework-specific examples:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md#provider-setup)
+**Framework-specific examples:** See [UI - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md) or [UI - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md)
 
 ---
 
@@ -379,9 +384,14 @@ await dbClient
 - Generate types from schema for full TypeScript support
 
 **Reference Documentation:**
-- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete auth setup guide
+
+*Framework-Specific:*
+- [Setup - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md) | [UI - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md)
+- [Setup - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md) | [UI - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md)
+- [Setup - Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md)
+
+*Shared:*
 - [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns
-- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns
 
 ---

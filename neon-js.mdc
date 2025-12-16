@@ -5,6 +5,13 @@ alwaysApply: false
 ---
 # Neon JS SDK Guidelines
 
+> **For AI Agents with file access (Claude Code, etc.):**
+> For complete documentation without summarization, fetch references using:
+> ```bash
+> curl -s -o /tmp/neon-auth-setup.md https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md
+> ```
+> Then read the downloaded file. Replace `nextjs` with `react-spa` or `nodejs` as needed.
+
 ## Overview
 
 The `@neondatabase/neon-js` SDK provides a unified client for Neon Auth and Data API. It combines authentication handling with PostgREST-compatible database queries.
@@ -55,7 +62,7 @@ export const dbClient = createClient<Database>({
 });
 ```
 
-**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router) for auth, and [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup) for database
+**Complete setup:** See [Setup Reference - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md) for auth, and [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup) for database
 
 ### React SPA
 
@@ -72,7 +79,7 @@ const client = createClient<Database>({
 });
 ```
 
-**Complete setup with router:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa)
+**Complete setup with router:** See [Setup Reference - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md)
 
 ### Node.js Backend
 
@@ -85,7 +92,7 @@ const client = createClient<Database>({
 });
 ```
 
-**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend)
+**Complete setup:** See [Setup Reference - Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md)
 
 ## Environment Variables
 
@@ -285,9 +292,17 @@ if (error) console.error("Database error:", error.message);
 
 ## References
 
-- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete auth setup guide for all frameworks
+### Framework-Specific Setup (choose your framework)
+- [Setup - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md) - Next.js App Router setup
+- [Setup - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md) - Vite/CRA setup
+- [Setup - Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md) - Backend-only setup
+
+### Framework-Specific UI (choose your framework)
+- [UI - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md) - Next.js UI provider
+- [UI - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md) - React SPA UI provider
+
+### Data API & Shared References
 - [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns and examples
-- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider configuration
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
 - [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
 - [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
