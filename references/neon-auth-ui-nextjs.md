@@ -92,7 +92,7 @@ export default async function AuthPage({
   params: Promise<{ path: string }>;
 }) {
   const { path } = await params;
-  return <AuthView path={path} />;
+  return <AuthView pathname={path} />;
 }
 ```
 
@@ -157,7 +157,7 @@ This creates routes: `/auth/sign-in`, `/auth/sign-up`, `/auth/forgot-password`, 
 import { AuthView, SignInForm, SignUpForm } from "@neondatabase/auth/react/ui";
 
 // Full auth view (recommended)
-<AuthView path="sign-in" />
+<AuthView pathname="sign-in" />
 
 // Individual forms
 <SignInForm />

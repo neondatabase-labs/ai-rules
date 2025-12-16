@@ -152,7 +152,7 @@ export default async function AuthPage({
   params: Promise<{ path: string }>;
 }) {
   const { path } = await params;
-  return <AuthView path={path} />;
+  return <AuthView pathname={path} />;
 }
 ```
 
@@ -195,7 +195,7 @@ function CustomSignInPage() {
 }
 
 // ✅ Use AuthView instead - one component handles everything
-<AuthView path="sign-in" />
+<AuthView pathname="sign-in" />
 ```
 
 ## Environment Variables
