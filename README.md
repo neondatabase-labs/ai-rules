@@ -11,7 +11,7 @@ A comprehensive Claude Code plugin with AI context rules, guided skills, and res
 ## What's Inside
 
 ### For Claude Code Users
-- **Claude Code Plugin** - The plugin itself, which includes the 4 skills and MCP server integration
+- **Claude Code Plugin** - The plugin itself, which includes 6 skills and MCP server integration
 - **Claude Code Skills** - Interactive workflows with templates and automation scripts for Neon
 - **MCP Server Integration** - Direct Neon resource management (projects, branches, databases)
 
@@ -115,6 +115,34 @@ Perfect for testing and CI/CD:
 - `create-ephemeral-db.ts` - Database creation
 - `destroy-ephemeral-db.ts` - Cleanup automation
 - Workflow templates
+
+</details>
+
+<details>
+<summary><strong>Neon Auth</strong> - Integrate Neon Auth authentication</summary>
+
+Complete authentication setup with `@neondatabase/auth`:
+- Next.js App Router integration
+- React SPA setup
+- Auth client configuration templates
+- API route handlers
+
+**Guides:**
+- `guides/nextjs-setup.md` - Next.js App Router workflow
+- `guides/react-spa-setup.md` - React SPA workflow
+
+</details>
+
+<details>
+<summary><strong>Neon JS</strong> - Full Neon JS SDK integration</summary>
+
+Unified SDK setup with `@neondatabase/neon-js`:
+- Combined auth + data API client
+- Type-safe database operations
+- Theming and customization
+
+**Guides:**
+- `guides/setup.md` - Complete setup workflow
 
 </details>
 
@@ -251,17 +279,19 @@ ai-rules/
 │   ├── .claude-plugin/
 │   │   └── plugin.json         # Plugin configuration
 │   ├── .mcp.json               # MCP server connection
-│   └── skills/                 # Guided skills
+│   └── skills/                 # Guided skills (6 total)
+│       ├── add-neon-docs/      # Docs installer skill
+│       ├── neon-auth/          # Neon Auth skill
 │       ├── neon-drizzle/       # Drizzle ORM skill
 │       │   ├── SKILL.md
 │       │   ├── guides/         # Workflow guides
 │       │   ├── references/     # Technical docs
 │       │   ├── scripts/        # Automation
 │       │   └── templates/      # Code examples
+│       ├── neon-js/            # Neon JS SDK skill
 │       ├── neon-serverless/    # Serverless skill
-│       ├── neon-toolkit/       # Ephemeral DB skill
-│       └── add-neon-docs/      # Docs installer skill
-├── *.mdc                       # Context rules (14 files)
+│       └── neon-toolkit/       # Ephemeral DB skill
+├── *.mdc                       # Context rules (16 files)
 ├── LICENSE
 └── README.md
 ```

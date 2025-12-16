@@ -14,22 +14,34 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 
 ```
 .
-├── *.mdc                          # Context rule files (13 total)
+├── *.mdc                          # Context rule files (16 total)
 ├── .claude-plugin/
 │   └── marketplace.json           # Marketplace metadata
 ├── neon-plugin/                   # Claude Code plugin
 │   ├── .claude-plugin/
 │   │   └── plugin.json            # Plugin metadata
 │   ├── .mcp.json                  # MCP server configuration
-│   └── skills/                    # Guided skills for Claude Code
+│   ├── evals/                     # Skill evaluation tests
+│   └── skills/                    # Guided skills for Claude Code (6 total)
 │       ├── add-neon-docs/         # Documentation reference installer
+│       ├── neon-auth/             # Neon Auth integration
+│       │   ├── guides/            # Setup guides (Next.js, React SPA)
+│       │   └── templates/         # Auth client templates
 │       ├── neon-drizzle/
 │       │   ├── guides/            # Step-by-step workflow guides
 │       │   ├── references/        # Technical reference docs
 │       │   ├── scripts/           # Utility scripts
 │       │   └── templates/         # Code templates
+│       ├── neon-js/               # Full Neon JS SDK integration
+│       │   ├── guides/            # Setup guides
+│       │   └── templates/         # Client templates
 │       ├── neon-serverless/
 │       └── neon-toolkit/
+├── references/                    # Shared technical reference docs
+│   ├── code-generation-rules.md
+│   ├── neon-auth-*.md             # Auth-related references
+│   └── neon-js-*.md               # Neon JS references
+├── mcp-prompts/                   # MCP prompt templates
 ├── .claude/
 │   └── settings.local.json        # Local Claude Code settings
 ├── .serena/                       # Serena code intelligence cache
@@ -43,8 +55,13 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 
 ## Context Rules (.mdc files)
 
-### Core Integration Rules (4 files)
-- **neon-auth.mdc**: Stack Auth + Neon Auth authentication patterns
+### Getting Started (2 files)
+- **neon-get-started.mdc**: Interactive onboarding guide for Neon projects
+- **neon-get-started-kiro.mdc**: Kiro-specific onboarding guide
+
+### Core Integration Rules (5 files)
+- **neon-auth.mdc**: Neon Auth integration with `@neondatabase/auth` package
+- **neon-js.mdc**: Full Neon JS SDK with `@neondatabase/neon-js` package
 - **neon-serverless.mdc**: Serverless database connections and pooling
 - **neon-drizzle.mdc**: Drizzle ORM integration with Neon
 - **neon-toolkit.mdc**: Ephemeral database creation for testing
@@ -96,6 +113,19 @@ Each skill is self-contained with multiple components:
 - **Scripts**: `validate-connection.ts`
 - **Templates**: HTTP connection, WebSocket pool
 
+#### Neon Auth Skill
+- **Purpose**: Neon Auth integration using `@neondatabase/auth` package
+- **Guides**:
+  - `nextjs-setup.md`: Next.js App Router setup with auth integration
+  - `react-spa-setup.md`: React SPA setup with auth integration
+- **Templates**: Auth client configuration, Next.js API route handler
+
+#### Neon JS Skill
+- **Purpose**: Full Neon JS SDK integration using `@neondatabase/neon-js` package
+- **Guides**:
+  - `setup.md`: Complete setup guide for neon-js
+- **Templates**: Full client configuration with auth + data API
+
 #### Neon Toolkit Skill
 - **Purpose**: Ephemeral database creation for testing and CI/CD workflows
 - **Scripts**: `create-ephemeral-db.ts`, `destroy-ephemeral-db.ts`
@@ -142,6 +172,30 @@ Each skill is self-contained with multiple components:
 - Keep plugin.json version in sync with major updates
 
 ## Recent Changes & Decisions
+
+### Version 1.1.0 Release (December 9, 2025)
+- Added **neon-auth** skill for Neon Auth integration with `@neondatabase/auth`
+  - Next.js setup guide with full workflow
+  - React SPA setup guide
+  - Templates: API route handler, auth client
+- Added **neon-js** skill for full Neon JS SDK with `@neondatabase/neon-js`
+  - Setup guide with auth + data API integration
+  - Template: unified client configuration
+- Added shared `references/` directory with technical documentation:
+  - `neon-auth-*.md` files: Auth components, provider config, troubleshooting, common mistakes, UI
+  - `neon-js-*.md` files: Adapters, data API, imports, theming
+  - `code-generation-rules.md`: Code generation best practices
+- Added `mcp-prompts/` directory for MCP prompt templates
+- Added neon-auth.mdc and neon-js.mdc context rules
+- Added neon-get-started.mdc and neon-get-started-kiro.mdc for onboarding
+- Total .mdc files increased from 13 to 16
+- Total skills increased from 4 to 6
+- Updated skill-knowledge-map.json with new skills
+
+### Version 1.0.1 Release (October 29, 2025)
+- Added evals to the `neon-drizzle` and `add-neon-docs` skills
+- Fixed `add-neon-docs` skill description for proper activation
+- Added explicit rules to prevent unwanted file edits
 
 ### Version 1.0.0 Release (October 23, 2025)
 - First public release of the Neon Claude Code Plugin
