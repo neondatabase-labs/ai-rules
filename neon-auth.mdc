@@ -5,6 +5,13 @@ alwaysApply: false
 ---
 # Neon Auth Guidelines
 
+> **For AI Agents with file access (Claude Code, etc.):**
+> For complete documentation without summarization, fetch references using:
+> ```bash
+> curl -s -o /tmp/neon-auth-setup.md https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md
+> ```
+> Then read the downloaded file. Replace `nextjs` with `react-spa` or `nodejs` as needed.
+
 ## Overview
 
 Neon Auth provides authentication for your application. It's available as:
@@ -59,7 +66,7 @@ function AuthStatus() {
 }
 ```
 
-**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router)
+**Complete setup:** See [Setup Reference - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md)
 
 ### React SPA
 
@@ -73,7 +80,7 @@ const authClient = createAuthClient(
 );
 ```
 
-**Complete setup with router:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa)
+**Complete setup with router:** See [Setup Reference - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md)
 
 ### Node.js Backend
 
@@ -85,7 +92,7 @@ await auth.signIn.email({ email, password });
 const session = await auth.getSession();
 ```
 
-**Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend)
+**Complete setup:** See [Setup Reference - Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md)
 
 ## Building Auth Pages
 
@@ -153,7 +160,7 @@ export default async function AuthPage({
 
 **Available paths:** `"sign-in"`, `"sign-up"`, `"forgot-password"`, `"reset-password"`, `"magic-link"`, `"two-factor"`, `"callback"`, `"sign-out"`
 
-**For React SPA setup:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md#react-spa-provider-setup)
+**For React SPA setup:** See [UI Components Reference - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md)
 
 ### When to Use Low-Level Methods Instead
 
@@ -202,7 +209,7 @@ NEXT_PUBLIC_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/d
 VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/auth
 ```
 
-**Complete reference:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#environment-variables)
+**Complete reference:** See framework-specific setup guides above for environment variable details.
 
 ## Auth Methods
 
@@ -280,7 +287,7 @@ For pre-built UI components, see [Building Auth Pages](#building-auth-pages) abo
 - `UserButton` - User avatar with dropdown menu
 - `NeonAuthUIProvider` - Required wrapper for UI components
 
-**Complete UI reference:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md)
+**Complete UI reference:** See [UI Components Reference - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md) or [React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md)
 
 ## React Styling Guidelines
 
@@ -393,8 +400,16 @@ if (error) {
 
 ## References
 
-- [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Complete setup guide for all frameworks
-- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider configuration
+### Framework-Specific Setup (choose your framework)
+- [Setup - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nextjs.md) - Next.js App Router setup
+- [Setup - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-react-spa.md) - Vite/CRA setup
+- [Setup - Node.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup-nodejs.md) - Backend-only setup
+
+### Framework-Specific UI (choose your framework)
+- [UI - Next.js](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-nextjs.md) - Next.js UI provider
+- [UI - React SPA](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui-react-spa.md) - React SPA UI provider
+
+### Shared References
 - [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
 - [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
 - [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
