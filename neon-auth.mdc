@@ -87,6 +87,110 @@ const session = await auth.getSession();
 
 **Complete setup:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend)
 
+## Building Auth Pages
+
+### Use AuthView (Recommended for React Apps)
+
+For authentication pages, use the pre-built `AuthView` component instead of building custom forms.
+
+**What AuthView provides:**
+- Sign-in, sign-up, password reset, magic link pages
+- Social providers (Google, GitHub) - configured in Neon Console
+- Form validation, error handling, loading states
+- Consistent styling via CSS variables
+
+**Setup (Next.js App Router):**
+
+1. **Import CSS** (in `app/layout.tsx` or `app/globals.css`):
+```tsx
+import "@neondatabase/auth/ui/css";
+```
+
+2. **Wrap app with provider** (create `app/auth-provider.tsx`):
+```tsx
+"use client";
+import { NeonAuthUIProvider } from "@neondatabase/auth/react/ui";
+import { authClient } from "@/lib/auth/client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+  return (
+    <NeonAuthUIProvider
+      authClient={authClient}
+      navigate={router.push}
+      replace={router.replace}
+      onSessionChange={() => router.refresh()}
+      Link={Link}
+    >
+      {children}
+    </NeonAuthUIProvider>
+  );
+}
+```
+
+3. **Create auth page** (`app/auth/[path]/page.tsx`):
+```tsx
+import { AuthView } from "@neondatabase/auth/react/ui";
+import { authViewPaths } from "@neondatabase/auth/react/ui/server";
+
+export function generateStaticParams() {
+  return Object.values(authViewPaths).map((path) => ({ path }));
+}
+
+export default async function AuthPage({
+  params,
+}: {
+  params: Promise<{ path: string }>;
+}) {
+  const { path } = await params;
+  return <AuthView path={path} />;
+}
+```
+
+**Result:** You now have `/auth/sign-in`, `/auth/sign-up`, `/auth/forgot-password`, etc.
+
+**Available paths:** `"sign-in"`, `"sign-up"`, `"forgot-password"`, `"reset-password"`, `"magic-link"`, `"two-factor"`, `"callback"`, `"sign-out"`
+
+**For React SPA setup:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md#react-spa-provider-setup)
+
+### When to Use Low-Level Methods Instead
+
+Use `authClient.signIn.email()`, `authClient.signUp.email()` directly if:
+
+- **Node.js backend** - No React, server-side auth only
+- **Custom design system** - Your design team provides form components
+- **Mobile/CLI apps** - Non-web frontends
+- **Headless auth** - Testing or non-standard flows
+
+For standard React web apps, **use AuthView**.
+
+### Common Anti-Pattern
+
+```tsx
+// ❌ Don't build custom forms unless you have specific requirements
+function CustomSignInPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const { error } = await authClient.signIn.email({ email, password });
+    if (error) setError(error.message);
+    setLoading(false);
+  };
+
+  // ... 50+ more lines of form JSX, validation, error display
+}
+
+// ✅ Use AuthView instead - one component handles everything
+<AuthView path="sign-in" />
+```
+
 ## Environment Variables
 
 ```bash
@@ -101,6 +205,8 @@ VITE_NEON_AUTH_URL=https://ep-xxx.neonauth.c-2.us-east-2.aws.neon.build/dbname/a
 **Complete reference:** See [Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#environment-variables)
 
 ## Auth Methods
+
+> **For React apps:** Consider using `AuthView` instead of building custom forms - see [Building Auth Pages](#building-auth-pages) above. The methods below are for Node.js backends, custom design systems, or non-React frontends.
 
 ### Sign Up
 ```typescript
@@ -166,34 +272,13 @@ interface Session {
 
 ## UI Components
 
-### Quick Pattern (Next.js)
+For pre-built UI components, see [Building Auth Pages](#building-auth-pages) above.
 
-```typescript
-// 1. Import CSS
-import "@neondatabase/auth/ui/css";
-
-// 2. Create provider: app/auth-provider.tsx
-"use client";
-import { NeonAuthUIProvider } from "@neondatabase/auth/react/ui";
-import { authClient } from "@/lib/auth/client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
-  return (
-    <NeonAuthUIProvider
-      authClient={authClient}
-      navigate={router.push}
-      replace={router.replace}
-      onSessionChange={() => router.refresh()}
-      Link={Link}
-    >
-      {children}
-    </NeonAuthUIProvider>
-  );
-}
-```
+**Available components:**
+- `AuthView` - Complete auth pages (sign-in, sign-up, forgot-password, etc.) - **use this first**
+- `SignedIn` / `SignedOut` - Conditional rendering based on auth state
+- `UserButton` - User avatar with dropdown menu
+- `NeonAuthUIProvider` - Required wrapper for UI components
 
 **Complete UI reference:** See [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md)
 
@@ -277,6 +362,7 @@ import "@neondatabase/auth/ui/css";
 3. **Missing CSS**: Import from `ui/css` or `ui/tailwind` (not both)
 4. **Missing "use client"**: Required for components using `useSession()`
 5. **Wrong createAuthClient signature**: First arg is URL: `createAuthClient(url, { adapter })`
+6. **Building custom sign-in/sign-up forms unnecessarily**: Before building forms with `signIn.email()`, check if `AuthView` meets your needs - it handles validation, errors, social providers, and loading states automatically.
 
 **Code generation rules:** See [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md)
 
