@@ -243,6 +243,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   onSessionChange={() => router.refresh()}
   Link={Link}
   social={{
+    // TWO configs required: 1) Enable providers in Neon Console, 2) List them here
     providers: ["google", "github"]
   }}
 >

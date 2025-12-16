@@ -381,6 +381,34 @@ Error: Connection refused
 
 ## Social Auth Issues
 
+### Social login buttons don't appear
+
+**Symptoms:**
+- Only email/password form shows in AuthView
+- Expected Google/GitHub buttons are missing
+
+**Root Cause:**
+Social buttons require TWO configurations:
+1. Provider enabled in Neon Console (Auth tab)
+2. `social` prop added to NeonAuthUIProvider
+
+**Solution:**
+1. Verify providers are enabled in Neon Console
+2. Add `social` prop: `social={{ providers: ["google", "github"] }}`
+3. Restart dev server
+
+**Common Mistake:** Assuming console configuration alone makes buttons appear.
+
+---
+
+### OAuth error when clicking social button
+
+**Cause:** Provider listed in code but not enabled in console.
+
+**Solution:** Ensure `social.providers` array only contains providers enabled in Neon Console.
+
+---
+
 ### OAuth callback error
 
 **Error:**

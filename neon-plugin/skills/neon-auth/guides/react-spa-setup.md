@@ -223,6 +223,7 @@ export function Providers({ children }: { children: ReactNode }) {
       }}
       Link={Link}
       social={{
+        // TWO configs required: 1) Enable providers in Neon Console, 2) List them here
         providers: ['google', 'github']
       }}
     >
@@ -257,6 +258,7 @@ export function Providers({ children }: { children: ReactNode }) {
       }}
       Link={Link}
       social={{
+        // TWO configs required: 1) Enable providers in Neon Console, 2) List them here
         providers: ['google', 'github']
       }}
     >
@@ -271,7 +273,7 @@ export function Providers({ children }: { children: ReactNode }) {
 - `replace`: Function to replace current route (for redirects)
 - `onSessionChange`: Callback when auth state changes (useful for cache invalidation)
 - `Link`: Adapter component for react-router-dom's Link
-- `social`: Show Google and GitHub sign-in buttons (both enabled by default in Neon)
+- `social`: Display social login buttons. Requires TWO configurations: enable in Console + add this prop
 
 ### 2f. Add Routes to App.tsx
 
