@@ -94,8 +94,8 @@ This setup installs `@neondatabase/neon-js` which includes:
 
 **If user only needs auth** (no database queries):
 - Recommend switching to `@neondatabase/auth` (smaller bundle)
-- Load auth-only template:
-  - https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/mcp-prompts/neon-auth-setup.md
+- Load auth-only reference:
+  - https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md
 
 **Otherwise, continue with this guide.**
 

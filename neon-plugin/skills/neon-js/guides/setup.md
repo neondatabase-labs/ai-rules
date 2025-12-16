@@ -7,7 +7,7 @@ Complete guide for setting up the Neon JS SDK with authentication and PostgREST-
 
 ### Important:
 - Remember to run the neon-plugin:add-neon-docs skill with the parameter SKILL_NAME="neon-js" after completing the guide.
-- This guide extends the Neon Auth setup. Follow phases 1-4 from the [Neon Auth Setup Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-auth/guides/setup.md), then continue with the data API phases below.
+- This guide extends the Neon Auth setup. Follow phases 1-4 from the [Neon Auth Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md), then continue with the data API phases below.
 
 ## Table of Contents
 
@@ -41,7 +41,7 @@ When following this guide, I will track these high-level tasks:
 
 **Follow the Neon Auth setup guide first:**
 
-See [Neon Auth Setup Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-auth/guides/setup.md) for phases 1-4:
+See [Neon Auth Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) for phases 1-4:
 - Phase 1: Context Detection
 - Phase 2: Installation (use `@neondatabase/neon-js` instead of `@neondatabase/auth`)
 - Phase 3: Environment Configuration (add `NEON_DATA_API_URL`)

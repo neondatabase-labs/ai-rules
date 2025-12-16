@@ -37,8 +37,9 @@ Each template follows the **progressive disclosure** pattern from Claude Code sk
 - Validation and troubleshooting
 
 **Links to**:
-- `/neon-plugin/skills/neon-auth/guides/setup.md` (complete setup guide for all frameworks)
-- `/references/neon-auth-setup.md` (canonical setup reference)
+- `/references/neon-auth-setup.md` (canonical setup reference for all frameworks)
+- `/neon-plugin/skills/neon-auth/guides/nextjs-setup.md` (Next.js detailed guide)
+- `/neon-plugin/skills/neon-auth/guides/react-spa-setup.md` (React SPA detailed guide)
 - `/neon-auth.mdc` (comprehensive reference)
 - `/references/neon-auth-common-mistakes.md`
 - `/references/neon-auth-troubleshooting.md`
