@@ -639,7 +639,11 @@ Configure which social login buttons to display:
 - `"google"` - Google OAuth
 - `"github"` - GitHub OAuth
 
-**Note:** Social providers must be configured in your Neon dashboard. Google and GitHub are enabled by default.
+**Note:** Social buttons require TWO configurations:
+1. Enable providers in Neon Console (Auth tab)
+2. Add the `social` prop shown above to display buttons
+
+Both are required. Console enables OAuth backend; `social` prop controls button visibility.
 
 **Hide social login:**
 ```tsx

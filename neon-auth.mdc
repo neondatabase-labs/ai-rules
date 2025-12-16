@@ -95,7 +95,7 @@ For authentication pages, use the pre-built `AuthView` component instead of buil
 
 **What AuthView provides:**
 - Sign-in, sign-up, password reset, magic link pages
-- Social providers (Google, GitHub) - configured in Neon Console
+- Social providers (Google, GitHub) - requires TWO configurations: enable in Neon Console AND add `social` prop to NeonAuthUIProvider
 - Form validation, error handling, loading states
 - Consistent styling via CSS variables
 
