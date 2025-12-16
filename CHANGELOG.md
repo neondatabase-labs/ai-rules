@@ -9,19 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **neon-auth** skill for Neon Auth integration with `@neondatabase/auth`
-  - Next.js setup guide with full workflow
-  - Troubleshooting guide for common auth issues
+  - Next.js App Router setup guide
+  - React SPA setup guide
   - Templates: API route handler, auth client
-  - Validation script for setup verification
 - **neon-js** skill for full Neon JS SDK with `@neondatabase/neon-js`
-  - Next.js full-stack guide with auth + data API
-  - Troubleshooting guide for SDK issues
+  - Setup guide with auth + data API integration
   - Template: unified client configuration
-  - Validation script for setup verification
-- Added neon-js entry to skill-knowledge-map.json
+- New context rules:
+  - `neon-auth.mdc` - Neon Auth integration patterns
+  - `neon-js.mdc` - Neon JS SDK patterns
+  - `neon-get-started.mdc` - Interactive onboarding guide
+  - `neon-get-started-kiro.mdc` - Kiro-specific onboarding
+- Shared `references/` directory with technical documentation
+- `mcp-prompts/` directory for MCP prompt templates
+- Added neon-auth and neon-js entries to skill-knowledge-map.json
 
 ### Changed
 - Updated cross-references in existing skills to include neon-auth
+- Removed users_sync table references from auth documentation (deprecated feature)
+- Consolidated duplicate content into single source of truth
 
 ## [1.0.1] - 2025-10-29
 
