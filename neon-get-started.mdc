@@ -144,7 +144,28 @@ Skip the questions - you can infer what they're building from the existing codeb
 
 **Remember the context** (whether from questions or code analysis) for all subsequent MCP Server interactions and recommendations. However, stay focused on Neon setup - don't get sidetracked into other architectural discussions until setup is complete.
 
-### Step 5: ORM Setup
+### Step 5: Authentication (Optional)
+
+**Only ask about authentication if appropriate for their project:**
+
+Skip this step if the project clearly doesn't need user authentication (e.g., CLI tools, internal scripts, static sites, data pipelines).
+
+**If the project could benefit from auth** (web apps, APIs with user accounts, dashboards, etc.):
+
+Ask: "Does your app need user authentication? Neon Auth can handle sign-in/sign-up, social login (Google, GitHub), and session management."
+
+**If they want authentication:**
+
+- Use the MCP server tool `provision_neon_auth` to set up Neon Auth for their project
+- Guide them through the framework-specific setup (Next.js, React SPA, or Node.js)
+- Help configure the required environment variables
+- Set up the basic auth code (API routes, auth client, provider)
+
+**If they decline or it's not needed:**
+
+- Move on to Step 6
+
+### Step 6: ORM Setup
 
 **Check if they have an ORM:**
 
@@ -158,7 +179,7 @@ Ask: "Want to set up an ORM for type-safe database queries?"
 
 If they decline, proceed with raw SQL queries.
 
-### Step 6: Schema Setup
+### Step 7: Schema Setup
 
 **First, check for existing schema:**
 
@@ -195,9 +216,9 @@ CREATE TABLE users (
 
 **If they choose (2):** Ask them about their app's needs and help design tables. Then create the schema using the MCP server or guide them to create it via their ORM.
 
-**If they choose (3):** Move on to Step 7. They can always come back to add schema later.
+**If they choose (3):** Move on to Step 8. They can always come back to add schema later.
 
-### Step 7: What's Next
+### Step 8: What's Next
 
 Let them know you're ready to help with more:
 
