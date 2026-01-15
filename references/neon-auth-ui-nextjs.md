@@ -223,7 +223,11 @@ import {
 
 ## CSS Variables
 
-Use these when styling custom components:
+Auth UI **automatically inherits your app's existing theme**. If you have CSS variables like `--primary`, `--background`, etc. defined (from Tailwind, shadcn/ui, or custom CSS), auth components use them with no configuration.
+
+Import order doesn't matter - auth styles are in `@layer neon-auth`, so your styles always win.
+
+### Use in Custom Components
 
 | Variable | Purpose |
 |----------|---------|
@@ -236,8 +240,17 @@ Use these when styling custom components:
 
 **Usage:**
 ```css
-background: hsl(var(--background));
-color: hsl(var(--foreground));
+background: var(--background);
+color: var(--foreground);
+```
+
+### Auth-Specific Customization
+
+To customize auth components differently from your main app, use `--neon-*` prefix:
+```css
+:root {
+  --neon-primary: oklch(0.55 0.18 145);  /* Only affects auth */
+}
 ```
 
 **Dark mode:** Add the `dark` class to `<html>` or `<body>`.

@@ -77,12 +77,11 @@ UI components are included in the main package, you only need react-router-dom f
 
 ### 2b. Import CSS
 
-**CRITICAL:** Choose ONE import method. Never import both - it causes duplicate styles.
+Auth UI **automatically inherits your app's existing theme**. If you have CSS variables like `--primary`, `--background`, etc. defined (from Tailwind, shadcn/ui, or custom CSS), auth components use them with no configuration.
 
-**Check if the project uses Tailwind CSS** by looking for:
-- `tailwind.config.js` or `tailwind.config.ts` in the project root
-- `@import 'tailwindcss'` or `@tailwind` directives in CSS files
-- `tailwindcss` in package.json dependencies
+Import order doesn't matter - auth styles are in `@layer neon-auth`, so your styles always win.
+
+**Choose ONE import method.** Never import both - it causes duplicate styles.
 
 **If NOT using Tailwind** - Add to `src/main.tsx` or entry point:
 
@@ -112,40 +111,34 @@ For `@neondatabase/neon-js`:
 
 ### 2c. CSS Variables Reference
 
-**IMPORTANT:** The UI package already includes all necessary CSS variables. Do NOT copy these into your own CSS file.
+Auth UI automatically inherits these variables if you have them defined. Use them in custom components for consistency:
 
-**ALWAYS use these CSS variables** when creating custom components (navbar, layouts, pages, etc.) to ensure:
-- Visual consistency with auth components
-- Automatic dark mode support
-- Proper theming integration
+| Variable | Purpose |
+|----------|---------|
+| `--background`, `--foreground` | Page background/text |
+| `--card`, `--card-foreground` | Card surfaces |
+| `--primary`, `--primary-foreground` | Primary buttons/actions |
+| `--muted`, `--muted-foreground` | Muted/subtle elements |
+| `--border`, `--ring` | Borders and focus rings |
+| `--radius` | Border radius |
 
-| Variable | Purpose | Usage |
-|----------|---------|-------|
-| `--background`, `--foreground` | Page background/text | `hsl(var(--background))` |
-| `--card`, `--card-foreground` | Card surfaces | `hsl(var(--card))` |
-| `--primary`, `--primary-foreground` | Primary buttons/actions | `hsl(var(--primary))` |
-| `--secondary`, `--secondary-foreground` | Secondary elements | `hsl(var(--secondary))` |
-| `--muted`, `--muted-foreground` | Muted/subtle elements | `hsl(var(--muted))` |
-| `--destructive` | Destructive/danger actions | `hsl(var(--destructive))` |
-| `--border`, `--input`, `--ring` | Borders and focus rings | `hsl(var(--border))` |
-| `--radius` | Border radius | `var(--radius)` |
+**Auth-specific customization:** To customize auth components differently from your main app, use `--neon-*` prefix:
+
+```css
+:root {
+  --primary: oklch(0.55 0.25 250);       /* Your app's blue */
+  --neon-primary: oklch(0.55 0.18 145);  /* Auth uses green */
+}
+```
 
 **Example - Custom Navbar Styling:**
 
 ```css
 /* ✅ Correct - uses CSS variables, supports dark mode automatically */
 .navbar {
-  background: hsl(var(--background));
-  border-bottom: 1px solid hsl(var(--border));
-  color: hsl(var(--foreground));
-}
-
-.navbar-link {
-  color: hsl(var(--muted-foreground));
-}
-
-.navbar-link:hover {
-  color: hsl(var(--foreground));
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
 }
 
 /* ❌ Wrong - hardcoded colors won't match theme or support dark mode */
@@ -156,7 +149,9 @@ For `@neondatabase/neon-js`:
 }
 ```
 
-**Dark mode:** Add the `dark` class to `<html>` or `<body>` to enable it. All CSS variable values automatically adjust.
+**Dark mode:** Add the `dark` class to `<html>` or `<body>`. All CSS variable values automatically adjust.
+
+**Complete theming guide:** See [UI Theming Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-theming.md)
 
 ### 2d. Update main.tsx with BrowserRouter
 

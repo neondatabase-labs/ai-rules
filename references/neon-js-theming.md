@@ -2,6 +2,24 @@
 
 Complete guide to customizing the Neon Auth UI components.
 
+## How It Works
+
+Neon Auth UI **automatically inherits your app's existing theme**. If you already have CSS variables like `--primary`, `--background`, etc. defined (from Tailwind, shadcn/ui, or custom CSS), the auth components will use them with no configuration needed.
+
+**Key features:**
+- **Automatic inheritance**: Uses your existing `--primary`, `--background`, etc. variables
+- **Fallback defaults**: If you don't define a variable, sensible defaults are used
+- **No conflicts**: All auth styles are in `@layer neon-auth`, so your styles always win
+- **Import order doesn't matter**: CSS layers handle priority automatically
+
+### Integration with shadcn/ui
+
+If you use shadcn/ui or similar libraries that define `--primary`, `--background`, etc., Neon Auth will automatically inherit those colors. No additional configuration needed.
+
+### Why Variables Are on `:root`
+
+Variables are defined on `:root` to ensure they're accessible to portal-rendered components (modals, dropdowns, toasts) that render outside the normal component tree.
+
 ## CSS Import Decision
 
 | Your Setup | Import Path | Bundle Size |
@@ -10,6 +28,8 @@ Complete guide to customizing the Neon Auth UI components.
 | Tailwind v4 | `@neondatabase/neon-js/ui/tailwind` | ~2KB (tokens only) |
 
 **Never import both** - causes duplicate styles (~94KB).
+
+Import order doesn't matter - auth UI styles are wrapped in `@layer neon-auth`, giving your unlayered styles automatic priority.
 
 ### Without Tailwind
 
@@ -25,66 +45,65 @@ import "@neondatabase/neon-js/ui/css";
 @import 'tailwindcss';
 @import '@neondatabase/neon-js/ui/tailwind';
 
-/* Your overrides go here */
+/* Your theme variables (if any) - auth will inherit these automatically */
 ```
 
-## Theme Tokens
+## Customization Options
 
-Override in `:root` (light) and `.dark` (dark mode).
+### Option 1: Use Your Existing Theme (Recommended)
 
-### Core Colors
+If you already have theme variables defined, auth components inherit them automatically:
+
+```css
+/* Your existing theme - auth uses these automatically */
+:root {
+  --primary: oklch(0.55 0.25 250);        /* Auth buttons will be blue */
+  --primary-foreground: oklch(0.98 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  /* ... */
+}
+```
+
+No additional configuration needed!
+
+### Option 2: Auth-Specific Customization
+
+To customize auth components differently from your main app, use the `--neon-*` prefix:
 
 ```css
 :root {
-  /* Primary - buttons, links, focus rings */
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  /* Your app's primary color */
+  --primary: oklch(0.55 0.25 250);  /* Blue */
 
-  /* Secondary - secondary buttons */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-
-  /* Background/Foreground - page colors */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-
-  /* Muted - placeholders, disabled states */
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-
-  /* Accent - hover states */
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-
-  /* Destructive - errors, delete actions */
-  --destructive: oklch(0.577 0.245 27.325);
-
-  /* UI Elements */
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --radius: 0.625rem;
-}
-
-.dark {
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  /* Override just for auth components */
+  --neon-primary: oklch(0.55 0.18 145);  /* Green - only auth uses this */
 }
 ```
 
-### Token Pairing Rules
+### Complete `--neon-*` Variable Reference
+
+| Variable | Inherits From | Default (Light) |
+|----------|---------------|-----------------|
+| `--neon-primary` | `--primary` | `oklch(0.205 0 0)` |
+| `--neon-primary-foreground` | `--primary-foreground` | `oklch(0.985 0 0)` |
+| `--neon-secondary` | `--secondary` | `oklch(0.97 0 0)` |
+| `--neon-secondary-foreground` | `--secondary-foreground` | `oklch(0.205 0 0)` |
+| `--neon-background` | `--background` | `oklch(1 0 0)` |
+| `--neon-foreground` | `--foreground` | `oklch(0.145 0 0)` |
+| `--neon-muted` | `--muted` | `oklch(0.97 0 0)` |
+| `--neon-muted-foreground` | `--muted-foreground` | `oklch(0.556 0 0)` |
+| `--neon-accent` | `--accent` | `oklch(0.97 0 0)` |
+| `--neon-accent-foreground` | `--accent-foreground` | `oklch(0.205 0 0)` |
+| `--neon-destructive` | `--destructive` | `oklch(0.577 0.245 27.325)` |
+| `--neon-card` | `--card` | `oklch(1 0 0)` |
+| `--neon-card-foreground` | `--card-foreground` | `oklch(0.145 0 0)` |
+| `--neon-border` | `--border` | `oklch(0.922 0 0)` |
+| `--neon-input` | `--input` | `oklch(0.922 0 0)` |
+| `--neon-ring` | `--ring` | `oklch(0.708 0 0)` |
+| `--neon-radius` | `--radius` | `0.625rem` |
+
+## Token Pairing Rules
 
 **Always override pairs together** to maintain contrast (min 4.5:1 ratio).
 
@@ -96,60 +115,19 @@ Override in `:root` (light) and `.dark` (dark mode).
 | `--muted` | `--muted-foreground` |
 | `--accent` | `--accent-foreground` |
 | `--destructive` | `--destructive-foreground` |
+| `--card` | `--card-foreground` |
 
-### Additional Tokens
+If you only define `--primary` without `--primary-foreground`, contrast issues may occur.
 
-```css
-:root {
-  /* Cards and Popovers */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+## Dark Mode
 
-  /* Border Radius Scale */
-  --radius: 0.625rem;           /* Base (10px) */
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+### Dark Mode Fallback Behavior
 
-  /* Sidebar (if using sidebar components) */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-```
+If you define a variable in `:root` but not in `.dark`:
+- **Light mode**: Uses your value
+- **Dark mode**: Uses auth's default dark value
 
-## OKLCH Color Format
-
-Neon Auth UI uses OKLCH for perceptually uniform colors.
-
-**Format:** `oklch(L C H)` or `oklch(L C H / alpha)`
-
-| Parameter | Range | Description |
-|-----------|-------|-------------|
-| L (Lightness) | 0-1 | 0 = black, 1 = white |
-| C (Chroma) | 0-0.4 | 0 = gray, higher = more vivid |
-| H (Hue) | 0-360 | Color wheel degrees |
-| alpha | 0-1 or 0%-100% | Opacity |
-
-**Examples:**
-
-```css
---primary: oklch(0.55 0.25 250);        /* Vivid blue */
---primary: oklch(0.55 0.25 250 / 50%);  /* 50% opacity */
---muted: oklch(0.5 0 0);                /* Neutral gray (no chroma) */
-```
-
-**Convert HEX/RGB to OKLCH:** https://oklch.com
-
-## Dark Mode Implementation
+**Recommendation**: If customizing, define both light and dark modes.
 
 ### Option 1: next-themes (Recommended for Next.js)
 
@@ -216,6 +194,29 @@ function toggleDarkMode() {
 }
 ```
 
+## OKLCH Color Format
+
+Neon Auth UI uses OKLCH for perceptually uniform colors.
+
+**Format:** `oklch(L C H)` or `oklch(L C H / alpha)`
+
+| Parameter | Range | Description |
+|-----------|-------|-------------|
+| L (Lightness) | 0-1 | 0 = black, 1 = white |
+| C (Chroma) | 0-0.4 | 0 = gray, higher = more vivid |
+| H (Hue) | 0-360 | Color wheel degrees |
+| alpha | 0-1 or 0%-100% | Opacity |
+
+**Examples:**
+
+```css
+--primary: oklch(0.55 0.25 250);        /* Vivid blue */
+--primary: oklch(0.55 0.25 250 / 50%);  /* 50% opacity */
+--muted: oklch(0.5 0 0);                /* Neutral gray (no chroma) */
+```
+
+**Convert HEX/RGB to OKLCH:** https://oklch.com
+
 ## Component-Specific Styling
 
 All UI components accept `classNames` props for targeted customization:
@@ -272,30 +273,18 @@ import { SignInForm } from "@neondatabase/neon-js/auth/react/ui";
 ### 3. Using HEX/RGB Instead of OKLCH
 
 ```css
-/* Wrong - may not work correctly */
+/* Works but may not match perfectly */
 :root {
   --primary: #3b82f6;
 }
 
-/* Correct - use OKLCH format */
+/* Recommended - use OKLCH format */
 :root {
   --primary: oklch(0.59 0.2 262);
 }
 ```
 
-### 4. Wrong CSS Import Order
-
-```css
-/* Wrong - overrides load before Neon CSS */
-@import './my-overrides.css';
-@import '@neondatabase/neon-js/ui/css';
-
-/* Correct - Neon CSS first, then overrides */
-@import '@neondatabase/neon-js/ui/css';
-@import './my-overrides.css';
-```
-
-### 5. Forgetting Dark Mode Tokens
+### 4. Forgetting Dark Mode Tokens
 
 ```css
 /* Wrong - light mode only */

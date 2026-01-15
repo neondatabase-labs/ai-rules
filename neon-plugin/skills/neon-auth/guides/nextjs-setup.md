@@ -190,6 +190,10 @@ Skip this phase if you're building custom auth forms. Use this if you want pre-b
 
 ### 6.1. Import CSS
 
+Auth UI **automatically inherits your app's existing theme**. If you have CSS variables like `--primary`, `--background`, etc. defined (from Tailwind, shadcn/ui, or custom CSS), auth components use them with no configuration.
+
+Import order doesn't matter - auth styles are in `@layer neon-auth`, so your styles always win.
+
 **If using Tailwind (tailwind.config.{js,ts} exists):**
 
 Add to your global CSS file (e.g., `app/globals.css`):
@@ -205,6 +209,8 @@ import "@neondatabase/auth/ui/css";
 ```
 
 **Warning:** Never import both - causes 94KB of duplicate styles.
+
+**Auth-specific customization:** To customize auth components differently from your main app, use `--neon-*` prefix variables. See the [theming guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-theming.md) for details.
 
 ### 6.2. Create Auth Provider
 
