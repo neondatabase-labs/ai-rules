@@ -4,6 +4,15 @@
   <img width="250px" alt="Neon Logo fallback" src="https://neon.com/brand/neon-logo-dark-color.svg?new">
 </picture>
 
+> [!IMPORTANT]
+> **This repository has been archived.** The content has moved to [neondatabase/agent-rules](https://github.com/neondatabase/agent-rules).
+>
+> [Agent Skills](https://neon.com/blog/agent-skills-in-2026) are now a specification supported by all major agents and coding editors, providing more capabilities than rule files. We created a new repository following the agent-skills pattern introduced by Vercel.
+>
+> ```bash
+> npx skills add neondatabase/agent-rules
+> ```
+
 # Neon AI Development Toolkit
 
 A comprehensive Claude Code plugin with AI context rules, guided skills, and resource management tools for building with Neon Postgres. Works with Claude Code, Cursor, and other AI-powered development tools.
