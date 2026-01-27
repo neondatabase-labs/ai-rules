@@ -1,5 +1,7 @@
 # Neon AI Rules - Project Documentation
 
+> **Note**: This repository has been archived. Content has moved to [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills).
+
 ## Project Overview
 
 This repository contains a comprehensive suite of AI-powered development tools for Neon, including:
@@ -37,10 +39,14 @@ The primary audience includes AI developers using Claude, Cursor, and other AI-p
 │       │   └── templates/         # Client templates
 │       ├── neon-serverless/
 │       └── neon-toolkit/
-├── references/                    # Shared technical reference docs
+├── references/                    # Shared technical reference docs (16 files)
 │   ├── code-generation-rules.md
-│   ├── neon-auth-*.md             # Auth-related references
-│   └── neon-js-*.md               # Neon JS references
+│   ├── neon-auth-*.md             # Auth-related references (11 files)
+│   │   # Includes: common-mistakes, components, provider-config,
+│   │   # setup (general, nextjs, nodejs, react-spa), troubleshooting,
+│   │   # ui (general, nextjs, react-spa)
+│   └── neon-js-*.md               # Neon JS references (4 files)
+│       # Includes: adapters, data-api, imports, theming
 ├── mcp-prompts/                   # MCP prompt templates
 ├── .claude/
 │   └── settings.local.json        # Local Claude Code settings
@@ -172,6 +178,11 @@ Each skill is self-contained with multiple components:
 - Keep plugin.json version in sync with major updates
 
 ## Recent Changes & Decisions
+
+### Repository Archived (January 2026)
+- Repository archived; content moved to [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills)
+- New repository follows Agent Skills specification supported by major agents and editors
+- Install via: `npx skills add neondatabase/agent-skills`
 
 ### Version 1.1.0 Release (December 9, 2025)
 - Added **neon-auth** skill for Neon Auth integration with `@neondatabase/auth`
