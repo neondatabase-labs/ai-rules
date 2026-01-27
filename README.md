@@ -5,12 +5,12 @@
 </picture>
 
 > [!IMPORTANT]
-> **This repository has been archived.** The content has moved to [neondatabase/agent-rules](https://github.com/neondatabase/agent-rules).
+> **This repository has been archived.** The content has moved to [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills).
 >
 > [Agent Skills](https://neon.com/blog/agent-skills-in-2026) are now a specification supported by all major agents and coding editors, providing more capabilities than rule files. We created a new repository following the agent-skills pattern introduced by Vercel.
 >
 > ```bash
-> npx skills add neondatabase/agent-rules
+> npx skills add neondatabase/agent-skills
 > ```
 
 # Neon AI Development Toolkit
@@ -185,7 +185,7 @@ Our skills are tested with automated evaluations to ensure reliability and quali
 ## Context Rules (.mdc Files)
 
 <details>
-<summary><strong>Getting Started</strong> - 1 file</summary>
+<summary><strong>Getting Started</strong> - 2 files</summary>
 
 **Neon Get Started** (`neon-get-started.mdc`)
 
@@ -194,14 +194,22 @@ Our skills are tested with automated evaluations to ensure reliability and quali
 - Works with new or existing codebases
 - Communication style guidelines for AI assistants
 
+**Neon Get Started (Kiro)** (`neon-get-started-kiro.mdc`)
+
+- Kiro-specific onboarding guide
+
 </details>
 
 <details>
-<summary><strong>Core Integration Rules</strong> - 4 files</summary>
+<summary><strong>Core Integration Rules</strong> - 5 files</summary>
 
 **Neon Auth** (`neon-auth.mdc`)
 - Stack Auth + Neon Auth integration
 - Authentication patterns for user data
+
+**Neon JS** (`neon-js.mdc`)
+- Full Neon JS SDK with `@neondatabase/neon-js`
+- Combined auth + data API client
 
 **Neon Serverless** (`neon-serverless.mdc`)
 - Serverless connection patterns
