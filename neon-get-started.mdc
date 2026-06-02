@@ -156,7 +156,7 @@ Ask: "Does your app need user authentication? Neon Auth can handle sign-in/sign-
 
 **If they want authentication:**
 
-- Use the MCP server tool `provision_neon_auth` to set up Neon Auth for their project
+- Use the MCP server tool `neon_auth_provision` to set up Neon Auth for their project
 - Guide them through the framework-specific setup (Next.js, React SPA, or Node.js)
 - Help configure the required environment variables
 - Set up the basic auth code (API routes, auth client, provider)

@@ -37,7 +37,7 @@ Before starting, provision Neon Auth for the user's project.
 
 **Once project is confirmed, provision Neon Auth:**
 
-Use the `provision_neon_auth` tool with:
+Use the `neon_auth_provision` tool with:
 - `projectId`: The selected project ID
 - `branchId`: (optional) defaults to main branch
 - `databaseName`: (optional) defaults to neondb
@@ -95,7 +95,7 @@ This setup installs `@neondatabase/neon-js` which includes:
 **If user only needs auth** (no database queries):
 - Recommend switching to `@neondatabase/auth` (smaller bundle)
 - Load auth-only reference:
-  - https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md
+  - https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md
 
 **Otherwise, continue with this guide.**
 
@@ -116,7 +116,7 @@ Replace `npm install` with your detected package manager (`pnpm add`, `yarn add`
 ## Step 5: Configure Environment Variables
 
 **Load setup reference for environment variables:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#environment-variables
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md#environment-variables
 
 **Quick reference:**
 
@@ -150,26 +150,26 @@ REACT_APP_NEON_DATA_API_URL=<data_api_url_from_step_1>
 ### Next.js App Router
 
 **Load guide:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md
 
 **Or load framework-specific sections:**
-- Auth setup: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router
-- Database client: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup
+- Auth setup: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md#nextjs-app-router
+- Database client: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#client-setup
 
 ### React SPA (Vite, Create React App)
 
 **Load guide:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md
 
 **Or load framework-specific sections:**
-- Auth setup: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#react-spa
-- Database client: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup
+- Auth setup: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md#react-spa
+- Database client: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#client-setup
 
 ### Node.js Backend
 
 **Load framework-specific sections:**
-- Auth setup: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md#nodejs-backend
-- Database client: https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#client-setup
+- Auth setup: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md#nodejs-backend
+- Database client: https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#client-setup
 
 ---
 
@@ -178,7 +178,7 @@ https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/sk
 Ask: "Want to add pre-built auth UI components? (sign-in, sign-up forms, user button, account settings)"
 
 **If yes**, load the UI setup guide:
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-ui.md
 
 **Key points:**
 - Import CSS (choose ONE method based on Tailwind detection)
@@ -192,7 +192,7 @@ https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neo
 Once client is configured, guide user through PostgREST query syntax:
 
 **Load query reference:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#query-patterns
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#query-patterns
 
 **Quick examples:**
 
@@ -218,7 +218,7 @@ const { data, error } = await client.from("items")
 Offer to generate TypeScript types from database schema:
 
 **Load type generation guide:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#type-generation
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#type-generation
 
 **Quick command:**
 ```bash
@@ -230,7 +230,7 @@ npx neon-js gen-types --db-url "postgresql://user:pass@host/db" --output lib/db/
 ## Step 10: Validation & Testing
 
 **Load validation checklist:**
-https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md#phase-8-validation--testing
+https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md#phase-8-validation--testing
 
 **Manual Testing Checklist:**
 - [ ] Auth: Sign up a test user
@@ -241,9 +241,9 @@ https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/sk
 - [ ] Data: Update modifies records
 
 **Having Issues?** See:
-- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md)
-- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md)
-- [Data API Error Handling](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md#error-handling)
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-troubleshooting.md)
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-common-mistakes.md)
+- [Data API Error Handling](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md#error-handling)
 
 ---
 
@@ -264,23 +264,23 @@ Once setup is complete:
 ## Reference Resources
 
 **Setup Guides:**
-- [Complete Setup Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md) - Step-by-step walkthrough
-- [Auth Setup Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-setup.md) - Framework-specific auth patterns
-- [Data API Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns
+- [Complete Setup Guide](https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-plugin/skills/neon-js/guides/setup.md) - Step-by-step walkthrough
+- [Auth Setup Reference](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-setup.md) - Framework-specific auth patterns
+- [Data API Reference](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-js-data-api.md) - PostgREST query patterns
 
 **UI & Components:**
-- [UI Components Reference](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider config
+- [UI Components Reference](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-ui.md) - All UI components and provider config
 
 **Troubleshooting:**
-- [Common Mistakes](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
-- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
+- [Common Mistakes](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-common-mistakes.md) - Import paths, adapter patterns, CSS
+- [Troubleshooting Guide](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/neon-auth-troubleshooting.md) - Error solutions
 
 **Code Generation:**
-- [Code Generation Rules](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
+- [Code Generation Rules](https://raw.githubusercontent.com/neondatabase/ai-rules/main/references/code-generation-rules.md) - Import and CSS strategies
 
 **Main Documentation:**
-- [neon-js.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-js.mdc) - Quick reference and patterns
-- [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase-labs/ai-rules/main/neon-auth.mdc) - Auth-specific patterns
+- [neon-js.mdc](https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-js.mdc) - Quick reference and patterns
+- [neon-auth.mdc](https://raw.githubusercontent.com/neondatabase/ai-rules/main/neon-auth.mdc) - Auth-specific patterns
 
 ---
 
@@ -302,4 +302,4 @@ Setup is complete when:
 
 **Template Version**: 1.1.0  
 **Last Updated**: 2025-12-09  
-**Source Repository**: https://github.com/neondatabase-labs/ai-rules
+**Source Repository**: https://github.com/neondatabase/ai-rules
